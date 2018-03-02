@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="PutChargeFee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modelWXCharge" type="tns:wcRequestData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="wcRequestData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OpenID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChargeNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChargeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChargeAmount" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PutChargeFeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PutChargeFeeResult" type="tns:wcResponseData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="wcResponseData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Ret" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Msg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PutChargeFeeSoapIn">
+    <wsdl:part name="parameters" element="tns:PutChargeFee" />
+  </wsdl:message>
+  <wsdl:message name="PutChargeFeeSoapOut">
+    <wsdl:part name="parameters" element="tns:PutChargeFeeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OtherServiceSoap">
+    <wsdl:operation name="PutChargeFee">
+      <wsdl:input message="tns:PutChargeFeeSoapIn" />
+      <wsdl:output message="tns:PutChargeFeeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OtherServiceSoap" type="tns:OtherServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PutChargeFee">
+      <soap:operation soapAction="http://tempuri.org/PutChargeFee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OtherServiceSoap12" type="tns:OtherServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PutChargeFee">
+      <soap12:operation soapAction="http://tempuri.org/PutChargeFee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OtherService">
+    <wsdl:port name="OtherServiceSoap" binding="tns:OtherServiceSoap">
+      <soap:address location="http://220.165.5.250:7007/OtherService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OtherServiceSoap12" binding="tns:OtherServiceSoap12">
+      <soap12:address location="http://220.165.5.250:7007/OtherService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

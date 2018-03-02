@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CreatePrintCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iAmount" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSIteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strClientCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEnd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePrintCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreatePrintCodeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrintPhoto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strClientCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrintPhotoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrintPhotoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePrintState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strPhotoID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePrintStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePrintStateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrintCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSiteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrintCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrintCodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePrintCodeState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strPrintCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strState" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePrintCodeStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdatePrintCodeStateResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreatePrintCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:CreatePrintCode" />
+  </wsdl:message>
+  <wsdl:message name="CreatePrintCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:CreatePrintCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrintPhotoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrintPhoto" />
+  </wsdl:message>
+  <wsdl:message name="GetPrintPhotoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrintPhotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePrintStateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePrintState" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePrintStateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePrintStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPrintCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrintCode" />
+  </wsdl:message>
+  <wsdl:message name="GetPrintCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrintCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePrintCodeStateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePrintCodeState" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePrintCodeStateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePrintCodeStateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsHappyPhotoSoap">
+    <wsdl:operation name="CreatePrintCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">生成打印码</wsdl:documentation>
+      <wsdl:input message="tns:CreatePrintCodeSoapIn" />
+      <wsdl:output message="tns:CreatePrintCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintPhoto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取打印信息</wsdl:documentation>
+      <wsdl:input message="tns:GetPrintPhotoSoapIn" />
+      <wsdl:output message="tns:GetPrintPhotoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改打印码与照片的状态</wsdl:documentation>
+      <wsdl:input message="tns:UpdatePrintStateSoapIn" />
+      <wsdl:output message="tns:UpdatePrintStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintCode">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取打印信息</wsdl:documentation>
+      <wsdl:input message="tns:GetPrintCodeSoapIn" />
+      <wsdl:output message="tns:GetPrintCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintCodeState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">修改打印码与照片的状态</wsdl:documentation>
+      <wsdl:input message="tns:UpdatePrintCodeStateSoapIn" />
+      <wsdl:output message="tns:UpdatePrintCodeStateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsHappyPhotoSoap" type="tns:wsHappyPhotoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreatePrintCode">
+      <soap:operation soapAction="http://tempuri.org/CreatePrintCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintPhoto">
+      <soap:operation soapAction="http://tempuri.org/GetPrintPhoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintState">
+      <soap:operation soapAction="http://tempuri.org/UpdatePrintState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintCode">
+      <soap:operation soapAction="http://tempuri.org/GetPrintCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintCodeState">
+      <soap:operation soapAction="http://tempuri.org/UpdatePrintCodeState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsHappyPhotoSoap12" type="tns:wsHappyPhotoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreatePrintCode">
+      <soap12:operation soapAction="http://tempuri.org/CreatePrintCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintPhoto">
+      <soap12:operation soapAction="http://tempuri.org/GetPrintPhoto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintState">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePrintState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrintCode">
+      <soap12:operation soapAction="http://tempuri.org/GetPrintCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrintCodeState">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePrintCodeState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsHappyPhoto">
+    <wsdl:port name="wsHappyPhotoSoap" binding="tns:wsHappyPhotoSoap">
+      <soap:address location="http://localhost:1156/WebService/wsHappyPhoto.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsHappyPhotoSoap12" binding="tns:wsHappyPhotoSoap12">
+      <soap12:address location="http://localhost:1156/WebService/wsHappyPhoto.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

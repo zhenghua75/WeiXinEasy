@@ -1,0 +1,15 @@
+.body{ background: #F0EFED;}
+.want_ad_list li{position: relative; padding-left: 90px; box-sizing: border-box;-moz-box-sizing: border-box;-o-box-sizing:border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box;}
+.want_ad_list li h4{position: absolute; left: 10px; top: 11px; width: 80px; text-align: right; color: #333333; font-size: 14px;}
+.want_ad_list li h4 b{color: red; margin-top: 3px;}
+.want_ad_name,.want_ad_tel,.want_ad_chose,.want_ad_area{height: 35px; border: none;  padding: 0px 5px; width: 100%;box-sizing: border-box;-moz-box-sizing: border-box;-o-box-sizing:border-box; -webkit-box-sizing: border-box; -ms-box-sizing: border-box;}
+.want_ad_area{height: 100px;}
+.want_ad_name:focus,.want_ad_tel:focus,.want_ad_chose:focus,.want_ad_area:focus{background: #efefef; border-radius: 5px;}
+.want_ad_tj{width: 100%; height: 40px; font-size: 16px;}
+.want_ad_list li:first-child{padding-left: 10px;}
+.want_ad_list li:last-child{overflow: hidden;}
+.radios{width: 100%;}
+.radios label{margin-top: 3px;}
+.radio_h4{top: 6px !important;}
+.mr20{margin-right: 20px;}
+.w75{width: 86px;overflow: hidden; float: left;}

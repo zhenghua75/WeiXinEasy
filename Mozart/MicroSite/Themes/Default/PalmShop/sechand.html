@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>$title</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pull-left">$title</div>
+				<!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">二手产品</div>-->
+				<div class="pull-right right_seach" style="margin-right: 10px;" >
+						<input type="text" value="请输入关键词" id="sea_text" />
+						<input type="button"  id="sea_btn" />
+				</div>
+			</div>
+		</div> 
+		<div class="container-fluid">
+			<div class="row">
+                $categoryhtml
+			</div>
+		</div>
+        <ul class="newpublic">
+            <h4 class="col-lg-12 pubtitle">最新发布</h4>
+            $newpublist
+        </ul>
+        <div class="nav_bottom">
+        <ul class="nav5">
+            <li><a href="MySecHand.aspx"><i></i>个人中心</a></li>
+            <li><a class="publish" href="PubSecHand.aspx?ishand=1">
+                <i class="ico"></i>发布信息</a>
+            </li>
+            <li><a id="sharebtn">
+                <i></i>链接分享</a></li>
+            <!--<li><a href=""><i></i>用户反馈</a></li>-->
+        </ul>
+    </div> 
+	</body>
+    <script type="text/javascript">
+        $(function () {
+            var n = 0; 
+            $(".pro_list li:nth-child(3n-1)").css("border-left", "none");
+            $(".pro_list").find("li").css("display", "none");
+            $(".col-lg-12").append("<img src=\"images/arrowdown.png\"/>");
+            $(".newpublic").find("li").css("display", "none");
+        })
+        ;
+        $('.col-lg-12').click(function () {
+            var imgurl = $(this).find("img").attr("src");
+            if (imgurl != null && imgurl != "" && imgurl != "undefined")
+            {
+                $(this).nextAll().slideToggle();
+                switch (imgurl) {
+                    case"images/arrowdown.png":
+                        $(this).find("img").attr("src", "images/arrowup.png");
+                        break;
+                    case "images/arrowup.png":
+                        $(this).find("img").attr("src", "images/arrowdown.png");
+                        break;
+                }
+            }
+        })
+			    $(document).ready(function ()
+			    {
+			        $("#sea_text").attr("onfocus", "if(this.value==defaultValue) {this.value='';this.type='text';this.style.color='#000'}");
+			        $("#sea_text").attr("onblur", "if(!value) {value=defaultValue; this.type='text';this.style.color='#999'}");
+			    })
+			    $('#sea_btn').click(function () {
+			        var like = $("#sea_text").val();
+			        if (like == null || like == "" || like == "undefined" || like == "请输入关键词")
+			        {
+			            $.dialog({ time:1,fixed: true, icon: 'error', content: '请输入您要检索的信息！' });
+			            $("#sea_text").val(''); $("#sea_text")[0].focus(); return false;
+			        }
+			        location.href = "SearchSecHand.aspx?like="+like;
+			    });
+			</script>
+    <script src="js/Share.js"></script>
+</html>

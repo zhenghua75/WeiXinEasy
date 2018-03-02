@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0" />
+    <title></title>
+    <link href="style/topic.css" rel="stylesheet" />
+    <script type="text/javascript" src="script/zepto.min.js"></script>
+    <script type="text/javascript" src="script/swipe.js"></script>
+    <script type="text/javascript" src="script/helper_min.js"></script>
+    <script type="text/javascript" src="script/input.js"></script>
+    <script type="text/javascript" src="script/pics.js"></script>
+    <script type="text/javascript" src="script/comment.js"></script>
+    <script src="artDialog/jquery.min.js"></script>
+    <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+</head>
+<body class="discuss_comment">
+		<div id="container" class="container">
+			<header></header>
+			<div class="body">
+                <form method="post" id="publishform" enctype="multipart/form-data">
+                <section class="form_comment">
+						<header>
+							<ul class="tbox">
+								<li>
+									<label class="title">发帖</label>
+								</li>
+								<li class="align_right">
+									<a href="javascript:history.go(-1);" class="cancel">取消</a>
+								</li>
+							</ul>
+						</header>
+						<input id="topictitle" name="topictitle" class="form_title" type="text" maxlength="50"
+                             placeholder="标题" />
+						<article id="topicdesc" name="topicdesc" contenteditable="true" 
+                            onpaste="myInput.listen(this, event);" onkeydown="myInput.listen(this, event);"
+                             oninput="myInput.listen(this, event);" placeholder="说点什么..." maxlength="150" >
+						</article>
+                         <input id="topicdeschidden" name="topicdeschidden" type="hidden"/>
+						<footer>
+							<div class="align_right">
+								<label id="fontcount"></label>
+							</div>
+						</footer>
+					</section>
+				<section class="form_pic_emotion">
+						<div>
+							<nav>
+								<ul id="nav_nav">
+									<li>
+										<a href="javascript:;" onclick="switchPage(this, 0);" class="on">
+                                            <span class="icons icons_pic">&nbsp;</span></a>
+									</li>
+									<li>
+										<a href="javascript:;" onclick="switchPage(this, 1);">
+                                            <span class="icons icons_emotion">&nbsp;</span></a>	
+									</li>
+								</ul>
+							</nav>
+						</div>
+                    
+						<div>
+							<ul class="page_pic_emotion clear" id="nav_page">
+								<li class="page_pic on" id="page_pic">
+									<dl>
+										<dd>
+                                            <input type="file" accept="image/jpg, image/jpeg, image/png" 
+		                                 onchange ="form_pics.addImg(this);" name="pics0"><img src="images/upload.png">
+								        <span onclick="form_pics.removeImg(this);">&nbsp;</span>
+										</dd>
+									</dl>
+								</li>
+								<li class="page_emotion box_swipe" id="page_emotion">
+									<dl id="list_emotion" class="list_emotion pt_10">
+										<div></div>
+									</dl>
+									<dt>
+										<ol id="nav_emotion" class="nav_emotion">
+											<span class="on"></span><span></span>
+										</ol>
+									</dt>
+								</li>
+							</ul>
+						</div>
+					</section>
+                </form>
+			</div>
+			<footer>
+				<section class="nav_footer">
+					<ul class="box">
+						<li>
+							<a href="javascript:submit();" class="on" style="font-size:18px;width:120px;">
+								<span class="icons_publish">&nbsp;</span>
+								<label class="pre">发  布</label>
+							</a>
+						</li>
+					</ul>
+				</section>
+			</footer>
+		</div>
+	</body>
+    <script>
+        $errorscript
+        function submit() {
+            var title = $("#topictitle").val();
+            var form = document.getElementById("publishform");
+            var article = document.getElementById("topicdesc").innerHTML;
+            var fid = Request("fid");
+            if (!title) { $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入标题！' }); return; }
+            if (article.length == 0) {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入信息内容！' }); return;
+            }
+            if (fid.length == 0)
+            {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '操作失败，请核对后再操作！' }); return;
+            }
+            $("#topicdeschidden").val(article);
+            $("#publishform").attr("action", "PublishTopic.aspx?fid=" + fid + "&action=publish");
+            form.submit();
+        }
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+    </script>
+</html>

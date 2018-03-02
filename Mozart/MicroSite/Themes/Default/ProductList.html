@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>$title</title>
+    <link rel="stylesheet" type="text/css" href="Themes/Default/style/base.css" />
+</head>
+<body>
+    <div id="top">
+        <div class="header-title">商品列表</div>
+        <div class="site-nav">
+            <ul class="fix">
+<!--                <li class="mycart"><a href="MyCart.aspx?SiteCode=$sitecode&CustomerID=$customerid">购物车</a></li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="floor floor1">
+        <div class="floor-cate fix">
+            <ul class="floor-cate-list fix">
+                $foreach(node in product_list)
+                    <li><a href="ProductDetail.aspx?id=$node.ID" style="font-size:10px;"><img src="$node.Photo" width="160px" height="160px" alt="" /><span>$node.name</span><span class="price">￥$node.MemberPrice</span></a></li>
+                $end
+            </ul>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div id="footer">
+        <div class="layout fix user-info">
+            <div class="user-name fl" id="footerUserName">当前用户: <font class="blue">$username</font></div>
+            <div class="fr"><a id="backTop" href="javascript:window.scrollTo(0,0);">回顶部</a></div>
+        </div>
+        <ul class="list-ui-a">
+            <li>
+                <div class="w user-login">
+                    <a href="Login.aspx?SiteCode=$sitecode">登录</a>
+                    <a href="Reg.aspx?SiteCode=$sitecode">注册</a>
+                </div>
+            </li>
+        </ul>
+        <div class="copyright">版权所有 &#169; 2012-2014 $footer</div>
+     </div>
+</body></html>

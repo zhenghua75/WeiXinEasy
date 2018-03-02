@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a class="back_ico" onclick="javascript:history.back()">返回</a>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">客户管理</div>
+				<!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+                    <a class="next_ico" href="#">下一步</a>
+				</div>-->
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<ul class="ctTab_menu list-unstyled">
+					<li class="item2">聊天消息</li>
+					<li>客户管理</li>
+				</ul>
+				<div class="ctTab_box">
+					<ul class="ctTab-list list-unstyled" style="padding-bottom: 0px;">
+						<!--<li class="media">
+							<a class=" col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">
+								<img class="img-responsive img-rounded" src="images/shop_img123.png" alt="">
+							</a>
+							<div class="media-body  col-lg-9 col-md-9 col-sm-9 col-xs-9">
+								<h5 class="media-heading">微店买家<span class="text-right pull-right" >2014-08-20</span></h5>
+								<p>问道很不错，大家可以试一试啊，休闲的时候吃不错啊</p>
+							</div>
+						</li>
+						<li class="media">
+							
+							<div class="media-body  col-lg-9 col-md-9 col-sm-9 col-xs-9">
+								<h5 class="media-heading">我自己<span class="text-right pull-right">2014-08-20</span></h5>
+								<p>问道很不错，大家可以试一试啊，休闲的时候吃不错啊</p>
+							</div>
+							<a class=" col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">
+								<img class="img-responsive img-rounded" src="images/shop_img123.png" alt="">
+							</a>
+						</li>-->
+					</ul>
+				</div>
+				<div class="ctTab_box">
+					<ul class="ctTab-list list-unstyled" style="padding-bottom: 0px;">
+                        $foreach(customerin in customerlist)
+                        <li class="media">
+                            $if(customerin.HeadImg!=null&&customerin.HeadImg!="")
+							<a class=" col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">
+								<img class="img-responsive img-rounded" 
+                                    src="$customerin.HeadImg" alt="$customerin.NickName">
+							</a>$end
+							<div class="media-body  col-lg-9 col-md-9 col-sm-9 col-xs-9">
+								<h5 class="media-heading">$customerin.NickName
+                                    <span class="text-right pull-right" >$customerin.AddTime</span></h5>
+								<p>$customerin.Phone</p>
+							</div>
+						</li>$end
+                    </ul>
+				</div>
+			</div>
+		</div>
+	</body>
+    <script>
+        $errorscript
+    </script>
+</html>

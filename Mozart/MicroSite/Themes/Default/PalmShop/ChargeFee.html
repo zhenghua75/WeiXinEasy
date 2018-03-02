@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0" />
+    <title>移动充值</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="css/payfee.css" />
+    <link rel="stylesheet" href="css/css.css" />
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <div data-role="page" data-theme="b">
+        <div data-role="header">
+        </div>
+        <div data-role="content">
+            <div id="nav" class="nav">
+                <ul class="nav_ul nav_black">
+                    <li>
+                        <a href="javascript:void(0)" class="nav_a nav_off">移动充值</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="nav_a ">Q币充值</a>
+                    </li>
+                </ul>
+            </div>
+            <br />
+            <script type="text/javascript">
+                jQuery(function () {
+                    jQuery(".tab_box:first").show();
+                    jQuery(".nav_ul li a").click(function () {
+                        jQuery(this).addClass('nav_off').parent().siblings().children('a').removeClass('nav_off');
+                        jQuery(".tab_box").eq(jQuery(".nav_ul li a").index(this)).show().siblings('.tab_box').hide();
+                    })
+                })
+
+                function CheckOther(obj) {
+                    if (obj.name == 'other_price') {
+                        document.getElementById('room6').checked = true;
+                    }
+                    if (obj.name == 'other_QQprice') {
+                        document.getElementById('room31').checked = true;
+                    }
+                }
+
+                function QueryFee(obj) {
+                    $(document).ready(function () {
+                        if (obj.value.length == 11) {
+                            //if (obj.value.substr(0, 1) == '1' && obj.value.substr(0, 4) != '0871') {
+                            if (obj.value.substr(0, 1) == '1') {
+                                $.ajax({
+                                    url: '../../PublicService/ServiceCode/QueryFeeNoPage.aspx',
+                                    type: 'GET',
+                                    data: 'QN=' + obj.value + '&T=' + new Date().getTime(),
+                                    success: function (result) {
+                                        //alert(result);
+                                        $("#qnDiv").css("display", "block");
+                                        $("#zjian").html(result);
+                                    },
+                                    error: function (msg) {
+                                        //alert('出错了，请联系客服:' + msg);
+                                    }
+                                });
+                            }
+                            else {
+                                if (obj.value.substr(0, 4) != '0871') {
+                                    $.ajax({
+                                        url: '../../PublicService/ServiceCode/QueryFeeNoPage.aspx',
+                                        type: 'GET',
+                                        data: 'QN=' + obj.value + '&T=' + new Date().getTime(),
+                                        success: function (result) {
+                                            //alert(result);
+                                            $("#qnDiv").css("display", "block");
+                                            $("#zjian").html(result);
+                                        },
+                                        error: function (msg) {
+                                            //alert('出错了，请联系客服:' + msg);
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                        if (obj.value.length == 12) {
+                            if (obj.value.substr(0, 1) == '0') {
+                                $.ajax({
+                                    url: '../../PublicService/ServiceCode/QueryFeeNoPage.aspx',
+                                    type: 'GET',
+                                    data: 'QN=' + obj.value + '&T=' + new Date().getTime(),
+                                    success: function (result) {
+                                        //alert(result);
+                                        $("#qnDiv").css("display", "block");
+                                        $("#zjian").html(result);
+                                    },
+                                    error: function (msg) {
+                                        //alert('出错了，请联系客服:' + msg);
+                                    }
+                                });
+                            }
+                        }
+                    });
+                }
+            </script>
+            <!--移动充值-->
+            <div class="tab_box">
+                <form name="form" method="post" action="ChargeType.aspx?type=0&openid=$OpenID">
+                    <div id="content">
+                        <div class="panel">
+                            <ul class="radius space">
+                                <li>
+                                    <div class="li_div">
+                                        <label for="loginName" data-length="12">
+                                            <span class="co">*</span>
+                                            <label for="ChargeNumber">请输入缴费号</label>：
+                                        </label>
+                                        <input class="no loginInput" data-val="true" data-val-required="请输入缴费号 字段是必需的。" id="ChargeNumber" onkeyup="QueryFee(this)" name="ChargeNumber" placeholder="缴费手机号" required="" size="16" type="tel" value="" />
+                                    </div>
+                                </li>
+                                <li>
+                                    <div id="qnDiv" class="li_div" style="display:none">
+                                        <label style="width:100%">
+                                            <span style="text-align:center;width:100%;" id="zjian"></span>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                            <br />
+                            <label data-length="12">
+                                &nbsp;&nbsp;&nbsp;
+                                <label for="ChargeAmount">选择缴费金额</label>：
+                            </label>
+                            <br />
+                            <ul>
+                                <li>
+                                    <div class="li_div">
+                                        <ul class="radius">
+                                            <li>
+                                                <div class="li_div">
+                                                    <input type="radio" id="room1" name="PayFee" value="10">
+                                                    <label class="cb" for="room1">10元</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="li_div">
+                                                    <input type="radio" id="room2" name="PayFee" value="20">
+                                                    <label class="cb" for="room2">20元</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="li_div">
+                                                    <input type="radio" id="room3" name="PayFee" value="30">
+                                                    <label class="cb" for="room3">30元</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="li_div">
+                                                    <input type="radio" id="room4" name="PayFee" checked="checked" value="50">
+                                                    <label class="cb" for="room4">50元</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="li_div">
+                                                    <input type="radio" id="room5" name="PayFee" value="100">
+                                                    <label class="cb" for="room4">100元</label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="li_div">
+                                                    <input type="radio" id="room6" name="PayFee" value="其它">
+                                                    <label class="cb" for="room4">其它</label>
+                                                    <input type="tel" id="other_price" name="other_price" onkeyup="CheckOther(this)"/>
+                                                </div>
+                                                <!--<style>#other_price{border:none;background:no-repeat;}</style>-->
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="tc pb10">
+                                <input type="submit" class="btn redbtn" value="下一步" size="16">
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--Q币充值-->
+            <div class="tab_box">
+                <form name="form" method="post" action="ChargeType.aspx?type=1&openid=$OpenID">
+                        <div id="content">
+                            <div class="panel">
+                                <ul class="radius space">
+                                    <li>
+                                        <div class="li_div">
+                                            <label for="loginName" data-length="12">
+                                                <span class="co">*</span>
+                                                <label for="ChargeNumber">请输入QQ号</label>：
+                                            </label>
+                                            <input class="no loginInput" data-val="true" data-val-required="请输入缴费号 字段是必需的。" id="ChargeNumber" name="ChargeNumber" placeholder="请输入QQ号" required="" size="16" type="tel" value="" />
+                                        </div>
+                                    </li>
+                                </ul>
+                                <br />
+                                <label data-length="12">&nbsp;&nbsp;&nbsp;选择缴费金额：</label>
+                                <br />
+                                <ul>
+                                    <li>
+                                        <div class="li_div">
+                                            <ul class="radius">
+                                                <li>
+                                                    <div class="li_div">
+                                                        <input type="radio" id="room1" name="PayFee" value="10">
+                                                        <label class="cb" for="room1">10元</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="li_div">
+                                                        <input type="radio" id="room2" name="PayFee" value="20">
+                                                        <label class="cb" for="room2">20元</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="li_div">
+                                                        <input type="radio" id="room3" name="PayFee" value="30">
+                                                        <label class="cb" for="room3">30元</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="li_div">
+                                                        <input type="radio" id="room4" name="PayFee" checked="checked" value="50">
+                                                        <label class="cb" for="room4">50元</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="li_div">
+                                                        <input type="radio" id="room10" name="PayFee" value="100">
+                                                        <label class="cb" for="room4">100元</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="li_div">
+                                                        <input type="radio" id="room30" name="PayFee" value="300">
+                                                        <label class="cb" for="room4">300元</label>
+                                                    </div>
+                                                </li>                                            <li>
+                                                <div class="li_div">
+                                                    <input type="radio" id="room31" name="PayFee" value="其它">
+                                                    <label class="cb" for="room4">其它</label>
+                                                    <input type="tel" id="other_QQprice" name="other_QQprice" onkeyup="CheckOther(this)"/>
+                                                </div>
+                                                <!--<style>#other_QQprice{border:none;background:no-repeat;}</style>-->
+                                            </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <p class="tc pb10">
+                                    <input type="submit" class="btn redbtn" value="下一步" size="16">
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title>在线预约</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
+		<meta name="robots" content="">
+		<meta name="application-name" content="">
+		<link rel="apple-touch-icon-precomposed" href="">
+		<link rel="shortcut icon" href="favicon.png">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/jquery-labelauty.css" type="text/css" />
+		<link rel="stylesheet" href="css/lby-main.css" type="text/css" />
+		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="js/jquery-labelauty.js"></script>
+		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+		<script>
+		    $(document).ready(function () {
+		        $(".to-labelauty").labelauty({ minimum_width: "155px" });
+		        $(".to-labelauty-icon").labelauty({ label: false });
+		    });
+		</script>
+	</head>
+
+	<body id="news2">
+		<div id="mcover" onclick="document.getElementById('mcover').style.display='';">
+			<img src="img/guide.png">
+		</div>
+		<div id="ui-header">
+			<div class="fixed">
+				<a class="ui-title" id="popmenu">在线预约</a>
+				<a class="ui-btn-left_pre" href="index.html"></a>
+				<a class="ui-btn-right_home" href="index.html"></a>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row book_img">
+				<img class="img-responsive" src="img/banner_img.jpg" />
+			</div>
+			<form method="post" action="">
+				<ul class="list-group row want_ad_list">
+					<li class="list-group-item">
+						<label>预约试驾请填写如下信息，感谢您对上海大众的关注和支持，提交信息之后我们将有工作人员联系您。谢谢您的参与。</label>
+					</li>
+					<li class="list-group-item">
+						<h4><b>*</b>您的姓名：</h4>
+						<input type="text" name="" class="want_ad_name" placeholder="请输入您的姓名" />
+					</li>
+					<li class="list-group-item">
+						<h4 class="radio_h4"><b>*</b>您的性别：</h4>
+						<div class="radios">
+							<input class="to-labelauty-icon" type="radio" name="radio" checked/>
+							<label class="mr20">男</label>
+							<input class="to-labelauty-icon" type="radio" name="radio" />
+							<label class="mr20">女</label>
+						</div>
+					</li>
+					<li class="list-group-item">
+						<h4><b>*</b>联系方式：</h4>
+						<input type="tel" name="" class="want_ad_name" placeholder="请输入您的联系方式" />
+					</li>
+					<li class="list-group-item">
+						<h4><b>*</b>预约时间：</h4>
+						<input type="text" name="" class="want_ad_name form_datetime" size="16" readonly class="form_datetime"/>
+					</li>
+					<li class="list-group-item">
+						<h4><b>*</b>购车时间：</h4>
+						<input type="text" name="" class="want_ad_name form_datetime" />
+					</li>
+					<li class="list-group-item">
+						<h4 class="radio_h4"><b>*</b>关注车型：</h4>
+						<div class="radios">
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" checked/>
+							    <label>捷达</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>宝来</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>速腾</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>高尔夫</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>迈腾</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>CC</label>
+							</div>
+						</div>
+					</li>
+					<li class="list-group-item">
+						<h4><b>*</b>在线留言：</h4>
+						<textarea class="want_ad_area"></textarea>
+					</li>
+				</ul>
+				<a href="#" class="btn btn-danger want_ad_tj">提交</a>
+			</form>
+		</div>
+		<footer class="container-fluid">
+			<div class="row text-center">
+					<p class="col-xs-12">版权所有：云南一汽工贸汽车销售服务有限公司   投诉、建议热线：0871-68172539 68171139</p>
+					<p class="col-xs-12">技术支持：奥琦微商易</p>
+			</div>
+		</footer>
+		
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.js" ></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.de.js" ></script>
+<script type="text/javascript">
+    $(".form_datetime").datetimepicker({
+        format: "dd MM yyyy - hh:ii",
+        autoclose: true,
+        todayBtn: true,
+        startDate: "2014-12-02 10:00",
+        minuteStep: 10
+    });
+</script> 
+	</body>
+
+</html>

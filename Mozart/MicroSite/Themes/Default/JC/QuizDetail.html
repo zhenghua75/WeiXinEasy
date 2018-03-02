@@ -1,0 +1,220 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>$qDetail.Name-$title</title>
+    <link rel="stylesheet" type="text/css" href="Themes/Quiz/files/index.css" />
+    <script src="Themes/Quiz/files/zepto.min.js"></script>
+</head>
+<body>
+    <div id="top">
+        <div class="header-title">
+            <ul>
+                <li>$qDetail.Name</li>
+                <li class="menuli" onclick="$('#menu_font').toggleClass('hidden');">
+                    <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
+                        $foreach(node in jcmodel)
+					        <li><a href="JCQuizDetail.aspx?id=$node.ID" >$node.Name</a></li>
+                        $end
+				    </ul>                </li>
+            </ul>
+        </div>
+    </div>
+    <form>
+    <div class="line"></div>
+    <div class="quizcontentdiv">&nbsp;&nbsp;赛事：$qDetail.Name</div>    
+    <div class="line"></div>
+    <div class="quizdiv">
+        <ul>
+            <li>
+            &nbsp;&nbsp;&nbsp;主队：
+        </li> 
+            $if(qDetail.HomeTeamImg!=null&&qDetail.HomeTeamImg!="")
+                    <li><!--<img alt="$qDetail.Name" border="0" src="../../$qDetail.HomeTeamImg">--></li>
+                    $end
+            <li>$qDetail.HomeTeam</li>
+    <li>
+        $if(comptim=="")
+        <select id="homeselect" style="width:200px;"  onchange="getselectvalue(this.id,'homevalue')">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="">其他</option>
+    </select>
+        $end
+        <input id="homevalue" style="display:none;" class="inputnum" maxlength="1" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^0-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^0-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"> 
+    </li>
+        </ul>
+    </div>    
+    <div class="line"></div>
+    <div class="quizdiv">
+        <ul>
+            <li>
+            &nbsp;&nbsp;&nbsp;客队：
+        </li>
+            $if(qDetail.VisitingTeamImg!=null&&qDetail.VisitingTeamImg!="")
+                    <li class="leftli"><!--<img alt="$qDetail.Name" border="0" src="../../$qDetail.VisitingTeamImg">--></li>
+                    $end
+            <li>$qDetail.VisitingTeam</li>
+        <li>
+            $if(comptim=="")
+            <select id="visitselect" onchange="getselectvalue(this.id,'visitvalue')">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="">其他</option>
+    </select>
+            $end
+            <input id="visitvalue" style="display:none;" class="inputnum" maxlength="1" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^0-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^0-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"> 
+        </li>
+        </ul>
+    </div>   
+<!--    <div class="line"></div>
+            <div class="quizcontentdiv">
+    赛事详情：$qDetail.MatchDesc
+    </div>-->
+
+    <div class="line"></div>
+            <div class="quizdiv">
+        <ul>
+            <li>&nbsp;&nbsp;&nbsp;开始时间：$qDetail.StartTime   
+            </li>
+            <li></li>
+        </ul>
+    </div>
+    <div style="margin:0px 5px 0px 5px;color:#777;text-align:center">
+        <span id="labMessage"></span>
+    </div>
+    <div class="line"></div>
+        $if(comptim=="")
+                    <div class="btn-ui-b mt10"><a href="javascript:void(0);" onclick="getinfo()">提交竞猜结果</a></div>
+                $end
+                <div class="btn-ui-b mt10"><a href="javascript:void(0);" onclick="myQuiz()">我参加的竞猜</a></div>
+        <div class="line"></div>
+
+   </form>
+
+    <div id="footer">
+        <div class="layout fix user-info">
+            <div class="fr"><a id="backTop" href="javascript:window.scrollTo(0,0);">回顶部</a></div>
+        </div>
+        <div class="copyright">版权所有 &#169; 2012-2014 $footer</div>
+    </div>
+    <div id="loading" ><div><img src="Themes/Quiz/files/loading.gif" /></div></div>
+    <script>
+        Loading = $("#loading");
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    $("#loading").hide();
+                }
+            });
+        };
+
+        function getselectvalue(selectid, sort) {
+            var select = document.getElementById(selectid);
+            var index = select.selectedIndex;
+            var text = select.options[index].text;
+            var value = select.options[index].value;
+            if (value == "" || text == "其他") {
+                document.getElementById(selectid).style.display = "none";
+                document.getElementById(sort).style.display = "block";
+            }
+        }
+        function Ischeck(num, chid) {
+            if (document.getElementById(num + chid).checked) {
+                alert("只能选一个");
+                switch (num) {
+                    case "0":
+                        num = "1";
+                        break;
+                    default:
+                        num = "0";
+                        break;
+                }
+                document.getElementById(num + chid).checked = false;
+                return;
+            }
+        }
+        function getinfo() {
+            var HomeTeamValue = "";
+            var VisitingTeamValue = "";
+            var selectvalue = "";
+            var selectinvalue = "";
+            var HomeCheck = "0";//主队选择
+            var VisitCheck = "0";//客队选择
+            try {
+                HomeTeamValue = document.getElementById("homevalue").value;
+            } catch (e) {
+                HomeTeamValue = "";
+            }
+            try {
+                VisitingTeamValue = document.getElementById("visitvalue").value;
+            } catch (e) {
+                VisitingTeamValue = "";
+            }
+            try {
+                selectvalue = document.getElementById("homeselect").value;
+            } catch (e) {
+                selectvalue = "";
+            }
+            try {
+                selectinvalue = document.getElementById("visitselect").value;
+            } catch (e) {
+                selectinvalue = "";
+            }
+            //获取主队比分结果
+            if (HomeTeamValue == "") {
+                HomeTeamValue = selectvalue;
+            }
+            //  客队比分结果
+            if (VisitingTeamValue == "") {
+                VisitingTeamValue = selectinvalue;
+            }
+            if (HomeTeamValue == null || HomeTeamValue == "" || VisitingTeamValue == null || VisitingTeamValue=="")
+            {
+                alert("请选择或录入分数后再操作！"); return;
+            }
+            $.getJSON("JCQuizDetail.aspx?", {
+                "action": "save",
+                "hscore": HomeTeamValue,
+                "vscore": VisitingTeamValue,
+                "state": '$sitecode',
+                "openid": '$openid',
+                "id":'$QuizID',
+            }, function (json) {
+                $("#labMessage").html(json.message);//填充内容
+                alert(json.message);
+                return;
+            })
+        }
+
+        function myQuiz() {
+            window.location.href = "MyQuiz.aspx?sitecode=$sitecode&openid=$openid";
+        }
+    </script>
+</body>
+</html>

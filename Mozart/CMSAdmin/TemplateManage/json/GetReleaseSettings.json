@@ -1,0 +1,35 @@
+﻿{
+    "code": 1,
+    "notice": "操作成功",
+    "data": {
+        "weixin": false,
+        "apiurl": "http://mod.f3.cn/OAuth/WeixinApi_608989.html",
+        "token": "829838",
+        "appid": "",
+        "appsecret": "",
+        "paysignkey": null,
+        "partnerid": null,
+        "partnerkey": null,
+        "iphone": false,
+        "iphone_ec": false,
+        "clientcredentials": false,
+        "android": true,
+        "mp": false,
+        "sms": true,
+        "weixin1": true,
+        "weixin2": false,
+        "weixin3": false,
+        "logourl": "http://clientgb.f3.cn:80/ResourceAdmin/GetResourceFile?FileID=270397",
+        "clientname": "道讯科技",
+        "clientdescription": "最专业的营销利器",
+        "appdesc": "",
+        "rights": {
+            "weixin": false,
+            "mp": true,
+            "android": true,
+            "iphone": true,
+            "iphone_ec": true,
+            "sms": false
+        }
+    }
+}

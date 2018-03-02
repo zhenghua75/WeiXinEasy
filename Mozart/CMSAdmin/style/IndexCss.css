@@ -1,0 +1,584 @@
+﻿body {
+}
+		HTML {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		BODY {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		DIV {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		SPAN {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		APPLET {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		OBJECT {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		IFRAME {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		H1 {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		H2 {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		H3 {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		H4 {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		H5 {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		H6 {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		P {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		BLOCKQUOTE {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		PRE {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		A {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		ABBR {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		ACRONYM {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		ADDRESS {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		BIG {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		CITE {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		CODE {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		DEL {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		DFN {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		EM {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		FONT {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		IMG {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		INS {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		KBD {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		Q {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		S {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		SAMP {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		SMALL {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		STRIKE {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		STRONG {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		SUB {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		SUP {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		TT {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		VAR {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		DL {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		DT {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		DD {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		OL {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		UL {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		LI {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		FIELDSET {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		FORM {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		LABEL {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		LEGEND {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		TABLE {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		CAPTION {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		TBODY {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		TFOOT {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		THEAD {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		TR {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		TH {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		TD {
+
+			PADDING-BOTTOM: 0px; LINE-HEIGHT: 100%; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, sans-serif; FONT-SIZE: 12px; PADDING-TOP: 0px
+
+		}
+
+		UL {
+
+			LIST-STYLE-TYPE: none
+
+		}
+
+		OL {
+
+			LIST-STYLE-TYPE: none
+
+		}
+
+		IMG {
+
+			BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+
+		}
+
+		BODY {
+
+			TEXT-ALIGN: center; MARGIN: 0px; BACKGROUND: url(../../Images/login-images/login_bg.png) #fff repeat-x 50% top
+
+		}
+
+		#login {
+
+			TEXT-ALIGN: left; MARGIN: 0px auto; WIDTH: 950px; DISPLAY: block
+
+		}
+
+		#login_header {
+
+			DISPLAY: block; HEIGHT: 40px; PADDING-TOP: 40px
+
+		}
+
+		.login_logo {
+
+			MARGIN-TOP: 0px; FLOAT: left
+
+		}
+
+		.login_headerContent {
+
+			PADDING-BOTTOM: 0px; PADDING-LEFT: 40px; WIDTH: 280px; PADDING-RIGHT: 40px; DISPLAY: block; BACKGROUND: url(login_header_bg.png) no-repeat right top; FLOAT: right; HEIGHT: 50px; PADDING-TOP: 0px
+
+		}
+
+		.navList {
+
+			PADDING-LEFT: 28px; DISPLAY: block; HEIGHT: 20px; OVERFLOW: hidden
+
+		}
+
+		.navList UL {
+
+			DISPLAY: block; FLOAT: left; OVERFLOW: hidden
+
+		}
+
+		.navList LI {
+
+			PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; DISPLAY: block; BACKGROUND: url(../../Images/login-images/login_list.png) no-repeat 0px 5px; FLOAT: left; MARGIN-LEFT: -1px; PADDING-TOP: 0px
+
+		}
+
+		.navList A {
+
+			LINE-HEIGHT: 21px; DISPLAY: block; WHITE-SPACE: nowrap; COLOR: #000; TEXT-DECORATION: none
+
+		}
+
+		.navList A:hover {
+
+			TEXT-DECORATION: underline
+
+		}
+
+		#login_content {
+
+			POSITION: relative
+
+		}
+
+		.login_title {
+
+			PADDING-BOTTOM: 0px; PADDING-LEFT: 38px; PADDING-RIGHT: 40px; DISPLAY: block; PADDING-TOP: 25px; z-index:1;
+
+		}
+
+		.loginForm {
+
+			POSITION: absolute; PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; WIDTH: 270px; PADDING-RIGHT: 5px; DISPLAY: block; RIGHT: 40px; PADDING-TOP: 30px; z-index :10;
+
+		}
+
+		.loginForm P {
+
+			MARGIN: 10px 0px
+
+		}
+
+		.loginForm LABEL {
+
+			LINE-HEIGHT: 25px; PADDING-LEFT: 0px; WIDTH: 60px; FLOAT: left; COLOR: #4c4c4c; FONT-SIZE: 14px
+
+		}
+
+		.loginForm INPUT {
+
+			BORDER-BOTTOM: #80a5c4 1px solid; BORDER-LEFT: #80a5c4 1px solid; PADDING-BOTTOM: 3px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; FONT-SIZE: 18px; BORDER-TOP: #80a5c4 1px solid; BORDER-RIGHT: #80a5c4 1px solid; PADDING-TOP: 3px
+
+		}
+
+		.loginForm .login_input {
+
+			WIDTH: 150px; HEIGHT: 20px
+
+		}
+
+		.login_inputyz {
+
+			WIDTH: 90px; HEIGHT: 20px
+
+		}
+
+		.login_inputyz1 {
+
+			WIDTH: 60px; HEIGHT: 24px
+
+		}
+
+		.loginForm .code {
+
+			WIDTH: 60px; FLOAT: left; HEIGHT: 28px; MARGIN-RIGHT: 5px
+
+		}
+
+		.login_bar {
+
+			PADDING-LEFT: 60px
+
+		}
+
+		.login_bar .sub {
+
+			BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; WIDTH: 75px; DISPLAY: block; FONT-FAMILY: "宋体"; BACKGROUND: url(../../Images/login-images/login_sub.png) no-repeat; FLOAT: left; HEIGHT: 30px; COLOR: #123566; FONT-SIZE: 16px; BORDER-TOP: medium none; CURSOR: pointer; FONT-WEIGHT: bold; MARGIN-RIGHT: 5px; BORDER-RIGHT: medium none
+
+		}
+
+		.login_banner {
+
+			DISPLAY: block; HEIGHT: 270px
+
+		}
+
+		.login_main {
+
+			PADDING-RIGHT: 40px; DISPLAY: block; BACKGROUND: url(login_content_bg.png) no-repeat 50% top; HEIGHT: 150px
+
+		}
+
+		.helpList {
+
+			WIDTH: 200px; FLOAT: right
+
+		}
+
+		.helpList LI {
+
+			PADDING-LEFT: 10px; DISPLAY: block; BACKGROUND: url(../../Images/login-images/login_list.png) no-repeat 0px -40px
+
+		}
+
+		.helpList A {
+
+			LINE-HEIGHT: 21px; COLOR: #333; TEXT-DECORATION: none
+
+		}
+
+		.helpList A:hover {
+
+			TEXT-DECORATION: underline
+
+		}
+
+		.login_inner {
+
+			PADDING-BOTTOM: 0px; PADDING-LEFT: 20px; WIDTH: 560px; PADDING-RIGHT: 20px; DISPLAY: block; PADDING-TOP: 30px
+
+		}
+
+		.login_inner P {
+
+			LINE-HEIGHT: 150%; MARGIN: 10px 0px; COLOR: #666; FONT-SIZE: 14px
+
+		}
+
+		#login_footer {
+
+			TEXT-ALIGN: center; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; DISPLAY: block; MARGIN-BOTTOM: 10px; COLOR: #666; CLEAR: both; BORDER-TOP: #e2e5e8 1px solid; PADDING-TOP: 10px
+
+		}
+
+		.code  
+
+		{  
+
+			background-image:url(code.jpg);  
+
+			font-family:Arial;  
+
+			font-style:italic;  
+
+			color:Red;  
+
+			border:0;  
+
+			padding:2px 3px;  
+
+			letter-spacing:3px;  
+
+			font-weight:bolder;  
+
+		}  
+
+		.unchanged  
+
+		{  
+
+			border:0;  
+
+		}  
+

@@ -1,0 +1,23 @@
+﻿{
+    "code": 1,
+    "notice": "操作成功",
+    "data": {
+        "bizmoduleid": 132,
+        "moduleid": 105,
+        "onlyone": true,
+        "bizmodulename": "天气预报",
+        "customurlflag": 0,
+        "moduleurl": null,
+        "bizdescription": "实时天气预报",
+        "iphone": true,
+        "android": true,
+        "mp": true,
+        "weixin": true,
+        "sms": false,
+        "permissions": true,
+        "image1_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetBizModuleListFile?FileID=132&ImageColumn=image1",
+        "image2_url": "",
+        "image3_url": "",
+        "moduletypeid": 0
+    }
+}

@@ -1,0 +1,42 @@
+﻿[
+    {
+        "Id": 1,
+        "Code": "siteid",
+        "Name": "站点ID",
+        "Description": ""
+    },
+    {
+        "Id": 2,
+        "Code": "sitecode",
+        "Name": "站点Code",
+        "Description": ""
+    },
+    {
+        "Id": 3,
+        "Code": "title",
+        "Name": "标题",
+        "Value": "昆明道讯",
+        "Description": "",
+        "CanModified": true
+    },
+    {
+        "Id": 4,
+        "Code": "footer",
+        "Name": "页脚",
+        "Value": "昆明道讯",
+        "Description": "",
+        "CanModified": true
+    },
+    {
+        "Id": 5,
+        "Code": "topic",
+        "Name": "topic",
+        "Description": ""
+    },
+    {
+        "Id": 6,
+        "Code": "replylist",
+        "Name": "replylist",
+        "Description": ""
+    }
+]

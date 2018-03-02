@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>照片墙</title>
+        <link rel="stylesheet" media="screen" type="text/css" href="Themes/PhotoList/jqtouch/jqtouch.min.css" />
+        <link rel="stylesheet" media="screen" type="text/css" href="Themes/PhotoList/themes/theme.css" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+        <script src="Themes/PhotoList/jqtouch/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+            var jQT = new $.jQTouch({
+                icon: 'Themes/PhotoList/odropsIcon.png',
+                cacheGetRequests: true,
+                addGlossToIcon: false,
+                startupScreen: 'Themes/PhotoList/codropsSplash.png',
+                statusBar: 'black',
+                preloadImages: [
+                    'Themes/PhotoList/themes/img/back_button.png',
+                    'Themes/PhotoList/themes/img/back_button_clicked.png',
+                    'Themes/PhotoList/themes/img/button_clicked.png',
+                    'Themes/PhotoList/themes/img/grayButton.png',
+                    'Themes/PhotoList/themes/img/whiteButton.png',
+                    'Themes/PhotoList/themes/img/loading.gif'
+                ]
+            });
+        </script>
+		<script src="Themes/PhotoList/jquery.gallery.js" type="application/x-javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            function Foo(thumbID) {
+                //alert(thumbID);
+                var url = 'Themes/PhotoList/ajax/thumbsOK.aspx?thumb=' + thumbID;
+                $.get(url, function (data) {
+                    alert(data);
+                }, 'html');
+            }
+        </script>
+        <style type="text/css" media="screen">
+            #about {
+                padding: 100px 10px 40px;
+                text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0;
+                font-size: 13px;
+                text-align: center;
+                background: #161618;
+            }
+            #about p {
+                margin-bottom: 8px;
+            }
+            #about a {
+                color: #fff;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="about" class="selectable">
+			<p><img src="Themes/PhotoList/codropsIcon.png"/></p>
+            <p>
+                <strong>Wonderwall Image Gallery</strong>
+                <a href="http://www.codrops.com">By Codrops</a>
+            </p>
+            <p>A web app created with <br /> <strong>jQTouch</strong></p>
+            <p><br /><br /><a href="#" class="grayButton goback">关闭</a></p>
+        </div>
+        <!-- The list of albums -->
+        <div id="albums_container" class="current">
+            <div class="toolbar">
+                <h1>照片墙</h1>
+                <a class="button slideup" id="infoButton" href="#about">关于</a>
+            </div>
+            <div class="loader" style="display:none;"></div>
+            <ul id="albums" class="edgetoedge">
+                $foreach(node in AlbumTypelist)
+                    <li id="$node.id" class="arrow"><a href="#thumbs_container">$node.Name</a></li>
+                $end
+            </ul>
+        </div>
+        <!-- The list of images (thumbs) -->
+        <div id="thumbs_container">
+            <div class="toolbar">
+                <h1>照片</h1>
+                <a class="back" href="#albums_container">照片墙</a>
+                <a class="button slideup" id="A1" href="#about">关于</a>
+            </div>
+            <div class="loader" style="display:none;"></div>
+            <ul id="thumbs" class="thumbView" style="display:none;">
+            </ul>
+        </div>
+		<!-- The single image container -->
+        <div id="photo_container">
+            <div class="toolbar">
+                <h1>照片</h1>
+                <a class="back" href="#thumbs_container">照片</a>
+                <a class="button slideup" id="A2" href="#about">关于</a>
+            </div>
+            <div class="loader" style="display:none;"></div>
+            <div id="theimage" class="singleimage"></div>
+            <div class="descriptionWrapper">
+                <p id="description"></p>
+                <div id="prev" style="display:none;"></div>
+                <div id="next" style="display:none;"></div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="false" CodeBehind="BBSList.aspx.cs" Inherits="Mozart.MicroSite.BBSList" %>

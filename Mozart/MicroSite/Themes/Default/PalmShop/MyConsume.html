@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>我的消费</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	    <style type="text/css">
+	        .activity_list{background: url(img/ul_bg.jpg) 13px top repeat-y;}
+			.activity_list li{ background: #fff;border: 1px solid #DDDDDD; background: #FFFFFF; padding-left: 10px; padding-right: 10px; margin-left: 35px; box-sizing: border-box; border-radius: 6px;display:none;}
+			.activity_list i{width: 15px; height: 15px; display: block;background: #009BDF; position: absolute;left: 17px;border-radius: 50%; bottom: 10px; z-index: 0;}
+			.activity_list h2{font-size: 20px; font-weight: normal; color: #009BDF; height: 30px; position: relative; padding-left: 35px;padding-top:5px; box-sizing: border-box; cursor: pointer;}
+			.activity_list h2 span{width: 30PX; height: 30PX; border-radius: 50%; border: 3px solid #009BDF; display: block; text-align: center; line-height: 25px; left: 0px; top: 0px; position: absolute; font-size: 16px; background: #FFFFFF; z-index: 1;}
+			.activity_list li h4{font-size: 14PX; font-weight: bold;}
+			.activity_list li p{line-height: 15px;}
+	    </style>
+	    <script type="text/javascript">
+	        $(function () {
+	            $(".activity_list h2").click(function () {
+	                $(this).next('li').slideToggle("fast");
+	            })
+	        })
+	    </script>
+	</head>
+	<body style="background: #EEEEEE;">
+        <div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="back_ico" onclick="javascript:history.back()">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">我的消费</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right"></div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+				<ul class="media-list activity_list">
+                    $if(myorderlist.count>0)
+                    $foreach(myorder in myorderlist)
+				  <h2><span></span>$myorder.AddTime.ToString("yyyy-MM-dd")</h2>
+				  <li class="media" onclick="CopyOrder.aspx?oid=$myorder.ID">
+				    <a class="media-left pull-left">
+				      <img src="$myorder.Pimg" width="120" height="100"/>
+				    </a>
+				    <div class="media-body" onclick="CopyOrder.aspx?oid=$myorder.ID">
+				      	<h4 class="media-heading"><a href="CopyOrder.aspx?oid=$myorder.ID">$myorder.Ptitle</a></h4>
+				        <p class="activity_des">$myorder.Pcontent</p>
+                        <p class="activity_des">数量：$myorder.Quantity 共计：￥$myorder.UnitCost</p>
+				    </div>
+				  </li>
+                    $end
+                    $end
+			     </ul>
+				</div>
+			</div>
+		</div>
+	</body>
+    <script>
+        $errormsg
+    </script>
+</html>

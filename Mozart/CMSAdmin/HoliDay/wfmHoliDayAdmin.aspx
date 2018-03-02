@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfmHoliDayAdmin.aspx.cs" Inherits="Mozart.CMSAdmin.HoliDay.wfmHoliDayAdmin" %>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>$title</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+        <script src="js/share.js"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="back_ico" onclick="javascript:history.back();">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">$title</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+                    <a class="next_ico" href="PubSecHand.aspx">添加</a></div>
+			</div>
+		</div>
+        <div class="container-fluid">
+			<div class="row" id="search_box">
+				  <input type="text" id="searchinput" value="请输入要查询的内容" />
+				  <input type="button" value="搜索" id="search_btn" />
+			</div>
+		</div>
+		<div class="container-fluid Product_List">
+            $foreach(prolist in productlist)
+			<div class="row clear_margin">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+                    <a href="Product_detail.aspx?pid=$prolist.ID">
+                        $if(prolist.PimgUrl!=null&&prolist.PimgUrl!="")
+                        <img src="$prolist.PimgUrl" class="img-responsive"/>
+                        $end
+                        $if(prolist.PimgUrl==null||prolist.PimgUrl=="")
+                    <img src="ShopLogo/default.png" class="img-responsive"/>
+                        $end
+                    </a></div>
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">
+					<h4><a href="Product_detail.aspx?pid=$prolist.ID">$prolist.ptitle</a></h4>
+					<p>¥ $prolist.Price 元</p>
+                    <!--$if(prolist.review==0||prolist.review=="0")
+                    <p>等待审核</p>
+                    $end-->
+				</div>
+				<div class="sechandle">
+                    <ul class="nav4">
+                        <li><a href="PubSecHandEdit.aspx?pid=$prolist.ID"><i></i></a></li>
+                        <li><a onclick="delSecHand('$prolist.ID');"><i class="ico"></i></a></li>
+                        <li><a id="sharebtn"><i></i></a></li>
+                        <li><a><i></i></a></li>
+                   </ul>
+				</div>
+			</div>
+            $end
+		</div>
+	</body>
+    <script>
+        $errorscript
+        $(document).ready(function () {
+            $("#searchinput").attr("onfocus", "if(this.value==defaultValue) {this.value='';this.type='text';this.style.color='#000'}");
+            $("#searchinput").attr("onblur", "if(!value) {value=defaultValue; this.type='text';this.style.color='#999'}");
+        })
+        $("#search_btn").click(function () {
+            var searchinfo = $("#searchinput").val();
+            if (searchinfo != null && searchinfo != "" && searchinfo != "请输入要查询的内容") {
+                location.href = "MySecHand.aspx?like=" + searchinfo;
+            } else {
+                $.dialog({ time: 1, fixed: true, icon: 'error', content: '请输入要查询的内容！' });
+                $("#searchinput").val("");$("#searchinput")[0].focus(); return false;
+            }
+        })
+        function delSecHand(pid)
+        {
+            if (pid == null || pid == "") {
+                $.dialog({ time: 1, fixed: true, icon: 'error', content: '请核对后再操作！' });
+                return false;
+            } else {
+                $.dialog({
+                    lock: true,fixed: true,
+                    content: '注意：<br/>删除后无法恢复，需谨慎操作<br/>您确定当前操作吗？',
+                    ok: function () {
+                        $.getJSON("MySecHand.aspx", { "action": "del", "pid": pid }, function (json) {
+                            if (json.error == true) {
+                                $.dialog({ time: 1, fixed: true, icon: 'error', content: json.msg });
+                                return;
+                            }
+                            if (json.success == true) {
+                                location.href = "MySecHand.aspx";
+                            }
+                        })
+                    },
+                    okVal: '是,删除',
+                    cancelVal: '取消',
+                    cancel: true
+                });
+            }
+        }
+    </script>
+    <script src="js/Share.js"></script>
+</html>

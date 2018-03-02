@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>$title 的微店</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+    <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a class="back_ico" onclick="javascript:history.back()">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">我的微店</div>
+                $if(ShopDetail.UID!=null&&ShopDetail.UID!=""&&uid!=null&&uid!="")
+                $if(ShopDetail.UID==uid)
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+                    <a class="next_ico" href="javascript:">添加</a></div>
+                $end
+                $end
+			</div>
+		</div>
+        <div class="container-fluid">
+			<div class="row" id="search_box">
+				  <input type="text" id="searchinput" value="请输入要查询的内容" />
+				  <input type="button" value="搜索" id="search_btn" />
+			</div>
+		</div>
+		<div class="container-fluid">
+            $if(ShopDetail.ShopBackImg!=null&&ShopDetail.ShopBackImg!="")
+			<div class="row" style="background:#FFFFFF url($ShopDetail.ShopBackImg) no-repeat 0px center;background-size:cover;">
+                $end
+                $if(ShopDetail.ShopBackImg==null||ShopDetail.ShopBackImg=="")
+                <div class="row">
+                $end
+                    $if(customerid==ShopDetail.UID)
+					<a href="ApplyShop.aspx?action=update&sid=$ShopDetail.ID" >
+                        $end
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+						   <img src="$ShopDetail.ShopLogo" onerror="ShopLogo/default.png"
+                                class="img-circle img-responsive"/>
+						</div>
+						<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+							<h3>$ShopDetail.ShopName</h3>
+                            $if(ShopDetail.WXName!=null&&ShopDetail.WXName!="")
+                            <p>微信名：$ShopDetail.WXName</p>
+                            $end
+                            $if(ShopDetail.WXNum!=null&&ShopDetail.WXNum!="")
+                            <p class="addwxnum" data-num="$ShopDetail.WXNum">微信号：$ShopDetail.WXNum</p>
+                            $end
+						</div>
+                        $if(customerid==ShopDetail.UID)
+					</a>$end
+			</div>
+			<div class="row">
+				<ul class="list-unstyled Product_Menu">
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="$ShopDetail.ID" onclick="location.href='?sid=$ShopDetail.ID'">全部</li>
+                    <!--$foreach(categorylist in categorylist)
+                    <li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center"
+                        onclick="location.href='?sid=$ShopDetail.ID&cid=$categorylist.ID'" id="$categorylist.ID">
+                        $categorylist.Cname
+                    </li>
+                    $end-->
+				</ul>
+			</div>
+		</div>
+         
+		<div class="container-fluid Product_List">
+            $foreach(prolist in productlist)
+            $if(ShopDetail.UID!=null&&ShopDetail.UID!=""&&uid!=null&&uid!="")
+                $if(ShopDetail.UID==uid)
+            <span class="pro_editeico" data-pid="$prolist.ID"></span>
+            $end $end
+			<div class="row clear_margin">
+                <div data-id="$prolist.ID">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+                    <a href="Product_detail.aspx?pid=$prolist.ID">
+                        $foreach(atlas in defaultatlas)
+                        $if(prolist.ID==atlas.PID)
+                    <img src="$atlas.PimgUrl" onerror="ShopLogo/default.png" class="img-responsive"/>
+                        $end
+                        $end
+                    </a></div>
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">
+					<h4><a href="Product_detail.aspx?pid=$prolist.ID">$prolist.Ptitle</a></h4>
+					<p>¥ 
+                        $if(prolist.Price!=null&&prolist.Price!=""&&prolist.Price!="0.00"&&prolist.Price!="0"&&prolist.Price!=0)
+                        $prolist.Price
+                        $end
+                        $if(prolist.Price==null||prolist.Price==""||prolist.Price=="0.00"||prolist.Price=="0"||prolist.Price==0)
+                        $if(paralist.count>0)
+                        $foreach(paral in paralist)
+                        $if(paral.PID==prolist.ID&&paral.Sprice!=null&&paral.Sprice!=""&&paral.Sprice!="0"&&paral.Sprice!="0.00")
+                        $paral.Sprice
+                        $end
+                        $if(paral.PID==prolist.ID&&paral.Mprice!=null&&paral.Mprice!=""&&paral.Mprice!="0"&&paral.Mprice!="0.00")
+                        ~ $paral.Mprice 
+                        $end
+                        $end
+                        $end
+                        $end
+                     元</p>
+                    <span style="font-size:10px;color: #999999;">邮费：$prolist.ZipCode</span>
+				</div>
+				<div class="col-lg-12 clear">
+					<div class="row pro_detal">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 sale_ico">
+							销量：<label></label>件
+						</div>
+                        $if(ShopDetail.UID!=null&&ShopDetail.UID!=""&&uid!=null&&uid!="")
+                $if(ShopDetail.UID==uid)
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-xs-4">
+                            <span class="pro_delico" data-pid="$prolist.ID"></span>
+						</div>
+                        $end $end
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 time_ico">
+							$prolist.AddTime.ToString("MM-dd")
+						</div>
+					</div>
+				</div>
+                </div>
+			</div>
+            $end
+		</div>
+	</body>
+    <div id="loading"><div><img src="images/loading.gif" /></div></div>
+    <script>
+        Loading = $("#loading");
+        Loading.hide();
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    Loading.hide();
+                }
+            });
+        }
+        $errormsg
+        $(document).ready(function () {
+            var oldclass; var focusid;
+            if (Request("cid") != null && Request("cid") != "") {
+                focusid = Request("cid");
+            } else {
+                focusid = "$ShopDetail.ID";
+            }
+            oldclass = $("#" + focusid).attr("class");
+            $("#" + focusid).addClass(oldclass + " item_red");
+            $("#searchinput").attr("onfocus", "if(this.value==defaultValue) {this.value='';this.type='text';this.style.color='#000'}");
+            $("#searchinput").attr("onblur", "if(!value) {value=defaultValue; this.type='text';this.style.color='#999'}");
+        })
+        $(".clear_margin div").click(function () {
+            var pid = $(this).attr("data-id");
+            if (pid != null && pid != "" && pid != "undefined")
+            {
+                location.href = "Product_detail.aspx?pid="+pid;
+            }
+        })
+        function GetProductList(strParam, strValue) {
+            var searchurl = location.search;
+            var endsub = searchurl.substring(searchurl.indexOf("?"));
+            var url = location.href;
+            url = url.substring(0, url.length - endsub.length);
+            if (strParam != null && strParam != "") {
+                url = url + "?sid=" + Request("sid") + "&" + strParam + "=" + strValue;
+            } else {
+                url = url + "?sid=" + Request("sid");
+            }
+            location.href = url;
+        }
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+        $(".addwxnum").click(function () {
+            var wxname ="\""+$(this).attr("data-num")+"\"";
+            if (wxname != null && wxname != "") {
+                WeixinJSBridge.invoke("addContact", { webtype: "1", username: wxname }, function (e) {
+                    WeixinJSBridge.log(e.err_msg);
+                    if (e.err_msg == "add_contact:added" || e.err_msg == "add_contact:ok") {
+                        //关注成功，或者已经关注过
+                    }
+                })
+            }
+        })
+        $(".pro_delico").click(function () {
+            var pid = $(this).attr("data-pid"); 
+            var sid = "$ShopDetail.ID";
+            var gotourl = "MyShop.aspx";
+            if (pid != null && pid != "") {
+                $.dialog({
+                    lock: true, fixed: true,
+                    content: '注意：<br/>删除后无法恢复，需谨慎操作<br/>您确定当前操作吗？',
+                    ok: function () {
+                        $.getJSON("MyShop.aspx", { "action": "delproduct", "pid": pid }, function (json) {
+                            if (json.error == true) {
+                                $.dialog({
+                                    time: 1, lock: true, fixed: true, icon: 'error',
+                                    content: "操作失败，请重新操作！"
+                                }); return;
+                            }
+                            if (json.success == true) {
+                                $.dialog({
+                                    time: 1, lock: true, fixed: true, icon: 'succeed',
+                                    content: "操作成功！"
+                                });
+                                if (sid != null && sid != "") {
+                                    gotourl = gotourl + "?sid=" + sid;
+                                }
+                                location.href = gotourl;
+                            }
+                        })
+                    },
+                    okVal: '是,删除',
+                    cancelVal: '取消',
+                    cancel: true
+                });
+            }
+        });
+        $(".pro_editeico").click(function () {
+            var sid = "$ShopDetail.ID"; var pid = $(this).attr("data-pid");
+            location.href = "EditeProduct.aspx?sid=" + sid + "&pid="+pid;
+        })
+        $(".next_ico").click(function () {
+            location.href = "PubProduct.aspx";
+        })
+        $("#search_btn").click(function () {
+            var searchinfo = $("#searchinput").val();
+            var sid = "?"; var cid = "";
+            if (Request("sid") != null && Request("sid") != "") {
+                sid = sid + "sid=" + Request("sid");
+            }
+            if (Request("cid") != null && Request("cid") != "") {
+                if (sid != null && sid != "") {
+                    sid = sid + "&";
+                } else {
+                    cid = "?"
+                }
+                cid = cid + "cid=" + Request("cid");
+            }
+            if (searchinfo != null && searchinfo != "" && searchinfo != "请输入要查询的内容") {
+                location.href = "Myshop.aspx" + sid + cid + "&like=" + searchinfo;
+            } else {
+                $.dialog({ time: 1, lock: true, fixed: true, icon: 'error', content: '请输入要查询的内容！' });
+                $("#searchinput")[0].focus(); return false;
+            }
+        })
+    </script>
+</html>

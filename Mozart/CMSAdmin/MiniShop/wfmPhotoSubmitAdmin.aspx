@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfmPhotoSubmitAdmin.aspx.cs" Inherits="Mozart.CMSAdmin.MiniShop.wfmPhotoSubmitAdmin" %>

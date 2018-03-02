@@ -1,0 +1,107 @@
+﻿.template-01{
+ 	background: url("../images/MB24_1.png") no-repeat;
+	height:132px;
+    margin: 5px 0 0 5px;
+}
+
+
+
+.template-02{
+   	display:none;
+}
+
+
+.template-03{
+   	background: url("../images/MB24_2.png") no-repeat;
+	height:134px;
+    margin: 5px 0 0 5px;
+    background-size:100% 100%;
+}
+
+/*ģ��24*/
+
+.template-b-01,.template-b-02{
+	position: relative;
+	opacity:0.7;
+	float: left;
+	display: block;
+	height: 50px;
+	width:40%;
+	filter:Alpha(opacity=70); /*��ʹ��IEר���˾�ʵ��IE����͸��*/ 
+	background:#000;
+	margin:9px;
+	border-radius:9px;
+	
+}
+.template-b-01 div.mini,.template-b-02 div.mini{
+	line-height:80px;
+}
+.template-b-01 div.bmini,.template-b-02 div.bmini{display:none;}
+.template-b-01 p.text_1,.template-b-02 p.text_1{
+	color: #fff;
+	display: block;
+	width:35px;
+	float:left;
+	margin:8px 0 8px 10px;
+	
+	}
+.template-b-01 .icon,.template-b-02 .icon{
+	width:25px;
+	height:25px;
+	z-index:500;
+	text-align:center;
+	display:block;
+	float: left;
+	margin-top:8px;
+	margin-left:10px;
+	}
+.template-b-01 .icon img,.template-b-02 .icon img{
+	width:100%;
+	height:100%;
+}
+
+.template-b-01 div.picture,.template-b-02 div.picture{
+	width:30px;
+	height:30px;
+	z-index:500;
+	text-align:center;
+	border-radius:50%;
+	display:none;
+	}
+.template-b-01 div.picture img,.template-b-02 div.picture img{
+	width:100%;
+	height:100%;
+	border-radius:50%;
+}
+
+.template-b-01 div.news_xx,.template-b-02 div.news_xx{display:none;}
+
+.template-b-03,.template-b-04{
+	position: relative;
+	background: none repeat scroll 0 0 #CCFF99;
+	float: left;
+	display: block;
+	margin-top:3px;
+	width:90%;margin-left:7px;
+	opacity:0.7;
+	filter:Alpha(opacity=70); /*��ʹ��IEר���˾�ʵ��IE����͸��*/ 
+	background:#000;
+	border-radius:6px;
+}
+.template-b-03 p.text_1,.template-b-04 p.text_1{display:block;float:right;width:17%;margin: 5px;margin-right:22px;margin-top:15px;}
+.template-b-03 div.bmini,.template-b-04 div.bmini{display:none;}
+.template-b-03 div.picture,.template-b-04 div.picture { display:block;width: 125px;height: 54px;margin:3px;margin-right:33px;}
+.template-b-03 div.icon,.template-b-04 div.icon { display:none;}
+.template-b-03 div.news_xx,.template-b-04 div.news_xx{display:none;}
+
+
+.template-05 {
+   display: none;
+}
+.containerBox{
+	padding-top: 0;
+}
+
+/*����*/
+.picture img{width:100%;height:100%;}
+.bmini{width:100%;height:20px;background:url(../images/ooobj.png) repeat;color:#fff;position: absolute;bottom:0px;font-size:12px;z-index:599}

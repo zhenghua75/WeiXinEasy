@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>$title</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+    <script type="text/javascript" src="js/IDcard.js" ></script>
+    <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+    <style>
+        td p {
+        border:0px;margin:0px auto;padding:0px;
+        }
+        td p  img{
+        border:0px;width:60px;height:60px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="back_ico" onclick="javascript:history.back()">返回</a>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">$title</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+                    <span class="next_ico">完成</span>
+				</div>
+			</div>
+		</div>
+    <form method="post" id="editeform" enctype="multipart/form-data">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12"><br />
+				<div class="table-responsive" id="product_info">
+                    <p style="color:red;text-align:center;margin:3px auto;padding:0px;">注：订阅号为公司或个人申请的订阅号</p>
+				  <table class="table">
+                      <tr>
+				    	<td class="col-xs-3 text-center">电子邮箱：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="useremail" id="useremail"  value="$usredetail.Email" />
+				    	</td>
+				    </tr>
+				    <tr>
+				    	<td class="col-xs-3 text-center">店铺名称：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="shopname" id="shopname"  value="$shopdetail.ShopName" />
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">订阅号昵称：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="wxname" id="wxname"  value="$shopdetail.WXName" />
+				    	</td>
+				    </tr>
+				     <tr>
+				    	<td class="col-xs-3 text-center">订阅号：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="wxnum" id="wxnum"  value="$shopdetail.WXNum" />
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">真实姓名：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="realname" id="realname"  value="$usredetail.RealName" />
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">身份证号：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="idnum" id="IDnum"  value="$usredetail.IDnum" />
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">本人身份证照片：</td>
+				    	<td class="col-xs-9">
+                            <input type="file" name="idimg" id="IDimg" />
+                            <p><img id="imgidimg" src="$usredetail.IDimg" onerror="ShopLogo/default.png"/></p>
+				    	</td>
+				    </tr>
+				    <tr id="shoplogo">
+				    	<td class="col-xs-3 text-center">店铺LOGO：</td>
+				    	<td class="col-xs-9">
+                            <input type="file" name="logoimg" id="file0" />&nbsp;建议尺寸40x40
+                            <p><img id="img0" src="$shopdetail.ShopLogo" onerror="ShopLogo/default.png"/></p>
+				    	</td>
+				    </tr>
+                      <tr id="shopback">
+				    	<td class="col-xs-3 text-center">店铺背景：</td>
+				    	<td class="col-xs-9">
+                            <input type="file" name="backimg" id="file1" />&nbsp;建议尺寸320x145
+                            <p><img id="img1" src="$shopdetail.ShopBackImg" onerror="ShopLogo/default.png"/></p>
+				    	</td>
+				    </tr>
+				  </table>
+				</div>
+				</div>
+			</div>
+		</div>
+    </form>
+    <div class="text-center">
+		<span class="isokbtn"> 确 认 </span>
+	</div>
+</body>
+    <script>
+        $errorscript
+        var action = "$action" == "" ? Request("action") : "$action";
+        var sid = "$sid" == "" ? Request("sid") : "$sid";
+        if (action != null && action != "" && action != "undefined") {
+            action = "uedite";
+            if (action.toLowerCase() == "apply") {
+                action = "uapply";
+            }
+            if (action.toLowerCase() == "edite") {
+                action = "uedite";
+            }
+        } else {
+            action = "uapply";
+        }
+        $(document).ready(function () {
+            $("body").css("background", "#FFFFFF");
+            $("#IDnum").attr("onkeyup", "this.value=this.value.replace(/[^0-9xX]/g,'')");
+            var IDnum = $("#IDnum").val();
+            var imgidimg = $("#imgidimg").attr("src");
+            if (IDnum != null && IDnum != "")
+            {
+                $("#IDnum").attr("readonly","readonly");
+            }
+            if (imgidimg != null && imgidimg != "" && imgidimg.indexOf("default.png") < 0)
+            {
+                $("#IDimg").css("display", "none");
+            }
+            if (action.indexOf("reg") > 0)
+            {
+                $("#shoplogo").css("display", "none");
+                $("#shoplogo").css("display", "none");
+            }
+            $('#IDnum').mouseleave(function () {
+                var cardnum = $(this).val();
+                if (cardnum != null && cardnum != "") {
+                    if (cardnum.length >= 15 && cardnum.length <= 18) {
+                        if (!isCardNo(cardnum)) {
+                            $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '身份证输入不合法！' });
+                             $("#IDnum")[0].focus(); return;
+                        } else {
+                            if (!IdCardValidate(cardnum)) {
+                                $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '请输入正确的身份证！' });
+                                $("#IDnum")[0].focus(); return;
+                            }
+                        }
+                    } else {
+                        $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '请输入正确的身份证号！' });
+                         $("#IDnum")[0].focus(); return;
+                    }
+                } 
+            })
+        })
+        $("#useremail").mouseleave(function () {
+            checkEmail(this);
+        }).blur(function () {
+            checkEmail(this);
+        })
+        $("input[type='file']").change(function () {
+            var objUrl = getObjectURL(this.files[0]);
+            if (objUrl) {
+                $(this).next("p").find("img").attr("src", objUrl);
+            }
+        });
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL != undefined) {
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) {
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) {
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+        $("div[class='text-center']").click(function () {submitform();})
+        $(".next_ico").click(function () { submitform();});
+        function submitform()
+        {
+            var flag = checkEmail($("#useremail"));
+            alert(flag);
+            if (flag == true) {
+                alert("1");
+                //var shopname = $("#shopname").val();
+                //var cardnum = $("#IDnum").val();
+                //if (shopname == null || shopname == "" || shopname == "undefined") {
+                //    $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '请输入店铺名称！' });
+                //    $("#shopname")[0].focus();
+                //    return;
+                //}
+
+                //if (cardnum != null && cardnum != "") {
+                //    if (cardnum.length >= 15 && cardnum.length <= 18) {
+                //        if (!isCardNo(cardnum)) {
+                //            $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '身份证输入不合法！' });
+                //            $("#IDnum")[0].focus(); return;
+                //        } else {
+                //            if (!IdCardValidate(cardnum)) {
+                //                $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '请输入正确的身份证！' });
+                //                $("#IDnum")[0].focus(); return;
+                //            }
+                //        }
+                //    } else {
+                //        $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '身份证输入不合法！' });
+                //        $("#IDnum")[0].focus(); return;
+                //    }
+                //}
+
+                //var form = document.getElementById("editeform");
+                //if (sid != null && sid != "") {
+                //    sid = "&sid=" + sid;
+                //}
+                //$("#editeform").attr("action", "ApplyShop.aspx?action=" + action + sid);
+                //form.submit();
+            }
+        }
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+        function checkEmail(thi)
+        {
+            var email = $(thi).val();
+            if (email == null || email == "") {
+                $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '请输入您的电子邮件！' });
+                $(thi).focus();
+                return false;
+            }
+            var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+            if (reg.test($(thi).val()) == false) {
+                $.dialog({ time: 1, fixed: true, lock: true, icon: 'error', content: '请输入正确的电子邮件！' });
+                $(thi).focus();
+                return false;
+            }
+        }
+    </script>
+</html>

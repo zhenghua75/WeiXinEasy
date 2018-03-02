@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="JCQuizDetail.aspx.cs" Inherits="Mozart.MicroSite.JCQuizDetail" %>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyThumbPrintOne.aspx.cs" Inherits="Mozart.MicroSite.MyThumbPrintOne" %>

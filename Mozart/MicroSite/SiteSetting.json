@@ -1,0 +1,304 @@
+﻿{
+    "DefaultSiteId": "39D51093B2FB4CA68DCD1F3DC86683D6",
+    "Categories": [
+        {
+            "Id": 10,
+            "Name": "主页",
+            "Modules": [
+                {
+                    "Id": 1001,
+                    "Code": "Index1001",
+                    "Name": "主页",
+                    "Path": "/MicroSite/Index.aspx",
+                    "Theme": "{0}Index.html",
+                    "Setting": "{0}Index.json",
+                    "Description": "主页",
+                    "ImageUrl": "",
+                    "IsHomePage": true
+                },
+                {
+                    "Id": 1002,
+                    "Code": "About1002",
+                    "Name": "关于",
+                    "Path": "/MicroSite/About.aspx",
+                    "Theme": "{0}About.html",
+                    "Setting": "{0}About.json",
+                    "Description": "关于",
+                    "ImageUrl": "",
+                    "IsHomePage": true
+                },
+                {
+                    "Id": 1003,
+                    "Code": "Scase1003",
+                    "Name": "经典案例",
+                    "Path": "/MicroSite/Scase.aspx",
+                    "Theme": "{0}Scase.html",
+                    "Setting": "{0}Scase.json",
+                    "Description": "经典案例",
+                    "ImageUrl": "",
+                    "IsHomePage": true
+                },
+                {
+                    "Id": 1004,
+                    "Code": "Customize1004",
+                    "Name": "定制说明",
+                    "Path": "/MicroSite/Customize.aspx",
+                    "Theme": "{0}Customize.html",
+                    "Setting": "{0}Customize.json",
+                    "Description": "定制说明",
+                    "ImageUrl": "",
+                    "IsHomePage": true
+                },
+                {
+                    "Id": 1005,
+                    "Code": "Email1005",
+                    "Name": "联系",
+                    "Path": "/MicroSite/Email.aspx",
+                    "Theme": "{0}Email.html",
+                    "Setting": "{0}Email.json",
+                    "Description": "联系",
+                    "ImageUrl": "",
+                    "IsHomePage": true
+                }
+            ]
+        },
+        {
+            "Id": 20,
+            "Name": "资讯",
+            "Modules": [
+                {
+                    "Id": 2001,
+                    "Code": "News2001",
+                    "Name": "资讯",
+                    "Path": "/MicroSite/Modules/News/News.aspx",
+                    "Theme": "{0}News/News.html",
+                    "Setting": "{0}News/News.json",
+                    "Description": "资讯",
+                    "ImageUrl": ""
+                }
+            ]
+        },
+        {
+            "Id": 30,
+            "Name": "房地产",
+            "Modules": [
+                {
+                    "Id": 3001,
+                    "Code": "NewHome3001",
+                    "Name": "新房",
+                    "Path": "/MicroSite/Modules/DC/NewHome.aspx",
+                    "Theme": "{0}DC/NewHome.html",
+                    "Setting": "{0}DC/NewHome.json",
+                    "Description": "新房",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 3002,
+                    "Code": "OldHome3002",
+                    "Name": "租售",
+                    "Path": "/MicroSite/Modules/DC/OldHome.aspx",
+                    "Theme": "{0}DC/OldHome.html",
+                    "Setting": "{0}DC/OldHome.json",
+                    "Description": "租售",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 3003,
+                    "Code": "BuildingList3003",
+                    "Name": "楼盘",
+                    "Path": "/MicroSite/Modules/DC/BuildingList.aspx",
+                    "Theme": "{0}DC/BuildingList.html",
+                    "Setting": "{0}DC/BuildingList.json",
+                    "Description": "楼盘",
+                    "ImageUrl": ""
+                }
+            ]
+        },
+        {
+            "Id": 40,
+            "Name": "活动",
+            "Modules": [
+                {
+                    "Id": 4001,
+                    "Code": "ActiveList4001",
+                    "Name": "活动参加列表",
+                    "Path": "/MicroSite/Modules/ACT/ActiveList.aspx",
+                    "Theme": "{0}ACT/ActiveList.html",
+                    "Setting": "{0}ACT/ActiveList.json",
+                    "Description": "活动参加列表",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 4002,
+                    "Code": "MyCoupon4002",
+                    "Name": "优惠卷列表",
+                    "Path": "/MicroSite/Modules/ACT/MyCoupon.aspx",
+                    "Theme": "{0}ACT/MyCoupon.html",
+                    "Setting": "{0}ACT/MyCoupon.json",
+                    "Description": "优惠卷列表",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 4003,
+                    "Code": "CouponDetail4003",
+                    "Name": "优惠券详细信息",
+                    "Path": "/MicroSite/Modules/ACT/CouponDetail.aspx",
+                    "Theme": "{0}ACT/CouponDetail.html",
+                    "Setting": "{0}ACT/CouponDetail.json",
+                    "Description": "优惠券详细信息",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 4004,
+                    "Code": "RushBuy4004",
+                    "Name": "优惠券详细信息",
+                    "Path": "/MicroSite/Modules/ACT/RushBuy.aspx",
+                    "Theme": "{0}ACT/{1}",
+                    "Setting": "{0}ACT/RushBuy.json",
+                    "Description": "优惠券详细信息",
+                    "ImageUrl": ""
+                }
+            ]
+        },
+        {
+            "Id": 50,
+            "Name": "微相册",
+            "Modules": [
+                {
+                    "Id": 5001,
+                    "Code": "Album5001",
+                    "Name": "微相册",
+                    "Path": "/MicroSite/Modules/Album/Album.aspx",
+                    "Theme": "{0}Album/Album.html",
+                    "Setting": "{0}Album/Album.json",
+                    "Description": "微相册",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 5002,
+                    "Code": "AlbumList5002",
+                    "Name": "微相册",
+                    "Path": "/MicroSite/Modules/Album/AlbumList.aspx",
+                    "Theme": "{0}Album/AlbumList.html",
+                    "Setting": "{0}Album/AlbumList.json",
+                    "Description": "微相册",
+                    "ImageUrl": ""
+                }
+            ]
+        },
+        {
+            "Id": 60,
+            "Name": "社区",
+            "Modules": [
+                {
+                    "Id": 6001,
+                    "Code": "BBSList6001",
+                    "Name": "主题列表",
+                    "Path": "/MicroSite/Modules/BBS/BBSList.aspx",
+                    "Theme": "{0}BBS/BBSList.html",
+                    "Setting": "{0}BBS/BBSList.json",
+                    "Description": "主题列表",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 6002,
+                    "Code": "BBSTopic6002",
+                    "Name": "主题",
+                    "Path": "/MicroSite/Modules/Album/BBSTopic.aspx",
+                    "Theme": "{0}BBS/BBSTopic.html",
+                    "Setting": "{0}BBS/BBSTopic.json",
+                    "Description": "主题",
+                    "ImageUrl": ""
+                }
+            ]
+        },
+        {
+            "Id": 70,
+            "Name": "4S店",
+            "Modules": [
+                {
+                    "Id": 7001,
+                    "Code": "CarList7001",
+                    "Name": "汽车列表",
+                    "Path": "/MicroSite/Modules/Car4S/CarList.aspx",
+                    "Theme": "{0}Car4S/CarList.html",
+                    "Setting": "{0}Car4S/CarList.json",
+                    "Description": "汽车列表",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 7002,
+                    "Code": "OnlineBooking7002",
+                    "Name": "预定",
+                    "Path": "/MicroSite/Modules/Car4S/OnlineBooking.aspx",
+                    "Theme": "{0}Car4S/OnlineBooking.html",
+                    "Setting": "{0}Car4S/OnlineBooking.json",
+                    "Description": "预定",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 7003,
+                    "Code": "RecommendCar7003",
+                    "Name": "推荐",
+                    "Path": "/MicroSite/Modules/Car4S/RecommendCar.aspx",
+                    "Theme": "{0}Car4S/RecommendCar.html",
+                    "Setting": "{0}Car4S/RecommendCar.json",
+                    "Description": "推荐",
+                    "ImageUrl": ""
+                }
+            ]
+        },
+        {
+            "Id": 80,
+            "Name": "CMS",
+            "Modules": [
+                {
+                    "Id": 8001,
+                    "Code": "ArticleList8001",
+                    "Name": "活动列表",
+                    "Path": "/MicroSite/Modules/CMS/ArticleList.aspx",
+                    "Theme": "{0}CMS/ArticleList.html",
+                    "Setting": "{0}CMS/ArticleList.json",
+                    "Description": "活动列表",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 8002,
+                    "Code": "ArticleDetail8002",
+                    "Name": "活动详细",
+                    "Path": "/MicroSite/Modules/CMS/ArticleDetail.aspx",
+                    "Theme": "{0}CMS/ArticleDetail.html",
+                    "Setting": "{0}CMS/ArticleDetail.json",
+                    "Description": "活动详细",
+                    "ImageUrl": ""
+                }
+            ]
+        },
+        {
+            "Id": 90,
+            "Name": "评论",
+            "Modules": [
+                {
+                    "Id": 9001,
+                    "Code": "Index001",
+                    "Name": "首页",
+                    "Path": "/MicroSite/Modules/Comment/Index.aspx",
+                    "Theme": "{0}Comment/Index.html",
+                    "Setting": "{0}Comment/Index.json",
+                    "Description": "首页",
+                    "ImageUrl": ""
+                },
+                {
+                    "Id": 8002,
+                    "Code": "ArticleDetail8002",
+                    "Name": "活动详细",
+                    "Path": "/MicroSite/Modules/Comment/ArticleDetail.aspx",
+                    "Theme": "{0}Comment/ArticleDetail.html",
+                    "Setting": "{0}Comment/ArticleDetail.json",
+                    "Description": "活动详细",
+                    "ImageUrl": ""
+                }
+            ]
+        }
+    ]
+}

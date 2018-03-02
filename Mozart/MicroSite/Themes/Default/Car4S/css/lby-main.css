@@ -1,0 +1,82 @@
+
+section#lby-content { text-align: center; }
+section#lby-content > #lby-demo { padding: 30px; margin: 0 auto; display: table; background-color: #f8f8f8; text-align: center; width: 400px; }
+section#lby-content > #lby-demo ul { list-style: none !important; float: left; }
+section#lby-content > #lby-demo ul#lby-radio-demo { float: right; }
+section#lby-content > #lby-demo ul li { list-style: none !important; margin: 2px 0 2px 0; text-align: left; }
+section#lby-content > #lby-demo ul li:last-child { margin-top: 0; }
+section#lby-content > #lby-demo ul li.header { text-align: left; opacity: 0.5; margin-bottom: 10px; }
+section#lby-content > #lby-demo ul li.header:not(:first-child) { margin-top: 15px; }
+
+
+input.to-labelauty-icon + label { display: inline-block; margin-right: 6px; }
+input.to-labelauty-icon + label:last-child { margin-right: 0; }
+
+input.labelauty + label { font-size: 11px; }
+
+input.labelauty + label > span.labelauty-unchecked-image
+{
+	background-image: url( ../img/input-unchecked.png );
+}
+input.labelauty + label > span.labelauty-checked-image
+{
+	background-image: url( ../img/input-checked.png );
+}
+
+input.labelauty.synch-icon + label > span.labelauty-unchecked-image
+{
+	background-image: url( ../img/synch-unchecked.png );
+}
+input.labelauty.synch-icon + label > span.labelauty-checked-image
+{
+	background-image: url( ../img/synch-checked.png );
+}
+
+input.labelauty.terms-icon + label > span.labelauty-unchecked-image
+{
+	background-image: url( ../img/terms-unchecked.png );
+}
+input.labelauty.terms-icon + label > span.labelauty-checked-image
+{
+	background-image: url( ../img/terms-checked.png );
+}
+
+input.labelauty.disabled-icon + label > span.labelauty-unchecked-image
+{
+	background-image: url( ../img/input-disabled.png );
+}
+input.labelauty.disabled-icon + label > span.labelauty-checked-image
+{
+	background-image: url( ../img/input-disabled.png );
+}
+
+a.button
+{
+	display: table;
+	font-size: 12px;
+	background-color: #DD66C2;
+	text-align: center;
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 15px 25px;
+	color: #FFF;
+
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+
+	transition: background-color 0.25s;
+	-moz-transition: background-color 0.25s;
+	-webkit-transition: background-color 0.25s;
+	-o-transition: background-color 0.25s;
+}
+
+a.button:hover
+{
+	background-color: #DD66C2;
+}
+
+a.button:active
+{
+	background-color: #DD66C2;
+}

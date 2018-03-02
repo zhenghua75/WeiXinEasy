@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <form id='alipaysubmit' name='alipaysubmit' 
+        action='http://wappaygw.alipay.com/service/rest.htm?_input_charset=utf-8' method='get'>
+        <input type='hidden' name='_input_charset' value='utf-8'/>
+        <input type='hidden' name='format' value='xml'/>
+        <input type='hidden' name='partner' value='2088511509671281'/>
+        <input type='hidden' name='req_data' value='<auth_and_execute_req><request_token>20140904a3b26375182071895358e9fcd45494b0</request_token></auth_and_execute_req>'/>
+        <input type='hidden' name='sec_id' value='MD5'/>
+        <input type='hidden' name='service' value='alipay.wap.auth.authAndExecute'/>
+        <input type='hidden' name='v' value='2.0'/>
+        <input type='hidden' name='sign' value='613737e34d9c8e96c548c49419af57c8'/>
+        <input type='submit' value='确认' style='display:none;'>
+    </form>
+    <script>
+        document.forms['alipaysubmit'].submit();
+    </script>
+</body>
+</html>

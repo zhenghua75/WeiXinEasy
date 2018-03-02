@@ -1,0 +1,31 @@
+#servers li span{padding-bottom: 10px; padding-top: 10px; border-left: 6px solid #245269; font-size:1.2em; text-align: center; }
+#servers #dc{ border-left: 6px solid #7FBF36;}
+#servers #fw{border-left: 6px solid #FF8000;}
+#servers #hd{border-left: 6px solid #651F63;}
+#servers #hy{border-left: 6px solid #3AAACF;}
+#servers #kf{border-left: 6px solid #FF6666;}
+#servers #mh{border-left: 6px solid #99CC99;}
+#servers #qg{border-left: 6px solid #CC0033;}
+#servers #sc{border-left: 6px solid #999966;}
+#servers #tp{border-left: 6px solid #009966;}
+#servers #xc{border-left: 6px solid #CC99CC;}
+#servers #yd{border-left: 6px solid #66CCCC;}
+#servers li{padding-left: 5px; padding-right: 5px; padding-bottom: 0px; height: 55px;}
+#servers{padding-left: 5px; padding-right: 5px}
+.ewm{margin: 0px auto; display: block;}
+.logo{margin: auto; display: block; padding: 5% 0px;}
+
+body{font-family: "微软雅黑"; background: url(../img/bg.jpg) no-repeat; font-size: 12px;}
+
+@media (max-width: 320px) {
+	.logo{ width: 70%; height: auto;}
+
+}
+@media (min-width: 321px) and (max-width: 480px) {
+	
+	.logo{ width: 70%; height: auto;}
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  
+  .logo{ width: 70%; height: auto;}
+}

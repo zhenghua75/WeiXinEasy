@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="QueryFeeNoPage.aspx.cs" Inherits="Mozart.PublicService.ServiceCode.QueryFeeNoPage" %>

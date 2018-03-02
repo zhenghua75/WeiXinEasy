@@ -1,0 +1,25 @@
+﻿
+.status{
+	
+}
+
+.status label.error {
+  padding-left: 16px;
+  padding-bottom: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #EA5200;
+  width: 150px;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+.status label.checked {
+  color:  #66cc00;
+  font-weight: bold;
+}
+.status label.checkeds {
+  color:  #66cc00;
+  font-weight: bold;
+  
+}

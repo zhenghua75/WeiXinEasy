@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>$title</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+    <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+    <style>
+        .col-lg-12 img {
+        border:0px;cursor:pointer;
+        }
+        td {
+        cursor:pointer;
+        }
+    </style>
+</head>
+<body style="background: #f6f6f6;">
+    <div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="back_ico" onclick="javascript:history.back()">返回</a>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">$title</div>
+			</div>
+		</div><br />
+		<div id="paywaydiv" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+                    <div class="table-responsive" id="product_info">
+				  <table class="table">
+				    <tr>
+                       <td class="col-xs-3 text-center" data-pay="alipay">
+                           支付宝支付
+                       </td>
+				    </tr>
+                      <tr>
+                          <td class="col-xs-3 text-center" data-pay="wxpay">
+                              微信支付
+                          </td>
+				    </tr>
+                    </table>
+                    </div>
+				</div>
+			</div>
+		</div>
+    <div class="paydiv">$payway</div>
+</body>
+    <script>
+        $errormsg
+        var pname ="$pname";
+        var ordernum ="$ordernum";
+        var countcost = "$countcost";
+        var customid = "$customid";
+        var openid = "$openid";
+
+        var formaction = Request("action");
+        if (formaction != null && formaction != "") {
+            if (formaction.indexOf("pay") > 0) {
+                $("#paywaydiv").hide();
+            }
+        }
+
+        if (pname == null || pname == "" || ordernum == null || ordernum == "" ||
+            countcost == null || countcost == "" ||customid == null || customid == "")
+        {
+            $(".table").css("display", "none");
+            $.dialog({ time: 2, lock: true, fixed: true, icon: 'error', content: '非法操作！' });
+            window.history.back();
+        }
+        $(".col-xs-3").click(function () {
+            var action = $(this).attr("data-pay");
+            if (action == "wxpay")
+            {
+                if (openid == null || openid == "")
+                {
+                    $.dialog({ time: 2, lock: true, fixed: true, icon: 'error', content: '目前只支持支付宝支付方式！' });
+                    return false;
+                }
+            }
+            location.href = "PayWay.aspx?action=" + action + "&pname=" + pname + "&ordernum=" + ordernum +
+                "&countcost=" + countcost + "&customid=" + customid + "&openid=" + openid;
+        })
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+    </script>
+</html>

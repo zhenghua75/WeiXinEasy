@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0" />
+    <title>支付方式选择</title>
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="css/payfee.css" />
+    <link rel="stylesheet" href="css/css.css" />
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <div data-role="page" data-theme="b">
+        <div data-role="header">
+        </div>
+        <div data-role="content">
+            <form action="ChargeFeeOK.aspx?type=$chargetype&openid=$OpenID&chargeno=$ChargeNo&chargeamount=$ChargeAmount&celWhere=$CelWhere" method="post">
+                <div id="nav" class="nav">
+                    <a href="javascript:void(0)" class="nav_a nav_off">支付确认</a>
+                </div>
+                <br />
+                <div id="content">
+                    <div class="panel">
+                        <ul class="radius space">
+                            <li>
+                                <div class="li_div">
+                                    <label for="loginName" data-length="12">缴费类型：$ChargeType</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="li_div">
+                                    <label for="loginName" data-length="12">缴费号码：$ChargeNo</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="li_div">
+                                    <label for="loginName" data-length="12">缴费金额：$ChargeAmount</label>
+                                </div>
+                            </li>
+                        </ul>
+                        <br />
+                        <!--<label data-length="12">
+                            &nbsp;&nbsp;&nbsp;
+                            <label for="PayType">支付方式</label>：
+                        </label>
+                        <br />
+                        <ul>
+                            <li>
+                                <div class="li_div">
+                                    <ul class="radius">
+                                        <li>
+                                            <div class="li_div">
+                                                <input type="radio" id="PayType1" name="PayType" checked="checked" value="1">
+                                                <label class="cb" for="room1">支付宝</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="li_div">
+                                                <input type="radio" id="PayType2" name="PayType" value="2">
+                                                <label class="cb" for="room1">财付通</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>-->
+                        <label style="width:100%">
+                            <p style="color:red;text-align:center;width:100%;font-size:20px;" for="PayType">请仔细核对号码与金额是否正确！</p>
+                        </label>
+                        <br />
+                        <p class="tc pb10">
+                            <input type="submit" class="btn redbtn" value="确认支付" size="16" />
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

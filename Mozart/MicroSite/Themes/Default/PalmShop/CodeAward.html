@@ -1,0 +1,63 @@
+﻿
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+        <script src="js/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        <style>
+            .zjjm{font-size: 16px;}
+            .zjjm img{ display: block; margin: 40px auto 20px auto;}
+            .zjjm strong{font-size: 40px; color: red;}
+            .zjjm .zj_des{color: #999; line-height: 25px; padding-top: 10px;}
+            .zjjm .zj_des label{color: #222222; font-weight: normal;}
+        </style>
+	</head>
+	<body style="background: #FFFFFF;">
+		<div class="container-fluid" id="noaward">
+			<div class="row zjjm">
+				<p class="col-xs-12"><img class="img-responsive" src="img/cry_ico.png"/></p>
+				<h3 class="col-xs-12" style="color: #999; line-height: 35px;text-align:center;">
+                    </h3>
+			</div>
+		</div>
+        <div class="container-fluid" id="isaward">
+			<div class="row zjjm">
+				<p class="col-xs-12"><img class="img-responsive" src="img/smile_ico.png"/></p>
+				<h3 class="col-xs-12 text-center">恭喜您获得：<strong>$amount</strong>V币</h3>
+				<p class="col-xs-12 zj_des ">恭喜您中奖啦！请到公众账号"
+                    <label>V粉服务中心</label>"下的"<label>我的V账户</label>"查收！
+				</p>
+			</div>
+		</div>
+        <script>
+            var extfid = "$extfid";
+            var amount = $amount; var receive = $receive;
+            $("#noaward").hide();
+            $("#isaward").hide();
+            $("#noaward").find("p").hide();
+            if (receive == 0 || receive == "0") {
+                if (amount == 0 || amount == "0") {
+                    $("#noaward").find("p").show();
+                    $("#noaward").find("h3").html("不要灰心，请持续关注我们的公众号，后期会有更多精彩活动！");
+                    $("#noaward").show();
+                } else {
+                    $("#isaward").show();
+                }
+            } else {
+                $("#noaward").find("h3").html("该V币已被领取！");
+                $("#noaward").show();
+            }
+        </script>
+	</body>
+</html>

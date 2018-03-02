@@ -1,0 +1,47 @@
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;word-wrap:break-word;
+}
+body,html{ font-family:"微软雅黑"; color:#666; font-size:12px;
+}
+html{overflow-x: hidden; }
+table{border-collapse:collapse;border-spacing:0;
+}
+img{border:none;
+}
+input.dialog{height:0; height:0; font-size:0; line-height:0; border:none;
+}
+ul,ol,li{list-style:none;
+}
+a { text-decoration:none; color:#cb9904;
+}
+a:hover { color: #1C652D; text-decoration:underline;
+}
+
+.box{width: 1024px; height: 768px; margin: auto; background: url(../img/bg.png) no-repeat center center;}
+.center{width: 1024px; height: 588px; padding: 10px 0px;}
+.left{width: 770px; float: left; height: 588px;}
+.right{width: 240px; float: right;height: 588px; overflow: hidden; }
+.dym{width: 220px; height: 40px; line-height: 40px; text-align: center; font-size: 14px; color: #222；}
+.zhuyi h3{font-size: 14px; color:#fff; background: url(../img/zhuyi.png) no-repeat 15px center; padding-left: 25px;  height: 40px; line-height: 40px;}
+
+
+.tiaoma{height: 50px; border: 1px solid #DDDDDD; line-height: 50px; background:#005344; width: 238px;margin: 10px auto;}
+.tiaoma strong{font-size: 14px; font-weight: bold; color: #fff; padding-left: 10px; float: left;}
+.tiaoma label{width: 134px; height: 30px; line-height: 30px; float: right; margin: 10px 10px auto auto; text-align: center; font-weight: bold; color: #B80016; font-size: 16px; background: url(../img/num_bg.png) no-repeat center center; display: block;}
+
+.erweima{ border: 1px solid #DDDDDD; line-height: 50px; background: #63a26d; width: 238px; }
+.erweima img{width: 219px; height: 219px; display: block; margin: 10px auto;}
+.erweima h4{height: 20px;line-height: 20px; text-align: center; font-size: 14px;color:#fff; padding-bottom: 5px;}
+
+.zhuyi{border: 1px solid #DDDDDD;  background: #005e66; width: 238px; height: 248px; overflow: hidden; color: #efefef;}
+.zhuyi ol{background: #008792 !important;margin:0px 0px 10px 0px; width: 218px; padding-top: 5px; height: 208px; overflow: hidden; padding-right: 10px; padding-left: 10px; font-size: 12px;}
+.zhuyi ol li{padding-top: 5px; padding-bottom: 5px;}
+.zhuyi ol li label{color: #fff !important; font-weight: bold;}
+
+.top,.bottom{width: 1024px; height: 80px;  overflow: hidden;}
+.top{background: url(../img/top_bg.png) repeat-x;}
+.bottom{background: #fff; border-top: 4px solid #b80016;}
+.bottom img{margin-top: 5px; float: left;}
+.bottom  span{width: 550px; float: right; font-size: 13px; color: #444; line-height: 20px; text-align: center; padding-top: 20px}
+.top img{margin: 13px auto auto 30px;}
+
+

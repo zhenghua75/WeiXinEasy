@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VProductDetail.aspx.cs" Inherits="Mozart.MicroSite.VProductDetail" %>

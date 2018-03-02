@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>$title</title>
+    <link rel="stylesheet" type="text/css" href="Themes/Default/style/base.css" />
+    <link rel="stylesheet" type="text/css" href="Themes/Default/style/cart.css" />
+    <script type="text/javascript">
+        function changePrice() {
+            var chargeNum = document.getElementById("cAmount").value;//.getAttribute("value"); 
+            if (isNaN(chargeNum)) {
+                alert("请输入正确的数字！");
+                document.getElementById("cAmount").value = "1";
+                document.getElementById("amountprice").value = "￥ " + PhonePrice.toFixed(2);
+                return;
+            }
+            if (chargeNum < 1) {
+                alert("请输入正确的数字！");
+                document.getElementById("cAmount").value = "1";
+                document.getElementById("amountprice").value = "￥ " + PhonePrice.toFixed(2);
+                return;
+            }
+			if (chargeNum != "")
+			{
+			    //alert("￥ " + (chargeNum * PhonePrice).toFixed(2) + " 元");
+			    document.getElementById("amountprice").innerText = "￥ " + (chargeNum * PhonePrice).toFixed(2);
+			}
+		}
+    </script>
+</head>
+<body>
+    <div id="top">
+        <div class="header-title">商品订购</div>
+        <div class="site-nav">
+            <ul class="fix">
+               <!-- <li class="mycart"><a href="MyCart.aspx">购物车</a></li>-->
+            </ul>
+        </div>
+    </div>
+    <div class="line"></div>
+    <div style="margin:0 auto; width:90%; height:90%"><img style="width:100%;height:100%" src="$pDetail.PimgUrl" alt="" /></div>
+    <div class="line"></div>
+    <div style="margin:0px 5px;color:#777;text-align:center">
+        <script type="text/javascript">
+            var PhonePrice = $pDetail.Price;
+		</script>
+        <span>名称:&nbsp;$pDetail.Ptitle&nbsp;&nbsp;&nbsp;</span>
+        <span>单价:&nbsp;<font style="color:#C00"><strong>$pDetail.Price</strong></font>&nbsp;元</span>
+        <br /><br />
+        <span class="attr">数量：</span>
+        <div class="countArea">
+            <input class="count-input" type="text" name="cAmount" id="cAmount" value="1" onkeyup="changePrice()" />
+        </div>
+        <span class="attr">总价：</span><strong><label id="amountprice">$pDetail.Price</label>元</strong>
+    </div>
+    <div class="layout" style="margin-top:10px">
+        <div class="btn-ui-b mt10"><a href="VAddCart.aspx?id=$pDetail.ID&sitecode=$sitecode&openid=$openid" style="color:#fff">订购</a></div>
+    </div>
+    <div class="line"></div>
+    <div id="footer">
+        <div class="layout fix user-info">
+            <div class="fr"><a id="backTop" href="javascript:window.scrollTo(0,0);">回顶部</a></div>
+        </div>
+        <div class="copyright">版权所有 &#169; 2012-2014 $footer</div>
+    </div>
+</body></html>

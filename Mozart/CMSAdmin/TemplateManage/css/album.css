@@ -1,0 +1,162 @@
+﻿*{
+	margin: 0;
+	padding:0;
+}
+li{
+	list-style:none;
+}
+#wxc{
+	width: 100%;
+	overflow: hidden;
+}
+#wxc ul li{
+	width: 741px;
+	height: 81px;
+	margin-top: 15px;
+}
+.wxcDiv{
+	width: 703px;
+	height: 83px;
+	background: #e6e6e6;
+}
+.inputa{
+	float: left;
+	margin-top:32px; 
+}
+.wxcDiv{
+	float: left;
+	margin-left: 20px;
+}
+.img_one{
+	margin-top: 25px;
+	margin-left: 15px;
+	width: 32px;
+	height: 32px;
+	float: left;
+}
+.img_two{
+	margin-top: 12px;
+	margin-left: 15px;
+	width: 79px;
+	height: 59px;
+	float: left;
+}
+.aInput{
+	width: 447px;
+	height: 58px;
+	background: #fff;
+	border:1px solid #dadada;
+	float: left;
+	margin-left: 14px;
+	margin-top: 11px;
+}
+.aInput textarea {
+	width:100%;
+	height:100%;
+	font-size:12px;
+}
+.img_three{
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+.wxcDiv a{
+	float: left;
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin-top: 28px;
+	margin-left: 14px;
+}
+
+
+#tjxc{
+	width: 168px;
+	float:left;
+}
+#tjxc ul li{
+	width: 153px;
+	height: 160px;
+	float: left;
+}
+.tjxc_xc{
+	width: 153px;
+	height: 190px;
+	padding-top: 5px;
+	float: left;
+	margin-left: 7px;
+}
+.xc_top{
+	width: 142px;
+	height: 142px;
+	background: url(../images/xcBox.png) no-repeat;
+	margin-left: 5px;
+}
+.xc_top img{
+	margin-left: 4px;
+	margin-top: 4px;
+	width:131px;
+	height:131px;
+}
+.xc_bottom{
+	margin-left: 8px;
+	margin-top: 8px;
+	height: 42px;
+	width:91%;
+}
+.xc_bottom span{
+	float: left;
+	display:block;
+	width: 65%;
+	color: #4e4e4e;
+	font-weight: 600;
+	font-size: 12px;
+}
+div.tjxc_xc div.xc_bottom span a{
+	color: #4e4e4e;
+	font-weight: 600;
+	font-size: 12px;
+}
+.xc_bottom strong{
+	float: right;
+	margin-right: 8px;
+	display:block;
+	font-weight:normal;
+	color: #b2b2b2;
+	font-size: 12px;
+}
+.xc_bottom p{
+	display:block;
+	height:22px;
+}
+.xc_bottom p a{
+	color: #b7b7b7;
+	text-decoration: none;
+	font-size: 12px;
+}
+.a1_b{
+	margin-left: 16px;
+}
+.a1_c{
+	margin-left: 15px;
+}
+.cjxc_box{
+	width:686px;
+	height:121px;
+	border:1px solid #dfdfdf;
+	margin:0 auto;
+	text-align:center;
+	background:#f6f6f6;
+}
+.cjxc_box p{
+	margin-top:27px;
+	font-size:16px;
+	color:#666666;
+}
+.cjxc_box input{
+	width: 90px;
+	margin-top:20px;
+	border-radius:5px;
+	font-size:12px;
+	color:#000;
+}

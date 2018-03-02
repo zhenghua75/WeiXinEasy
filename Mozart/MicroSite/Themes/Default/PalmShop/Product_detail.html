@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>$title</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" href="css/banner.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<script type="text/javascript" src="js/banner.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+        <script src="js/ImgSet.js"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        <style>
+            .checked{ border: 2px solid #c00;margin:0px auto;}
+            .unchecked {border: 1px solid gray;margin:0px auto;}
+            #pmodeldiv {border:1px solid #edeaea;margin:0px auto;padding:5px;display:none;}
+            #pmodeldiv p {margin:10px auto;padding:0px;line-height:30px;}
+            #pmodeldiv i {margin:-5px auto;padding:0px;cursor:pointer;color:red;border:0px;
+                          float: right;font-size: 21px;font-weight: 700;line-height: 1;
+                          color: #000;text-shadow: 0 1px 0 #fff;filter: alpha(opacity=20);opacity: .2;
+            }
+            #pmodeldiv span {cursor:pointer;margin:0px auto;padding:3px;}
+            .stock {font-size: 12px;font-weight: normal;margin: 5px 0px 0px 0px;}
+        </style>
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a class="back_ico" onclick="javascript:history.back()">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">产品详情</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row bg_white">
+					<div class="wrp">
+					  <div class="banner" id="slide">
+					    <ul id="picList" class="list-unstyled">
+                            $foreach(atlas in atlaslist)
+					      <li class="slide_li first">
+					        <div class="imgBg_home"></div>
+					        <img class="slide_img img-responsive" onload="setimg(this,'220','155')" alt="$atlas.AltasName" src="$atlas.PimgUrl" />
+					      </li>
+                            $end
+					    </ul>
+					    <div id="slideThumb"></div>
+					  </div>
+				</div>
+			</div>
+			<div class="row bg_white detail_title">
+                <div class="col-lg-12 clear">
+					<span style="font-size:12pt;color:black;">$productdetail.Ptitle</span>
+                    &nbsp;&nbsp;¥<label id="proPrice">
+                        $if(productdetail.Price!=null&&productdetail.Price!=""&&productdetail.Price!="0.00"&&productdetail.Price!="0")
+                        $productdetail.Price
+                        $end
+                        $if(productdetail.Price==null||productdetail.Price==""||productdetail.Price=="0.00"||productdetail.Price=="0")
+                       $if(paramodel.Sprice!=null&&paramodel.Sprice!=""&&paramodel.Sprice!="0"&&paramodel.Sprice!="0.00")
+                        $paramodel.Sprice
+                        $end
+                        $if(paramodel.Mprice!=null&&paramodel.Mprice!=""&&paramodel.Mprice!="0"&&paramodel.Mprice!="0.00")
+                         ~ $paramodel.Mprice
+                        $end
+                        $end
+
+
+                                 </label>元
+                    $if(shopdetail.ShopName!=null&&shopdetail.ShopName!="")
+                    <p><a href="Myshop.aspx?sid=$shopdetail.ID" class="shopname">$shopdetail.ShopName</a></p>
+                    $end
+				</div>
+                $if(productdetail.isSecHand==0||productdetail.isSecHand=="0"||productdetail.isSecHand=="否")
+				<div class="col-lg-12 clear">
+                    $if(paralist.count>=1)
+                    <div id="pmodel" class="row clear_margin"
+                         style="border:1px solid #edeaea;margin:0px auto;padding:5px;cursor:pointer;">
+                        选择商品 型号尺寸
+                    </div>
+                    <div id="pmodeldiv" class="row">
+                        <i title="关闭">×</i>
+                        型号尺寸
+                        <p>
+                            $foreach(para in paralist)
+                            <span class="unchecked" data-price="$para.Price" 
+                                data-id="$para.ID" data-stock="$para.Stock">$para.ParName</span>
+                            $end
+                        </p>
+                    </div>$end
+                    <dl class="buyquantity">
+                        <dt>
+                            <span class="sum">数量</span>
+                            <span class="decrease">-</span>
+                            <input id="num" value="1" data-nprice="$productdetail.Price" type="tel">
+                            <span class="increase">+</span>
+                            <span class="stock"></span>
+                        </dt>
+                    </dl>
+				</div>
+                $end
+                <!--<div class="col-lg-12 clear" style="color:black;">
+                    联系方式：<span style="color:#E42A35;font-size:14pt;">$contactdetail.Phone</span> $contactdetail.NickName
+                </div>-->
+                <div  class="col-lg-5 col-xs-5" style="margin:15px 0px 0px 0px;padding:0px;float:left;">
+                    <span class="callphonebtn"><i></i>电话联系</span>
+                </div>
+                $if(productdetail.isSecHand==0||productdetail.isSecHand=="0"||productdetail.isSecHand=="是")
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-center col-lg-offset-2 
+                    col-md-offset-2 col-sm-offset-2 col-xs-offset-2" style="margin:15px 0px 0px 0px;float:right">
+					<span class="buybtn">立即购买</span>
+				</div>$end
+			</div>
+		</div>
+            <div class="productdetail">
+                <ul>
+                    <li id="tab1">图集</li>
+                    <li id="tab2">商品详情</li>
+                    <!--<li id="tab3">参数</li>-->
+                </ul>
+                <div id="tab1info">
+                    $foreach(atlasimg in atlaslist)
+                    <p>
+                        <img alt="$atlasimg.AltasName" src="$atlasimg.PimgUrl" />
+                    </p>
+                    $end
+                </div>
+                <div id="tab2info">
+                    $productdetail.Pcontent
+                </div>
+                <!-- 商品公共参数 -->
+                <!--<div id="tab3info" class="con-table">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            $paramlist
+                        </tbody>
+                </table>
+                </div>-->
+            </div>
+        <!--<div class="container-fluid">
+			<div class="row bg_white product_pin">
+				<h4>商品评论<span class=" badge pull-right" style="margin-top: 10px;">总评数：20</span></h4>
+				<ul class="media-list" style="padding-bottom: 0px;">
+				  <li class="media">
+				    <a class=" col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">
+				      <img class="img-responsive img-rounded" src="images/shop_img123.png" alt="">
+				    </a>
+				    <div class="media-body  col-lg-9 col-md-9 col-sm-9 col-xs-9">
+				      <h5 class="media-heading">Media heading<span class="text-right pull-right" >2014-08-20</span></h5>
+				      <p>问道很不错，大家可以试一试啊，休闲的时候吃不错啊</p>
+				    </div>
+				  </li>
+				   <li class="media">
+				    <a class=" col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">
+				      <img class="img-responsive img-rounded" src="images/shop_img123.png" alt="">
+				    </a>
+				    <div class="media-body  col-lg-9 col-md-9 col-sm-9 col-xs-9">
+				      <h5 class="media-heading">Media heading<span class="text-right pull-right">2014-08-20</span></h5>
+				      <p>问道很不错，大家可以试一试啊，休闲的时候吃不错啊</p>
+				    </div>
+				  </li>
+				   <li class="media">
+				    <a class=" col-lg-3 col-md-3 col-sm-3 col-xs-3" href="#">
+				      <img class="img-responsive img-rounded" src="images/shop_img123.png" alt="">
+				    </a>
+				    <div class="media-body  col-lg-9 col-md-9 col-sm-9 col-xs-9">
+				      <h5 class="media-heading">Media heading<span class="text-right pull-right">2014-08-20</span></h5>
+				      <p>问道很不错，大家可以试一试啊，休闲的时候吃不错啊</p>
+				    </div>
+				  </li>
+				</ul>
+			</div>
+            </div>-->
+	</body>
+    <script>
+        var paracount = $paracount;
+        $errorscript
+        $(document).ready(function () {
+            $("#tab1").addClass("current");
+            $("#tab2info").hide();
+            $("#tab3info").hide();
+            $("#tab1info").show();
+            $("#num").attr("onkeyup", "this.value=this.value.replace(/[^0-9]/g,'')");
+        })
+        $("#pmodel").click(function () {
+            $(this).hide();
+            $("#pmodeldiv").show();
+        })
+        $("#pmodeldiv i").click(function () {
+            $("#pmodeldiv").hide();
+            $("#pmodel").show();
+        })
+        $("#pmodeldiv p span").click(function () {
+            var thi = this;
+            $("#pmodeldiv p span").each(function () {
+                if (this.checked && this != thi) {
+                    this.className = "unchecked";
+                    this.checked = false;
+                }
+            });
+            var dataprice = $(thi).attr("data-price");
+            thi.className = "checked";
+            thi.checked = true;
+            var stock = $(thi).attr("data-stock");
+            $(".stock").html("库存 " + stock);
+            $("#pmodel").html("  已选" + $(thi).html());
+            if (stock <= 0)
+            {
+                $(".buybtn").css("display","none");
+            }
+            if (dataprice != null && dataprice != "") {
+                $("#proPrice").html(dataprice);
+            }
+            $("#num").val(1);
+        })
+        $('#num').mouseleave(function () {
+            setpricebynum(this);
+        })
+        $('#num').blur(function () {
+            setpricebynum(this);
+        })
+        function setpricebynum(thi)
+        {
+            var num = $(thi).val();
+            if (num == "0" ||parseInt(num) <= 0 || num == "" ||num == null || num.toLowerCase() == "nan") {
+                num = 1;
+            }
+            var tempvalue = parseInt(num);
+            var nprice = $(thi).attr("data-nprice");
+            //var stock = 0;
+            //if (paracount >= 1) {
+            //    nprice = "";
+            //    $("#pmodeldiv p span").each(function () {
+            //        var dataprice = $(this).attr("data-price");
+            //        if (this.checked && dataprice != null && dataprice != "") {
+            //            nprice = dataprice;
+            //            stock = $(this).attr("data-stock");
+            //        }
+            //    })
+            //}
+            //if (nprice != null && nprice != "") {
+            //    if (parseInt(stock) != 0 && parseInt(tempvalue) > parseInt(stock))
+            //    {
+            //        tempvalue = 1;
+            //        $.dialog({ time: 3, lock: true, fixed: true, icon: 'error', content: '购买数量不得超过库存量！' });
+            //    } else
+            //    {
+            //        nprice = (parseFloat(nprice) * parseFloat(tempvalue)).toFixed(2);
+            //    }
+            //} else {
+            //    if (tempvalue > 1) {
+            //        if (paracount >= 1) {
+            //            $.dialog({ time: 3, lock: true, fixed: true, icon: 'error', content: '请选择相应型号或尺寸！' });
+            //        }
+            //    }
+            //    tempvalue = 1;
+            //}
+            $(thi).val(tempvalue);
+            if (nprice != null && nprice != "") {
+                $("#proPrice").html(nprice);
+            }
+        }
+        $(".callphonebtn").click(function () {
+            var phone = "";
+            try {
+                phone = "$contactdetail.Phone";
+            } catch (e) {
+                phone = "";
+            }
+            if (phone != null && phone != "" && phone != "undefined")
+            {
+                location.href = "tel:"+phone;
+            }
+        })
+        $("#tab1").click(function () {
+            $(".productdetail ul li.current").removeClass("current");
+            $(this).addClass("current");
+            $("#tab2info").hide();
+            $("#tab3info").hide();
+            $("#tab1info").show();
+        });
+        $("#tab2").click(function () {
+            $(".productdetail ul li.current").removeClass("current");
+            $(this).addClass("current");
+            $("#tab1info").hide(); 
+            $("#tab3info").hide();
+            $("#tab2info").show();
+        });
+        $("#tab3").click(function () {
+            $(".productdetail li.current").removeClass("current");
+            $(this).addClass("current");
+            $("#tab1info").hide();
+            $("#tab2info").hide();
+            $("#tab3info").show();
+        });
+        //增加数量
+        $(".increase").live("click", function () {
+            var tempvalue = parseInt($("#num").val());
+            tempvalue = tempvalue + 1;
+            if (tempvalue > 1)
+            {
+                tempvalue = 1;
+                $.dialog({ time: 3, lock: true, fixed: true, icon: 'error', content: '该商品限购一件！' });
+            }
+            //var nprice = $("#num").attr("data-nprice");
+            //tempvalue = tempvalue + 1;
+            //var stock = 0;
+            //if (paracount >= 1) {
+            //    $("#pmodeldiv p span").each(function () {
+            //        var dataprice = $(this).attr("data-price");
+            //        if (this.checked && dataprice != null && dataprice != "") {
+            //            nprice = dataprice;
+            //            stock = $(this).attr("data-stock");
+            //        }
+            //    })
+            //}
+            //if (nprice != null && nprice != "" && parseFloat(nprice) != "0.00") {
+            //    if (parseInt(stock) != 0 && parseInt(tempvalue) > parseInt(stock)) {
+            //        tempvalue =tempvalue- 1;
+            //        $.dialog({ time: 3, lock: true, fixed: true, icon: 'error', content: '购买数量不得超过库存量！' });
+            //    } else {
+            //        $("#proPrice").html((parseFloat(nprice) * parseFloat(tempvalue)).toFixed(2));
+            //    }
+            //} else {
+            //    if (paracount >= 1) {
+            //        $.dialog({ time: 3, lock: true, fixed: true, icon: 'error', content: '请选择相应型号或尺寸！' });
+            //    }
+            //    tempvalue = tempvalue - 1;
+            //}
+            $("#num").val(tempvalue);
+        });
+        //减少数量
+        $(".decrease").live("click", function () {
+            var tempvalue = parseInt($("#num").val());
+
+            tempvalue = tempvalue - 1;
+            if (tempvalue<=0) {
+                tempvalue = 1;
+                $.dialog({ time: 3, lock: true, fixed: true, icon: 'error', content: '最少选购一件！' });
+            }
+            //var nprice = $("#num").attr("data-nprice");
+            //var stock = 0;
+            //if (tempvalue > 1) {
+            //     tempvalue = tempvalue - 1;
+            //    if (paracount >= 1) {
+            //        $("#pmodeldiv p span").each(function () {
+            //            var dataprice = $(this).attr("data-price");
+            //            if (this.checked && dataprice != null && dataprice != "") {
+            //                nprice = dataprice;
+            //                stock = $(this).attr("data-stock");
+            //            }
+            //        })
+            //    }
+            //    if (nprice != null && nprice != "") {
+            //        $("#proPrice").html((parseFloat(nprice) * parseFloat(tempvalue)).toFixed(2));
+            //    } else {
+            //        if (paracount >= 1) {
+            //            $.dialog({ time: 3, lock: true, fixed: true, icon: 'error', content: '请选择相应型号或尺寸！' });
+            //        }
+            //        tempvalue = tempvalue +1;
+            //    }
+            //}
+            $("#num").val(tempvalue);
+        });
+        $(".buybtn").live("click", function ()
+        {
+            var secHand = $productdetail.isSecHand;
+            var tempvalue = parseInt($("#num").val());
+            var nprice = $("#num").attr("data-nprice");
+            var paraid = "";
+            if (secHand == 1 || secHand == "1" || secHand == "是")
+            {
+                tempvalue = 1;
+            }
+            if (paracount >= 1) {
+                nprice = "";
+                $("#pmodeldiv p span").each(function () {
+                    var dataprice = $(this).attr("data-price");
+                    if (this.checked && dataprice != null && dataprice != "") {
+                        nprice = dataprice;
+                        paraid = $(this).attr("data-id");
+                    }
+                })
+                if (nprice == null || nprice == "")
+                {
+                    $.dialog({ time: 3, lock: true, fixed: true, icon: 'error', content: '请选择相应型号或尺寸！' });
+                    return false;
+                }
+            } 
+            var pid = "$productdetail.ID";
+            var countcost = (parseFloat(nprice) * parseFloat(tempvalue)).toFixed(2);
+            $.getJSON("Product_detail.aspx", {
+                "action": "setcart", "quantity": tempvalue, "pid": pid, "countcost": countcost
+            }, function (json) {
+                if (json.error == true) {
+                    if (json.exist == true) {
+                        $.dialog({
+                            lock: true, fixed: true,
+                            content: '对不起，您已购买过该商品<br/>该商品只能限购一件',
+                            ok: function () {
+                                location.href = "CustomerOrder.aspx";
+                            },
+                            okVal: '查看订单',
+                            cancelVal: '过后再说',
+                            cancel: true
+                        });
+                    } else if (json.msg != null && json.msg != "") {
+                        $.dialog({
+                            time: 4, lock: true, fixed: true, icon: 'error', content: json.msg, close: function () {
+                                if (json.loginurl != null && json.loginurl != "") {
+                                    location.href = json.loginurl;
+                                }
+                            }
+                        });
+                    } else {
+                        if (json.loginurl != null && json.loginurl != "") {
+                            location.href = json.loginurl;
+                        }
+                    }
+                }
+                if (json.success == true) {
+                    location.href = "setOrder.aspx?pid=" + pid + "&num=" + tempvalue+"&mid="+paraid;
+                }
+                return false;
+            })
+        })
+    </script>
+</html>

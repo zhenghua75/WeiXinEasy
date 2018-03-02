@@ -1,0 +1,70 @@
+body{background: url(../img/bg2.png) repeat center top; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; font-family:"微软雅黑";}
+#menu li a{width: 100%; height: 100%; background: #FFFFFF; display: block; border-radius: 15px; -moz-border-radius: 15px; -webkit-border-radius: 15px; border: 2px solid #7A7159; box-shadow: 0px 0px 1px #A7A196; -webkit-box-shadow: 0px 0px 1px #A7A196; -moz-box-shadow: 0px 0px 1px #A7A196; color: #FFFFFF; position: relative;}
+#menu li a h3{padding-bottom: 5%;}
+#menu li a img{width: 70%;margin-top: 10%; position: relative;transition:width 1s, height 1s;
+-moz-transition:width 1s, height 1s, -moz-transform 1s; /* Firefox 4 */
+-webkit-transition:width 1s, height 1s, -webkit-transform 1s; /* Safari and Chrome */
+-o-transition:width 1s, height 1s, -o-transform 1s; /* Opera */}
+
+#menu li a:hover img{transform:rotate(180deg);
+-moz-transform:rotate(180deg); /* Firefox 4 */
+-webkit-transform:rotate(180deg); /* Safari and Chrome */
+-o-transform:rotate(180deg); /* Opera */}
+
+#menu li a:hover{color: #FFFFFF; text-decoration: none;}
+#menu li,#logo{margin-top: 7%;}
+#menu #weixin{background:#2abe0b ;}
+#menu #order{background: #eb7412;}
+#menu #sale{background: #9551e8;}
+#menu #manger{background: #2a84cd;}
+#menu #money{background: #c8244c;}
+#menu #shop{background: #2E8B57;}
+#menu #cuxiao{background: #FF9966;}
+#menu #tuiguang{background: #339999;}
+
+#foot_menu{padding-top: 8.333333%;}
+#notice,#change,#set{cursor:pointer ;}
+#set{float: right;}
+
+
+.box{background: url(../img/touming_bg.png) repeat; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;}
+.choseMain ul li{width:33%;float: left; overflow: hidden; cursor: pointer;}
+.choseMain ul h4{padding-bottom: 20px; border-bottom: 1px dashed #CCCCCC; padding-top: 10px;}
+.choseMain ul li img{display: block; margin: auto; padding-top: 5px; position: relative;}
+.choseMain ul li p{width: 100%; display: block; text-align: center; padding-bottom: 5px;}
+.choseMain{width: 80%; margin: auto; position: relative; background: #FFFFFF; box-shadow: 0px 0px 10px #333333; overflow: hidden; border: 3px solid #333;}
+
+@media (max-width: 767px) {
+	#logo{margin-top: 10%; margin-bottom: 5%;}
+	#logo img{width: 70%;}
+	#menu li a h3{padding-bottom: 0; padding-top: 0px; margin-top: 6% ; font-size: 14px;}
+    #menu li a img{width: 70%;margin-top: 10%;}
+    #foot_menu{padding-top: 8%; padding-bottom: 6%;}
+}
+
+@media (min-width: 360px) and (max-width: 767px) {
+	#logo{margin-top: 15%; margin-bottom: 10%;}
+	#logo img{width: 80%;}
+	#menu li a h3{padding-bottom: 15; padding-top: 5px; margin-top: 10% ; font-size: 16px;}
+    #menu li a img{width: 70%;margin-top: 10%;}
+    #foot_menu{padding-top: 13%; padding-bottom:9%;}
+}
+
+@media (min-width: 768px) and (max-width: 991px)
+{
+	#menu li a h3{font-size: 30px;}
+	#foot_menu{padding-top: 8%; padding-bottom: 8%;}
+	#money_text,#search{width: 98%; }
+}
+@media (min-width: 992px) and (max-width: 1199px)
+{
+	#foot_menu{padding-top: 8%; padding-bottom: 8%;}
+	#menu li a h3{font-size: 40px;}
+	#money_text,#search{width: 98%; }
+}
+@media (min-width: 1199px)
+{
+	#foot_menu{padding-top: 8%; padding-bottom: 8%;}
+	#menu li a h3{font-size: 40px;}
+	#money_text,#search{width: 99%; }
+}

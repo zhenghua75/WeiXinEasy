@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfmChatUserAdmin.aspx.cs" Inherits="Mozart.CMSAdmin.CR.wfmChatUserAdmin" %>

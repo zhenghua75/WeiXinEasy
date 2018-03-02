@@ -1,0 +1,41 @@
+﻿
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+  	var count = 4;
+  	var per = "100%";
+	if(count!=0){
+		per = Math.round(100/count)+"%";
+	}
+  	$(".footer-nav li").css("width",per);
+
+});
+</script>
+
+<div id="footer-nav-div" class="footer-nav-div">
+
+    <ul class="footer-nav">
+
+        <li>
+            <span class="text"> 电话 </span>
+        </li>
+
+        <li>
+            <span class="text"> 地图 </span>
+        </li>
+
+        <li>
+            <span class="text"> 留言板 </span>
+        </li>
+
+        <li>
+            <span class="text"> 微预约（New） </span>
+        </li>
+
+
+    </ul>
+
+</div>

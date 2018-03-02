@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MySecHand.aspx.cs" Inherits="Mozart.PalmShop.ShopCode.MySecHand" %>

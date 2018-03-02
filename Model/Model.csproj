@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1663DE8E-2F74-42DF-91F2-3D00EF8FCACC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACT\Coupon.cs" />
+    <Compile Include="ACT\RushCoupon.cs" />
+    <Compile Include="ACT\SiteActivity.cs" />
+    <Compile Include="Album\GreatUserPhoto.cs" />
+    <Compile Include="Album\PA_Album.cs" />
+    <Compile Include="Album\PA_AlbumType.cs" />
+    <Compile Include="Album\PhotoList.cs" />
+    <Compile Include="Album\PhotoWall.cs" />
+    <Compile Include="Album\UserPhoto.cs" />
+    <Compile Include="BBS\BBS_GuestBook.cs" />
+    <Compile Include="BBS\BBS_Reply.cs" />
+    <Compile Include="BBS\BBS_Section.cs" />
+    <Compile Include="BBS\BBS_Topic.cs" />
+    <Compile Include="CMS\Article.cs" />
+    <Compile Include="CMS\Category.cs" />
+    <Compile Include="CMS\Comment.cs" />
+    <Compile Include="CR\ChatMessage.cs" />
+    <Compile Include="CR\ChatRoom.cs" />
+    <Compile Include="CR\ChatUsers.cs" />
+    <Compile Include="DC\DC_Buildings.cs" />
+    <Compile Include="DC\DC_House.cs" />
+    <Compile Include="Distributor\SYSAccount.cs" />
+    <Compile Include="Game\LuckyAward.cs" />
+    <Compile Include="Game\LuckyAwardUsers.cs" />
+    <Compile Include="HoliDay\HD_HoliDay.cs" />
+    <Compile Include="HoliDay\HD_HoliDayUsers.cs" />
+    <Compile Include="HP\HP_Client.cs" />
+    <Compile Include="HP\Photo.cs" />
+    <Compile Include="JC\JC_Quiz.cs" />
+    <Compile Include="JC\JC_Score.cs" />
+    <Compile Include="MiniShop\MSChargeFeeOrder.cs" />
+    <Compile Include="MiniShop\MSCustomers.cs" />
+    <Compile Include="MiniShop\MSDeliveryAddress.cs" />
+    <Compile Include="MiniShop\MSForumComment.cs" />
+    <Compile Include="MiniShop\MSForumSet.cs" />
+    <Compile Include="MiniShop\MSForumTopic.cs" />
+    <Compile Include="MiniShop\MSForumTopicAtlas.cs" />
+    <Compile Include="MiniShop\MSForumTopicLove.cs" />
+    <Compile Include="MiniShop\MSOrderLog.cs" />
+    <Compile Include="MiniShop\MSOrderLogistics.cs" />
+    <Compile Include="MiniShop\MSPhotoSubmit.cs" />
+    <Compile Include="MiniShop\MSProduct.cs" />
+    <Compile Include="MiniShop\MSProductAtlas.cs" />
+    <Compile Include="MiniShop\MSProductCategory.cs" />
+    <Compile Include="MiniShop\MSProductOrder.cs" />
+    <Compile Include="MiniShop\MSProductOrderDetail.cs" />
+    <Compile Include="MiniShop\MSProductPara.cs" />
+    <Compile Include="MiniShop\MSShop.cs" />
+    <Compile Include="MiniShop\MSShopContacts.cs" />
+    <Compile Include="MiniShop\MSShoppingCart.cs" />
+    <Compile Include="MiniShop\MSSizeOrColor.cs" />
+    <Compile Include="MiniShop\MSVAcct.cs" />
+    <Compile Include="MiniShop\MSVAcctDetail.cs" />
+    <Compile Include="Product\MyOrder.cs" />
+    <Compile Include="Product\OrderDetail.cs" />
+    <Compile Include="Product\ProductCategory.cs" />
+    <Compile Include="Product\ShoppingCart.cs" />
+    <Compile Include="Product\Product.cs" />
+    <Compile Include="PublicService\aq_CeleWhere.cs" />
+    <Compile Include="PublicService\PS_Service.cs" />
+    <Compile Include="RC\RC_Race.cs" />
+    <Compile Include="RC\RC_Users.cs" />
+    <Compile Include="Site\ConRecords.cs" />
+    <Compile Include="SYS\Account.cs" />
+    <Compile Include="SYS\Account_Ext.cs" />
+    <Compile Include="SYS\Customer.cs" />
+    <Compile Include="SYS\ExceptionLog.cs" />
+    <Compile Include="SYS\Menu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SYS\PayConfig.cs" />
+    <Compile Include="SYS\SysCategory.cs" />
+    <Compile Include="SYS\SYSMenuIndustry.cs" />
+    <Compile Include="SYS\SYSMenuSiteCode.cs" />
+    <Compile Include="SYS\SysThemes.cs" />
+    <Compile Include="Vote\Index.cs" />
+    <Compile Include="Vote\Options.cs" />
+    <Compile Include="Vote\Subject.cs" />
+    <Compile Include="Vote\VoteUsers.cs" />
+    <Compile Include="WeiXin\CouponNews.cs" />
+    <Compile Include="WeiXin\Media.cs" />
+    <Compile Include="WeiXin\MsgAutoRule.cs" />
+    <Compile Include="WeiXin\NewsMsg.cs" />
+    <Compile Include="WeiXin\ReceiveMsg.cs" />
+    <Compile Include="WeiXin\ReceiveTextMsg.cs" />
+    <Compile Include="WeiXin\RepliedMsgRecord.cs" />
+    <Compile Include="WeiXin\User.cs" />
+    <Compile Include="WeiXin\WXConfig.cs" />
+    <Compile Include="WeiXin\Menu.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

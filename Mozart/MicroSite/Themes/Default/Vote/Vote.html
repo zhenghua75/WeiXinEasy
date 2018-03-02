@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>$title</title>
+    <link rel="stylesheet" type="text/css" href="Themes/Vote/style/index.css" />
+    <script type="text/javascript" src="Themes/Default/script/zepto.min.js"></script>
+    <script type="text/javascript" src="Themes/Default/script/IsPhone.js"></script>
+    <style type="text/css">
+        .optionimg{border:0px;width:40px; height:40px;margin:0;padding:0;}
+    </style>
+</head>
+<body>
+    <div id="top">
+        <div class="header-title">
+            <ul>
+                <li>在线投票</li>
+                $if(sublistcount>0)
+                <li class="menuli" onclick="$('#menu_font').toggleClass('hidden');">
+                    <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
+                        $foreach(sublist in subjectlist)
+					        <li><a href="Vote.aspx?subid=$sublist.ID&sitecode=$sublist.sitecode" >$sublist.Subject</a></li>
+                        $end
+				    </ul>                </li>
+                $end
+            </ul>
+        </div>
+    </div>
+    <div style="margin:10px;">
+        <form> 
+            <div class="layout fix user-info">
+                <div class="user-name fl" id="Div1">
+                    主题: <font class="blue">$SubjectTitle</font>
+                </div>
+            </div>
+            <div class="layout fix user-info">
+                <div class="user-name fl" id="Div2">
+                    内容: <font class="blue">$SubjectContent</font>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div style="margin:10px 5px 10px 30px;line-height:35px;">
+                <ul>
+                    $foreach(node in option_list)
+             	    <li>
+                         <input type="radio" id="Option$node.Order" name="radio" value="$node.ID" />
+                                 $if(node.ico!=""||node.ico!=null||node.ContentDesc!=""||node.ContentDesc!=null)
+                         <a href="VoteOptionDetail.aspx?id=$node.ID" title="查看 $node.title 的详细">
+                                 <img class="optionimg" src="../../$node.ico" alt="查看 $node.title 的详细"  />
+                         $node.Title</a>
+                                 $end
+                         $if(node.ico==""||node.ico==null)
+                                 $node.Title
+                         $end
+                    </li>
+                    $end
+                </ul>
+            </div>
+            <div id="inputdiv">
+                <div class="line"></div><div style="text-align:center;">
+        <input type="text" title="请输入您的电话" class="inputPhoneNum" maxlength="13" value="请输入您的电话" onfocus="if(value=='请输入您的电话') {value=''}" 
+                    onblur="if(value=='') {value='请输入您的电话'}" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^0-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" 
+            onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^0-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"/>
+   </div>
+            </div>
+            <div class="line"></div>
+            $if(SubjectEndTime=="show")
+            <div class="btn-ui-b mt10"><a id="check" href="javascript:void(0);" onclick="subvote()">确定提交</a></div> 
+            $end
+            $if(SubjectEndTime!="show")
+            <div class="btn-ui-b mt10">该活动已经结束！</div> 
+            $end
+            <div class="btn-ui-b mt10"><a id="myvote" href="javascript:void(0);" onclick="myVote()">我参与的投票</a></div>                
+        </form>
+    </div>
+    <div class="line"></div>
+    <div id="footer">
+        <div class="layout fix user-info">
+            <div class="user-name fl" id="footerUserName"><font class="blue">$errinfo</font></div>
+            <div class="fr"><a id="backTop" href="javascript:window.scrollTo(0,0);">回顶部</a></div>
+        </div>
+        <div class="copyright">版权所有 &#169; 2012-2014 $footer</div>
+    </div>
+    <div id="loading" ><div><img src="Themes/Quiz/files/loading.gif" alt="" /></div></div>
+    <script type="text/javascript">
+        Loading = $("#loading");
+        Inputdiv = $("#inputdiv");
+        openid = '$openid';
+        var timego='$SubjectEndTime';
+        var phonenum;
+        var num = 3;
+        
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    $("#loading").hide();
+                }
+            });
+        };
+        if (openid != null && openid != "") {
+            Inputdiv.hide();
+        } else {
+            if (timego != "show")
+            {
+                Inputdiv.hide();
+            } else
+            {
+                Inputdiv.show();
+            }
+        }
+        function subvote()
+        {
+            var chkObjs = document.getElementsByName("radio");
+            var checkvalue = '';
+            for (var i = 0; i < chkObjs.length; i++) {
+                if (chkObjs[i].checked) {
+                    checkvalue = chkObjs[i].value; break;
+                }
+            }
+            if (checkvalue == null || checkvalue == "")
+            {
+                alert("请选择相应的选项后再操作"); return false;
+            }
+            if (openid == null || openid == "") {
+                phonenum = $(".inputPhoneNum").val();
+                if (phonenum == null || phonenum == "") {
+                    alert("请输入您的电话！"); return false;
+                } else {
+                    if (checkTel(phonenum) == false)
+                    {
+                        alert("请输入正确的电话！"); $(".inputPhoneNum").val(''); $(".inputPhoneNum")[0].focus(); return false;
+                    }
+                }
+            }
+            $.getJSON("Vote.aspx?", {
+                "action": "save",
+                "sitecode": '$sitecode',
+                "openid": openid,
+                "option": checkvalue,
+                "phonenum": phonenum,
+                "voteid": '$subjectID',
+                "subid": '$subjectID'
+            }, function (json) {
+                if (json.message != null && json.message != "") {
+                    alert(json.message);
+                }
+                return;
+            })
+        }
+        function checkTel(tel) {
+            var mobile = /^1[3|5|8]\d{9}$/, phone = /^0\d{2,3}-?\d{7,8}$/;
+            return mobile.test(tel) || phone.test(tel);
+        }
+        function myVote()
+        {
+            //window.location.href = "MyVote.aspx?sitecode=$sitecode&openid=$openid";
+            if (openid == null || openid == "") {
+                var telnum = $(".inputPhoneNum").val();
+                if (telnum == null || telnum == "" || telnum == "undefined" || telnum == "请输入您的电话") {
+                    alert("请输入您的电话");
+                    Inputdiv.show(); $(".inputPhoneNum")[0].focus();
+                } else {
+                    if (checkTel(telnum) == false) {
+                        alert("请输入正确的电话！"); $(".inputPhoneNum").val(''); $(".inputPhoneNum")[0].focus();
+                    }
+                    else {
+                        window.location.href = "MyVote.aspx?sitecode=$sitecode&username=" + telnum;
+                    }
+                }
+            } else {
+                window.location.href = "MyVote.aspx?sitecode=$sitecode&openid=" + openid;
+            }
+        }
+    </script>
+</body>
+</html>

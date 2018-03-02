@@ -1,0 +1,21 @@
+﻿{
+    "code": 1,
+    "notice": "操作成功",
+    "data": {
+        "page_index": 1,
+        "total_pages": 1,
+        "total_items": 1,
+        "page_size": 9,
+        "has_more": false,
+        "items": [
+            {
+                "imageid": 270413,
+                "partflag": 3,
+                "isself": false,
+                "image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetResourceFile?FileID=270413",
+                "resourcetype": "top",
+                "themesimagesremark": "62_84219acf-fa54-4a29-8a66-051ec29e9824"
+            }
+        ]
+    }
+}

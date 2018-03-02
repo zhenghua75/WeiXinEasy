@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OrderHandle.aspx.cs" Inherits="Mozart.PalmShop.ShopCode.OrderHandle" %>

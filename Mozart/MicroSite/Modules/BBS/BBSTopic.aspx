@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="false" CodeBehind="BBSTopic.aspx.cs" Inherits="Mozart.MicroSite.BBSTopic" %>

@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>订单详细</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+        <script src="js/region_select.js" type="text/javascript" charset="gb2312"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>	
+	<body style="background: #EEEEEE;">
+        <div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="back_ico" href="CustomerOrder.aspx">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">订单详细</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+                    <span class="next_ico">
+                        <a href="PayWay.aspx?pname=$orderdetail.ptitle&ordernum=$orderdetail.id&countcost=$orderdetail.UnitCost&customid=$orderdetail.CustomerID">去付款</a>
+                    </span>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid active_box" style="margin:20px 0px 0px 0px;">
+            <form id="uploadform" method="post" enctype="multipart/form-data">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12" style="background-color:#FFFFFF;border-radius:5px;padding:10px;">
+                    <div onclick="javascript:location.href='Product_detail.aspx?pid=$orderdetail.PID'"
+                        style="max-width:100%;float:left;border:0px;cursor:pointer;">
+                         <img src="$orderdetail.Pimg" style="max-width:100%;border:0px;height:auto;vertical-align:middle;" alt="$orderdetail.Ptitle"/>
+                    </div>
+                    <div onclick="javascript:location.href='Product_detail.aspx?pid=$orderdetail.PID'"
+                        style="border:0px;float:left;margin:-10px 0px 0px 0px;cursor:pointer;">
+                        <h4>$orderdetail.Ptitle</h4>
+                       <p>数量：$orderdetail.Quantity &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥：$orderdetail.UnitCost 元</p>
+                    </div>
+				<div class="table-responsive" id="product_info">
+				  <table class="table">
+                      <tr>
+				    	<td class="col-xs-3 text-center">产品订单：</td>
+				    	<td class="col-xs-9">
+                            <a href="PrintImgOrder.aspx?oid=$orderdetail.ID">$orderdetail.ID</a>
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">&nbsp;&nbsp;&nbsp;收件人：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="buyname" id="buyname" value="$orderdetail.BuyName" />
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">联系电话：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="phone" id="phone" value="$orderdetail.Phone" />
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">留言信息：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="leveamsg" id="leveamsg" value="$orderdetail.LeaveMsg" />
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">收货地址：</td>
+				    	<td class="col-xs-9">
+                            <div id="reveivediv">
+                                $orderdetail.ReveiveAddress
+                            </div>
+                            <div id="editediv">
+                                <select name="location_p" id="location_p"></select><br />
+                                   <select name="location_c" id="location_c"></select><br />
+                                   <select name="location_a" id="location_a"></select>
+                                    <script type="text/javascript">
+                                        new PCAS('location_p', 'location_c', 'location_a', '', '', '');
+                                  </script>
+                                <textarea class="form-control" rows="3" id="detailaddress"></textarea>
+                            </div>
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="zipcode" id="zipcode" value="$orderdetail.ZipCode" />
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">下单时间：</td>
+				    	<td class="col-xs-9">$orderdetail.AddTime</td>
+				    </tr>
+                      <tr id="paytimetr">
+				    	<td class="col-xs-3 text-center">付款时间：</td>
+				    	<td class="col-xs-9">$orderdetail.PayTime</td>
+				    </tr>
+                      <tr id="paywaytr">
+				    	<td class="col-xs-3 text-center">付款方式：</td>
+				    	<td class="col-xs-9">$payway</td>
+				    </tr>
+				  </table>
+				</div>
+                    <div class="submitdiv" id="iseditebtn"> <a> 编辑收货信息 </a> </div>
+                    <div class="submitdiv" id="editebtn"> <a> 提 交 </a> </div> 
+				</div>
+			</div>
+		</div>
+    </form>
+		</div>
+	</body>
+    <script>
+        $errormsg
+        var uid="$uid"
+        var ordernum = "$orderdetail.ID"; var paystate = "$orderdetail.PayState";
+        $("#editediv").hide(); $("#editebtn").hide(); $(".next_ico").hide();
+        $('input:text').attr('disabled', 'true'); $(".submitdiv").hide();
+        $("#paytimetr").hide(); $("#paywaytr").hide();
+        if (uid != null && uid != "")
+        {
+            $(".submitdiv").hide();
+        }
+        if (paystate == "0" || paystate == 0) {
+            $("#iseditebtn").show(); $(".next_ico").show();
+        } else {
+            $("#paytimetr").show(); $("#paywaytr").show();
+        }
+        $("#iseditebtn").click(function () {
+            $("#reveivediv").hide();
+            $("#editediv").show();
+            $('input:text').removeAttr('disabled');
+            $("#iseditebtn").hide();
+            $("#editebtn").show();
+        })
+        $("#editebtn").click(function () {
+            var select_p = document.getElementById("location_p");
+            var index_p = select_p.selectedIndex;
+            var text_p = select_p.options[index_p].text;
+            var value_p = select_p.options[index_p].value;
+            var select_c = document.getElementById("location_c");
+            var index_c = select_c.selectedIndex;
+            var text_c = select_c.options[index_c].text;
+            var value_c = select_c.options[index_c].value;
+            var select_a = document.getElementById("location_a");
+            var index_a = select_a.selectedIndex;
+            var text_a = select_a.options[index_a].text;
+            var value_a = select_a.options[index_a].value;
+            var pac = value_p + "-" + value_c + "-" + value_a;
+            var buyname = $("#buyname").val()
+            var phone = $("#phone").val();
+            var detailaddress = $("#detailaddress").val();
+            var leveamsg = $("#leveamsg").val();
+            var zipcode = $("#zipcode").val();
+            if (buyname == null || buyname == "") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入收件人姓名！' });
+                $("#buyname").val(''); $("#buyname")[0].focus(); return false;
+            }
+            if (phone == null || phone == "") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入您的联系电话！' });
+                $("#phone").val(''); $("#phone")[0].focus(); return false;
+            }
+            if (checkTel(phone) == false) {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入正确的电话！' });
+                $("#phone").val(''); $("#phone")[0].focus(); return false;
+            }
+            if (detailaddress == null || detailaddress == "") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入您的详细地址！' });
+                $("#detailaddress").val(''); $("#detailaddress")[0].focus(); return false;
+            }
+            $.getJSON("OrderDetail.aspx", { "action": "edite", "oid": ordernum,"buyname":buyname,
+                "phone":phone,"pac":pac,"address":detailaddress,"leveamsg":leveamsg,"zipcode":zipcode },
+                function (json) {
+                    if (json.error == true) {
+                        $.dialog({
+                            time: 2, fixed: true, icon: 'error',
+                            content: json.msg == "" ? '操作失败，请重新操作！' : json.msg
+                        });
+                        return false;
+                    }
+                    if (json.success == true)
+                    {
+                        $.dialog({
+                            time: 2, fixed: true, icon: 'succeed',
+                            content: json.msg == "" ? '收货地址修改成功！' : json.msg
+                        });
+                        location.href = "OrderDetail.aspx?oid="+ordernum;
+                    }
+                })
+        })
+        function checkTel(tel) {
+            var mobile = /^1[3|5|8]\d{9}$/, phone = /^0\d{2,3}-?\d{7,8}$/;
+            return mobile.test(tel) || phone.test(tel);
+        }
+    </script>
+</html>

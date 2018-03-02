@@ -1,0 +1,129 @@
+﻿body 
+{
+	padding:0; margin:0;
+}
+/*51aspx 绿色风格*/
+.green{ padding: 3px;text-align: center; font-family:Verdana; font-size:12px;}
+.green a{ text-decoration:none;color:#009933; margin:0px;margin-left:3px;}
+.green a:hover,.green a:active{ background-color:#009933; color:#FFFFE1; border:0;}
+.green span:hover,.green span:active{ background-color:#009933; color:#FFFFE1;border:0;}
+.green input{ width: 30px; border:1px solid #CCCCCC; color:#009933; margin-bottom:0px; text-align:center; margin-left:3px;}
+.green span{ border:1px solid #CCCCCC;padding:2px 5px;}
+.green .current{background-color:#009933; color:#FFFFE1;border:0;}
+
+/*淘宝风格*/
+.taobao{ padding:5px; text-align:center;font-family:Verdana;font-size:13px;}
+.taobao a{ text-decoration:none;color:#3A63E8; margin:0px;margin-left:3px;border:0;}
+.taobao a:hover,.green a:active{ color:#FF5500; border:0px solid #FF5500;}
+.taobao span:hover,.green span:active{ color:#FF5500; border:1px solid #FF5500;}
+.taobao input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.taobao span{ border:1px solid #CCCCCC;padding:2px 5px;}
+.taobao .current{color:#FF5500; border:1px solid #FF5500;}
+/*京东商城样式*/
+.jingdong{ padding:8px; text-align:center;font-family:Verdana;font-size:14px;}
+.jingdong a{ text-decoration:none;color:#005AA0; margin:0px;margin-left:3px;border:0;}
+.jingdong a:hover,.jingdong a:active{ color:#FF5500; border:0px solid #FF5500; background-color:#025AA1;}
+.jingdong span:hover,.jingdong span:active{ color:#CEFFFF; border:1px solid #025AA1;background-color:#025AA1;}
+.jingdong input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.jingdong span{ border:1px solid #CCCCCC;padding:5px 8px;}
+.jingdong .current{color:#FF6600; border:0px;}
+
+/*奇艺网样式*/
+.qiyi{ padding:5px; text-align:center;font-size:13px;}
+.qiyi a{ text-decoration:none;margin:0px;margin-left:3px;border:0;background-color:#fff;color:#010101;}
+.qiyi a:hover,.qiyi a:active{  border:0px solid #FF5500; background-color:#F1F1F1;}
+.qiyi span:hover,.qiyi span:active{  border:0px solid #025AA1;background-color:#F1F1F1;}
+.qiyi input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.qiyi span{ border:1px solid #E3E3E3;padding:5px 10px; background-color:#fff;}
+.qiyi .current{color:#FFFFFF; border:0px solid #72A10E; background-color:#72A10E;}
+
+/*58同城*/
+.wuba{ padding:5px; text-align:center;font-family:Verdana;font-size:13px;}
+.wuba a{ text-decoration:none;color:#0000CC; margin:0px;margin-left:3px;border:0; background-color:#FFFFFF;}
+.wuba a:hover,.wuba a:active{ color:#fff; border:0px solid #FF5500;background-color:#FD7A0E;}
+.wuba span:hover,.wuba span:active{color:#FFf; border:1px solid #FD7A0E;background-color:#FD7A0E;}
+.wuba input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.wuba span{ border:1px solid #DEE3E7;padding:5px 8px;background-color:#FFFFFF;}
+.wuba .current{color:#FFf; border:1px solid #FD7A0E;background-color:#FD7A0E;}
+
+/*百度样式*/
+.baidu{ padding:8px; text-align:center;font-size:14px;}
+.baidu a{ text-decoration:none;color:#0000D5; margin:0px;margin-left:3px;border:0;}
+.baidu a:hover,.baidu a:active{ color:#5C00D2; border:0px solid #FF5500; background-color:#E6EBEF;}
+.baidu span:hover,.baidu span:active{ color:#5C00D2; border:1px solid #E6EBEF;background-color:#E6EBEF;}
+.baidu input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.baidu span{ border:1px solid #E7ECF0;padding:4px 8px;}
+.baidu .current{color:#000; border:0px;}
+
+/*智联招聘蓝色样式*/
+.zhilian{ padding:8px; text-align:center;font-size:14px;}
+.zhilian a{ text-decoration:none;color:#336699; margin:0px;margin-left:3px;border:0; background-color:#EFF6F9;}
+.zhilian a:hover,.zhilian a:active{ text-decoration:underline;}
+.zhilian span:hover,.zhilian span:active{ }
+.zhilian input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.zhilian span{ border:1px solid #DDDDDD;padding:4px 8px;background-color:#EFF6F9;}
+.zhilian .current{color:#FF6600; border:0px; background-color:white;}
+
+/*简洁橙色样式*/
+.orange{ padding:5px; text-align:center;font-size:12px;}
+.orange a{ text-decoration:none;color:#000; margin:0px;margin-left:3px;border:0; background-color:#fff;}
+.orange a:hover,.orange a:active{ color:#FFEDD7; border:0px solid #A0492E; background-color:#FF6401;}
+.orange span:hover,.orange span:active{ color:#FFEDD7; border:1px solid #A0492E; background-color:#FF6401;}
+.orange input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.orange span{ border:1px solid #DDDDDD;padding:3px 5px;background-color:#fff;}
+.orange .current{color:#FFEDD7; border:1px solid #A0492E; background-color:#FF6401;}
+
+/*简单蓝色样式*/
+.blue{ padding:5px; text-align:center;font-size:12px;}
+.blue a{ text-decoration:none;color:#1F3A87; margin:0px;margin-left:3px;border:0; background-color:#fff;}
+.blue a:hover,.blue a:active{ color:#FFEDD7; border:0px solid #A0492E; background-color:#1F3A87;}
+.blue span:hover,.blue span:active{ color:#FFEDD7; border:1px solid #ccc; background-color:#1F3A87;}
+.blue input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.blue span{ border:1px solid #CCCCCC;padding:3px 5px;background-color:#fff;}
+.blue .current{color:#FFEDD7; border:1px solid #ccc; background-color:#1F3A87;}
+
+/*迅雷蓝色样式*/
+.xunlei{ padding:5px; text-align:center;font-size:12px;}
+.xunlei a{ text-decoration:none;color:#424242; margin:0px;margin-left:3px;border:0; background-color:#fff;}
+.xunlei a:hover,.xunlei a:active{ color:#fff; border:0px solid #A0492E; background-color:#21B2E7;}
+.xunlei span:hover,.xunlei span:active{ color:#fff; border:1px solid #21B2E7; background-color:#21B2E7;}
+.xunlei input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.xunlei span{ border:1px solid #C3C3C3;padding:4px 6px;background-color:#fff;}
+.xunlei .current{color:#fff; border:1px solid #21B2E7; background-color:#21B2E7;}
+
+/*土豆橙色分页效果*/
+.tudou{ padding:8px; text-align:center;font-size:14px;}
+.tudou a{ text-decoration:none;color:#494949; margin:0px;margin-left:3px;border:0;}
+.tudou a:hover,.tudou a:active{ color:#5C00D2; border:0px solid #FF5500; background-color:#F0EFED;}
+.tudou span:hover,.tudou span:active{ color:#5C00D2; border:1px solid #ddd;background-color:#F0EFED;}
+.tudou input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.tudou span{ border:1px solid #DDDDDD;padding:4px 8px;}
+.tudou .current{color:#FF6600; border:0px;}
+
+/*红色分页样式*/
+.red{ padding:5px; text-align:center;font-size:12px;}
+.red a{ text-decoration:none;color:#424242; margin:0px;margin-left:3px;border:0; background-color:#fff;}
+.red a:hover,.red a:active{ color:#E23433; border:0px solid #A0492E;}
+.red span:hover,.red span:active{ color:#fff; border:1px solid #21B2E7; background-color:#21B2E7;}
+.red input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.red span{ border:1px solid #ddd;padding:4px 8px;}
+.red .current{color:#FFFFC1; border:1px solid #B31817; background-color:#E23433;}
+
+/*ku6蓝色样式*/
+.ku6{ padding:5px; text-align:center;font-size:12px;}
+.ku6 a{ text-decoration:none;color:#1A68B3; margin:0px;margin-left:3px;border:0; }
+.ku6 a:hover,.ku6 a:active{ color:#fff;  background-color:#2B99CA;}
+.ku6 span:hover,.ku6 span:active{ color:#fff; border:1px solid #2B99CA; background-color:#2B99CA;}
+.ku6 input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.ku6 span{ border:1px solid #DEDEDE;padding:4px 5px;}
+.ku6 .current{color:#fff; border:1px solid #21B2E7; background-color:#21B2E7;}
+.ku6 .current:hover{color:#fff; border:1px solid #2D0000; background-color:#FE0000;}
+
+/*暴风影音蓝色样式*/
+.baofeng{ padding:5px; text-align:center;font-size:12px;}
+.baofeng a{ text-decoration:none;color:#0E5F9E; margin:0px;margin-left:10px;border:0; background-color:#EDEDED;}
+.baofeng a:hover,.baofeng a:active{ color:#696969;  background-color:#FFF;}
+.baofeng span:hover,.baofeng span:active{ color:#696969; border:1px solid #bbb; background-color:#fff;}
+.baofeng input{ width: 30px; border:1px solid #CCCCCC; color:black; margin-bottom:0px; text-align:center; margin-left:3px;}
+.baofeng span{ border:1px solid #bbb;padding:4px 6px;background-color:#EDEDED;}
+.baofeng .current{color:#fff; border:1px solid #1A4F84; background-color:#2185CC;}

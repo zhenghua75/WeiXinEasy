@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>订单管理</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="back_ico" onclick="javascript:history.back()">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">订单管理</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row" id="search_box">
+				  <input type="text" id="searchinput" value="请输入买家姓名，电话或微信号" />
+				  <input type="button" value="搜索" id="search_btn" />
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<ul class="OrderMenu list-unstyled">
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="handle" onclick="javascript:location.href='OrderHandle.aspx'">
+                      待处理
+					</li>
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="npaystate" onclick="javascript:location.href='OrderHandle.aspx?paystate=0'">
+                        未付款
+					</li>
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="receive" onclick="javascript:location.href='OrderHandle.aspx?receive=1'">
+                        已完成
+					</li>
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="orderstate" onclick="javascript:location.href='OrderHandle.aspx?orderstate=1'">
+                        已关闭
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container-fluid OrderList">
+            $foreach(product in productlist)
+            $if(product.PayState=="未付款"||product.PayState=="0"||product.PayState==0)
+			<div class="row clear_margin" 
+                onclick="javascript:location.href='PayWay.aspx?pname=$product.ptitle&ordernum=$product.id&countcost=$product.UnitCost&customid=$product.CustomerID'">
+                $end
+                $if(product.IsReceive=="已收货"&&product.OrderState=="正常")
+                <div class="row clear_margin">
+                    $end
+                $if(product.OrderState=="已关闭"||product.OrderState=="1"||product.OrderState==1)
+			<div class="row clear_margin">
+                $end
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+                    $if(product.PimgUrl!=null&&product.PimgUrl!="")
+                    <img src="$product.PimgUrl" alt="$product.AtlasName" class="img-responsive"/>
+                    $end
+                    $if(product.PimgUrl==null||product.PimgUrl=="")
+                    <img src="ShopLogo/default.png"  class="img-responsive"/>
+                    $end
+				</div>
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">
+					<h4>$product.Ptitle</h4>
+					<p>¥ $product.Price 元</p>
+				</div>
+				<div class="col-lg-12 clear">
+					<div class="row pro_detal">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 sale_ico">
+							数量：<label>$product.Quantity</label>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 kc_ico">
+							共：<label>¥$product.UnitCost</label>元
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 time_ico">
+							日期:$product.AddTime.ToString("MM-dd")
+						</div>
+					</div>
+				</div>
+			</div>
+            $end
+		</div>
+	</body>
+    <script>
+        $errorscript;
+        $(document).ready(function ()
+        {
+            var oldclass;
+            var orderstate = Request("orderstate");
+            var paystate = Request("paystate");
+            var receive = Request("receive");
+            if (orderstate != null && orderstate != "")
+            {
+                oldclass = $("#orderstate").attr("class");
+                $("#orderstate").addClass(oldclass + " item_red");
+            }
+            else if (paystate != null && paystate != "") {
+                oldclass = $("#paystate").attr("class");
+                $("#paystate").addClass(oldclass + " item_red");
+            }
+            else if (receive != null && receive != "") {
+                oldclass = $("#receive").attr("class");
+                $("#receive").addClass(oldclass + " item_red");
+            }
+            else {
+                oldclass = $("#handle").attr("class");
+                $("#handle").addClass(oldclass + " item_red");
+            }
+        })
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="">
+		<meta name="robots" content="">
+		<meta name="application-name" content="">
+		<link rel="apple-touch-icon-precomposed" href="">
+		<link rel="shortcut icon" href="favicon.png">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/jquery-labelauty.css" type="text/css" />
+		<link rel="stylesheet" href="css/lby-main.css" type="text/css" />
+		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="js/jquery-labelauty.js"></script>
+		<script>
+		    $(document).ready(function () {
+		        $(".to-labelauty").labelauty({ minimum_width: "155px" });
+		        $(".to-labelauty-icon").labelauty({ label: false });
+		    });
+		</script>
+	</head>
+
+	<body>
+		<div class="container-fluid">
+			<form method="post" action="">
+				<ul class="list-group row want_ad_list">
+					<li class="list-group-item">
+						<label>调查要填写的内容是</label>
+					</li>
+					<li class="list-group-item">
+						<h4><b>*</b>您的姓名：</h4>
+						<input type="text" name="" class="want_ad_name" placeholder="请输入您的姓名" />
+					</li>
+					<li class="list-group-item">
+						<h4 class="radio_h4"><b>*</b>您的手机：</h4>
+						<div class="radios">
+							<input class="to-labelauty-icon" type="radio" name="radio" checked/>
+							<label class="mr20">男</label>
+							<input class="to-labelauty-icon" type="radio" name="radio" />
+							<label class="mr20">女</label>
+						</div>
+					</li>
+					<li class="list-group-item">
+						<h4><b>*</b>联系方式：</h4>
+						<input type="text" name="" class="want_ad_name" placeholder="请输入您的联系方式" />
+					</li>
+					<li class="list-group-item">
+						<h4 class="radio_h4"><b>*</b>关注车型：</h4>
+						<div class="radios">
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" checked/>
+							    <label>捷达</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>宝莱</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>速腾</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>高尔夫</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>迈腾</label>
+							</div>
+							<div class="w75">
+								<input class="to-labelauty-icon" type="radio" name="radio1" />
+							    <label>CC</label>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<a href="#" class="btn btn-danger want_ad_tj">提交</a>
+			</form>
+		</div>
+	</body>
+
+</html>

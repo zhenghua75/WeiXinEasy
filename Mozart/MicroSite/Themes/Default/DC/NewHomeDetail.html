@@ -1,0 +1,150 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>$HouseDetail.Summary&nbsp;$Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<meta name=”apple-mobile-web-app-capable” content=”yes” />
+    <meta name="description" content="$HouseDetail.Summary">
+    <meta name="author" content="$HouseDetail.Summary">
+   <link href="Themes/Realty/style/xk-style.css" rel="stylesheet">
+</head>
+<body >
+<header class="bar_fixed">
+	<div id="toolbar_1" class="toolbar">
+		<div class="ui-toolbar-left"><a href="javascript:theStory();" class="ui-toolbar-backbtn"></a></div>
+		<h2 class="ui-toolbar-title">$HouseDetail.Summary<a href="javascript:void(0)" onclick="record(1)"><em id="collect" class="on"></em></a></h2>
+		<div class="ui-toolbar-right"><span id="menu" class="ui-toolbar-home" onclick="show()"></span></div>
+		
+	</div>
+	<div id="dropmenu" style="display:none;">
+<nav>
+	<ul class="head-nav clearfix">
+		<li class="icon-default"><a href="Index.aspx?ID=$siteid"><i></i>首页</a></li>
+		    <li class="icon-new"><a href="News.aspx?ID=$siteid"><i></i>资讯</a></li>
+            <li class="icon-house"><a href="NewHome.aspx?ID=$siteid"><i></i>新房</a></li>
+		    <li class="icon-sale"><a href="OldHome.aspx?ID=$siteid"><i></i>租售</a></li>
+            <li class="icon-home"><a href="BuildingList.aspx?ID=$siteid"><i></i>楼盘</a></li> 
+	</ul>
+</nav>
+	</div>
+	<script language="javascript">
+	    function show() {
+	        with (document.getElementById('dropmenu').style) { display == "" && (display = "none") || (display = "") }
+	    }
+	    function theStory() {
+	        window.history.length <= 1 ? window.location.href = "../../" : window.history.go(-1)
+	    }
+	</script>
+</header>
+    <article style="position:relative;">
+		<div style="margin:0 auto; width:280px; height:280px">
+            <img style="width:280px;height:280px" src="../../$HouseDetail.Photo" border="0">
+            </div>
+</article>
+<article>
+		<section>
+		<div class="module_nav">楼房详细参数</div>	
+		<div class="pad8">
+            <p class="info_li"><span class="fgray">均价：</span><span class="f16 fora">$HouseDetail.Price&nbsp;元/m²</span></p>
+			<table width="100%" border="0" cellpadding="3" cellspacing="0">
+          <tbody>
+          	<tr>
+              <th width="81px" height="30" class="fgray">房屋属性：</th>
+              <td>$HouseDetail.HouseType</td>
+            </tr>
+               <tr>
+              <th width="81px" height="30" class="fgray">使用类型：</th>
+              <td>$HouseDetail.UseType</td>
+            </tr>
+              <tr>
+              <th width="81px" height="30" class="fgray">房屋朝向：</th>
+              <td>$HouseDetail.Faces</td>
+            </tr>
+              <tr>
+              <th width="81px" height="30" class="fgray">所在楼层：</th>
+              <td>$HouseDetail.FLOOR</td>
+            </tr>
+              <tr>
+              <th width="81px" height="30" class="fgray">所属小区：</th>
+              <td>$HouseDetail.Buildings</td>
+            </tr>
+              <tr>
+              <th width="81px" height="30" class="fgray">行政区域：</th>
+              <td>$HouseDetail.Regions</td>
+            </tr>
+                        <tr>
+              <th width="81px" height="30" class="fgray">销售状态：</th>
+              <td>
+                  $if(HouseDetail.SaleRental==0)
+                        出租
+                  $end
+                  $if(HouseDetail.SaleRental==1)
+                        出售
+                  $end
+              </td>
+            </tr>
+                        <tr>
+              <th width="81px" height="30" class="fgray">装修状况：</th>
+              <td>$HouseDetail.Renovation</td>
+            </tr>
+                        <tr>
+              <th width="81px" height="30" class="fgray">房屋面积：</th>
+              <td>$HouseDetail.Area</td>
+            </tr>
+                        <tr>
+              <th width="81px" height="30" class="fgray">建造年代：</th>
+              <td>$HouseDetail.CreateYear</td>
+            </tr>
+              <tr>
+              <th width="81px" height="30" class="fgray">详细地址：</th>
+              <td>$HouseDetail.Address</td>
+            </tr>
+              <tr>
+              <th width="81px" height="30" class="fgray">房屋介绍：</th>
+              <td>$HouseDetail.Content</td>
+            </tr>
+          </tbody>
+        </table>
+		</div>
+	</section>
+		<section>
+		<div class="module_nav">相关推荐</div>	
+		<ul class="houselist">
+            $foreach(node in RelevantHouse)
+						<li onclick="OldHomeDetail.aspx?ID=$node.ID&siteid=$siteid">
+	            <div class="h-img">
+	                <a href="OldHomeDetail.aspx?ID=$node.ID&siteid=$siteid"><img width="50" height="50" alt="" src="../../$node.Photo" /></a>
+	            </div>
+	            <div class="h-txt">
+	                <h6 class="h-name"><a href="OldHomeDetail.aspx?ID=$node.ID&siteid=$siteid">$node.Summary</a></h6>
+	                <p class="h-area fgray" style="margin:0">$node.HouseType</p><p class="h-addr fgray" style="margin:0"><br /><span class="fora">$node.Buildings&nbsp;
+                 $if(node.SaleRental==0)
+                        出租
+                  $end
+                  $if(node.SaleRental==1)
+                        出售
+                  $end
+                 </div>
+	            <i class="h-tag yel">$node.UseType</i><em class="h-price">$node.Price</em>
+			</li>
+            $end
+		</ul>	
+	</section>
+	</article>
+<footer style="margin-top:10px;">
+	        <div class="foot-link">
+                <a href="#" class="fora">意见反馈</a><a href="javascript:gotohead();" class="fgray">返回顶部</a>
+	        </div>
+	        <script type="text/javascript">
+	            function gotohead() {
+	                window.scrollTo(0, 1);
+	            }
+	        </script>
+            <div class="copy">
+		        Copyright &copy; 2014	$footer	
+            </div>
+        </footer>
+</body>
+</html>

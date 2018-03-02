@@ -1,0 +1,96 @@
+
+/* 全局 */
+* {
+text-shadow: none;
+text-decoration: none;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+font-family: "Microsoft YaHei" ! important;
+}
+html,body {margin:0px;padding:0px;border:0px;overflow:hidden;}
+body {font:12px Arial,"Microsoft YaHei",sans-serif; color:#333;background:#f0f0f0;
+      }
+body,form,menu,dir,fieldset,blockquote,p,pre,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6 { padding:0; margin:0;}
+ul,ol,dl { list-style:none;}
+a {color: #333;text-decoration: none;}
+a:hover {color: #000;text-decoration: underline;}
+a img {border: none;}
+.raceman {padding:15px 10px;width:980px;margin:auto;display:none;}
+.startrace,.racecontent {padding:0px;margin:0px;display:none;}
+.SpanRed {color:red;}
+.headdiv {height:70px;border:0px;border-radius:10px;background-color:#da3947;color:white;font-size:30pt;
+          padding:5px 0px 0px 0px;text-align:center;
+}
+.centerdesc,.moveracediv{border-radius:10px;margin:10px 0px 0px 0px;text-align:left;}
+.centerdesc img{border: none;border-radius:10px; height:450px;width:500px;}
+.centerdesc .rightdiv{font-size:25pt;float:right;margin-top:20px;width:450px;line-height:35px;}
+.startbtn{border:1px solid red;width:250px;height:50px;margin:20px auto auto auto;text-align: center;line-height:50px;
+border: 1px solid #ffd52c;border-radius: 4px;background: -moz-linear-gradient(top , #fff76d, #ffcf1e);
+background: -webkit-linear-gradient(top , #fff76d, #ffcf1e);font-size:25pt;color:#ed2947;cursor:pointer;}
+.moveracediv {height:100%;}
+.content {width:990px;margin: 0 auto;}
+.left {float:left;}
+.right {float:right;}
+.list li {margin:5px;height:50px;}
+.headimg {height:50px;width:50px;border:0px;float:left;}
+.nickspan{height:50px;width:150px;float:left;padding-top:5px;border:0px;
+              background-color:#f0f0f0;overflow:hidden;font-size:20pt;zoom:1;display:inline-block;}
+/*进度条*/
+.prbar{width:750px;overflow:hidden;border-radius:10px;float:right;}
+doesnotexist:-o-prefocus, .prbar {border-radius:0px;}
+.prpos{
+            background-color:#3399ff;text-align:right;
+            border-radius:10px;
+            width:0%;margin:0px;padding:0px;
+            height:50px;
+            transition: width 2s ease;
+            -moz-transition: width 2s ease;
+            -webkit-transition: width 2s ease;
+            -o-transition: width 2s ease;
+            -ms-transition: width 2s ease;
+            background-image: linear-gradient(135deg,#3399ff 25%,#99ccff 25%,#99ccff 50%, #3399ff 50%, #3399ff 75%,#99ccff 75%,#99ccff 100%);
+            background-image: -moz-linear-gradient(135deg,#3399ff 25%,#99ccff 25%,#99ccff 50%, #3399ff 50%, #3399ff 75%,#99ccff 75%,#99ccff 100%);
+            background-image: -ms-linear-gradient(135deg,#3399ff 25%,#99ccff 25%,#99ccff 50%, #3399ff 50%, #3399ff 75%,#99ccff 75%,#99ccff 100%);
+            background-image: -o-linear-gradient(135deg,#3399ff 25%,#99ccff 25%,#99ccff 50%, #3399ff 50%, #3399ff 75%,#99ccff 75%,#99ccff 100%);
+            background-image: -webkit-gradient(linear, 100% 100%, 0 0,color-stop(.25, #99ccff), color-stop(.25, #3399ff),color-stop(.5, #3399ff),color-stop(.5, #99ccff),color-stop(.75, #99ccff),color-stop(.75, #3399ff),color-stop(1, #3399ff));
+            background-image: -webkit-linear-gradient(135deg,#3399ff 25%,#99ccff 25%,#99ccff 50%, #3399ff 50%, #3399ff 75%,#99ccff 75%,#99ccff 100%);
+            background-size: 40px 40px;
+            animation: bganim 3s linear 2s infinite;
+            -moz-animation: bganim 3s linear 2s infinite;
+            -webkit-animation: bganim 3s linear 2s infinite;
+            -o-animation: bganim 3s linear 2s infinite;
+            -ms-animation: bganim 3s linear 2s infinite;
+        }
+.prpos img {border:0px;margin:0px;padding:0px;width:50px;height:50px;}
+        
+        @keyframes bganim {
+        from {background-position:0px;} to { background-position:40px;}
+        }
+        @-moz-keyframes bganim {
+        from {background-position:0px;} to { background-position:40px;}
+        }
+        @-webkit-keyframes bganim {
+        from {background-position:0px;} to { background-position:40px;}
+        }
+        @-o-keyframes bganim {
+        from {background-position:0px;} to { background-position:40px;}
+        } 
+        @-ms-keyframes bganim {
+        from {background-position:0px;} to { background-position:40px;}
+        }
+        /*end进度条*/
+.mobile {padding:0px;margin:0px;max-width:640px;margin:auto;min-height:100%;position:relative;
+         background: url("../images/shake.png") no-repeat #262a2b center;height:480px;
+}
+.inputdiv,.mobilediv {border:0px;margin:0px;margin:auto;padding:0px;text-align:center;}
+.head{margin:auto;padding:0px;margin:0px;text-align:center;background-color:#d80809;
+      height:30px;font-size:20px;color:white;padding-top:2px;
+}
+.movespeed {margin:auto;padding:100px 0px 0px 0px;border:0px; height:30px;
+            color:white;line-height:20px;font-size:15px;text-align:center;}
+/*loadinput*/
+#inputdiv{position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0, 0, 0,0.3);
+          text-align:center;border:0px;padding:0px;margin:0px;max-width:640px;margin:auto;}
+#inputdiv  div{padding:240px 0px 0px 0px;}
+.inputNickName ,.inputbtn{border:0px;border:0px;border-radius:10px;height:30px;}
+/*endloadinput*/

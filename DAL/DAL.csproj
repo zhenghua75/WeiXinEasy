@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8F7E567-682C-4DD0-AF92-AB0A51474ABD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Model">
+      <HintPath>..\Model\bin\Debug\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeiXinCore">
+      <HintPath>..\RefDLL\WeiXinCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACT\CouponDAL.cs" />
+    <Compile Include="ACT\SiteActivityDAL.cs" />
+    <Compile Include="Album\AlbumDAL.cs" />
+    <Compile Include="Album\AlbumTypeDAL.cs" />
+    <Compile Include="Album\GreatuserPhotoDAL.cs" />
+    <Compile Include="Album\PhotoList.cs" />
+    <Compile Include="Album\PhotoWallDAL.cs" />
+    <Compile Include="Album\UserPhotoDAL.cs" />
+    <Compile Include="BBS\BBSGuestBookDAL.cs" />
+    <Compile Include="BBS\BBSReplyDAL.cs" />
+    <Compile Include="BBS\BBSSectionDAL.cs" />
+    <Compile Include="BBS\BBSTopicDAL.cs" />
+    <Compile Include="CMS\CategoryDAL.cs" />
+    <Compile Include="CMS\CommentDAL.cs" />
+    <Compile Include="Common\CCPRestSDK.cs" />
+    <Compile Include="Common\ExtensionMethods.cs" />
+    <Compile Include="Common\SQLHelperExt.cs" />
+    <Compile Include="CR\ChatMessageDAL.cs" />
+    <Compile Include="CR\ChatRoomDAL.cs" />
+    <Compile Include="CR\ChatUsersDAL.cs" />
+    <Compile Include="DC\DC_BuildingsDAL.cs" />
+    <Compile Include="DC\DC_HouseDAL.cs" />
+    <Compile Include="Game\LuckyAwardDAL.cs" />
+    <Compile Include="Game\LuckyAwardUsersDAL.cs" />
+    <Compile Include="HoliDay\HoliDayDAL.cs" />
+    <Compile Include="HoliDay\HoliDayUsersDAL.cs" />
+    <Compile Include="HP\HPClientDAL.cs" />
+    <Compile Include="HP\PhotoDAL.cs" />
+    <Compile Include="HP\PrintCodeDAL.cs" />
+    <Compile Include="JC\JC_QuizDAL.cs" />
+    <Compile Include="JC\JC_ScoreDAL.cs" />
+    <Compile Include="MiniShop\MSChargeFeeOrder.cs" />
+    <Compile Include="MiniShop\MSCustAccount.cs" />
+    <Compile Include="MiniShop\MSCustomersDAL.cs" />
+    <Compile Include="MiniShop\MSDeliveryAddressDAL.cs" />
+    <Compile Include="MiniShop\MSForumCommentDAL.cs" />
+    <Compile Include="MiniShop\MSForumSetDAL.cs" />
+    <Compile Include="MiniShop\MSForumTopicAtlasDAL.cs" />
+    <Compile Include="MiniShop\MSForumTopicDAL.cs" />
+    <Compile Include="MiniShop\MSForumTopicLoveDAL.cs" />
+    <Compile Include="MiniShop\MSOrderLogDAL.cs" />
+    <Compile Include="MiniShop\MSOrderLogisticsDAL.cs" />
+    <Compile Include="MiniShop\MSPhotoSubmitDAL.cs" />
+    <Compile Include="MiniShop\MSProductAtlasDAL.cs" />
+    <Compile Include="MiniShop\MSProductCategoryDAL.cs" />
+    <Compile Include="MiniShop\MSProductDAL.cs" />
+    <Compile Include="MiniShop\MSProductOrderDAL.cs" />
+    <Compile Include="MiniShop\MSProductParaDAL.cs" />
+    <Compile Include="MiniShop\MSShopContactsDAL.cs" />
+    <Compile Include="MiniShop\MSShopDAL.cs" />
+    <Compile Include="MiniShop\MSShoppingCartDAL.cs" />
+    <Compile Include="MiniShop\MSSizeOrColorDAL.cs" />
+    <Compile Include="MiniShop\MSVAcctDAL.cs" />
+    <Compile Include="MiniShop\MSVAcctDetailDAL.cs" />
+    <Compile Include="Product\CartDAL.cs" />
+    <Compile Include="Product\CategoryDAL.cs" />
+    <Compile Include="Product\ProductDAL.cs" />
+    <Compile Include="Product\WebServiceDAL.cs" />
+    <Compile Include="PublicService\aq_CeleWhere.cs" />
+    <Compile Include="PublicService\PS_Service.cs" />
+    <Compile Include="RC\RC_RaceDAL.cs" />
+    <Compile Include="RC\RC_UsersDAL.cs" />
+    <Compile Include="Site\ConRecordsDAL.cs" />
+    <Compile Include="Site\SiteMemberNoDAL.cs" />
+    <Compile Include="SYS\AccountDAL.cs" />
+    <Compile Include="CMS\ArticleDAL.cs" />
+    <Compile Include="SYS\Account_ExtDAL.cs" />
+    <Compile Include="SYS\CustomerDAL.cs" />
+    <Compile Include="SYS\ExceptionLogDAL.cs" />
+    <Compile Include="SYS\MenuRoleDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SYS\PayConfigDAL.cs" />
+    <Compile Include="SYS\SysCategoryDAL.cs" />
+    <Compile Include="SYS\SYSDictionaryDAL.cs" />
+    <Compile Include="SYS\SYSMenuIndustryDAL.cs" />
+    <Compile Include="SYS\SYSMenuSiteCodeDAL.cs" />
+    <Compile Include="SYS\SysThemesDAL.cs" />
+    <Compile Include="Vote\IndexDAL.cs" />
+    <Compile Include="Vote\OptionDAL.cs" />
+    <Compile Include="Vote\SubjectDAL.cs" />
+    <Compile Include="Vote\VoteUsersDAL.cs" />
+    <Compile Include="WebSevice\wsCouponDAL.cs" />
+    <Compile Include="WeiXin\CouponNewsDAL.cs" />
+    <Compile Include="WeiXin\MediaDAL.cs" />
+    <Compile Include="WeiXin\MenuDAL.cs" />
+    <Compile Include="WeiXin\MsgAutoRuleDAL.cs" />
+    <Compile Include="WeiXin\NewsMsgDAL.cs" />
+    <Compile Include="WeiXin\ReceiveMsgDAL.cs" />
+    <Compile Include="WeiXin\ReceiveTextMsgDAL.cs" />
+    <Compile Include="WeiXin\RepliedMsgRecordDAL.cs" />
+    <Compile Include="WeiXin\UserDAL.cs" />
+    <Compile Include="WeiXin\WXConfigDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

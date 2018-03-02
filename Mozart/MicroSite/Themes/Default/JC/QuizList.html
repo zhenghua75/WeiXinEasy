@@ -1,0 +1,168 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="Themes/Quiz/files/index.css" type="text/css" rel="stylesheet">
+<meta name="viewport" content="target-densitydpi=device-dpi, width=480px, user-scalable=no">
+    <script src="Themes/Quiz/files/zepto.min.js"></script>
+    <title>$title</title>
+</head>
+<body>
+    <section>
+        <p align="center"><font size="4"><strong>$title</strong></font> </p>
+        <form>
+        <table border="0" cellSpacing="0" cellPadding="0" bgColor="#000000" align="center">
+         <tbody>
+            <tr>
+            <td>
+            <table border="0" cellSpacing="1" cellPadding="1" id="quizlisttable">
+            <tbody>
+            <tr bgColor="#dcdcdc">
+            <td align="middle">日期</td><td align="middle">赛事</td>
+                <td align="middle" class="td1">主队</td><td align="middle">VS</td>
+                <td align="middle" class="td1">客队</td><td align="middle">操作</td>
+            </tr>
+                $foreach(node in jcmodel)
+            <tr bgColor="#ffffff">
+            <td align="left">$node.StartTime</td>
+            <td align="left">$node.Name</td>
+            <td align="left" class="td1">
+                <ul>
+                    $if(node.HomeTeamImg!=null&&node.HomeTeamImg!="")
+                    <li class="leftli"><img alt="$node.Name" border="0" src="../../$node.HomeTeamImg"></li>
+                    $end
+                    <li class="leftli">$node.HomeTeam</li>
+                    <li id="li$node.ID" class="rightli">
+                        <select id="select$node.ID"  onchange="getselectvalue(this.id,'li$node.ID','Home$node.ID')">
+                    <option value="0">0</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                     <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                     <option value="-1">其他</option>
+                </select>
+                    </li>
+                </ul>
+                </td>
+            <td align="left">-</td>
+            <td align="left" class="td1">
+                <ul>
+                    $if(node.VisitingTeamImg!=null&&node.VisitingTeamImg!="")
+                    <li class="leftli"><img alt="$node.Name" border="0" src="../../$node.VisitingTeamImg"></li>
+                    $end
+                    <li class="leftli">$node.VisitingTeam</li>
+                    <li id="liin$node.ID" class="rightli">
+                        <select id="selectin$node.ID" onchange="getselectvalue(this.id,'liin$node.ID','Visit$node.ID')">
+                     <option value="0">0</option>
+                    <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                     <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                     <option value="其他">其他</option>
+                   </select>
+                </li>
+                </ul>
+            </td>
+                <td> <input type="button"  onclick="getinfo('$node.ID')" name="name" value="确认" /></td>
+            </tr>
+                $end
+                </tbody>
+                </table>
+                </td>
+            </tr>
+       </tbody>
+      </table>
+       </form>
+        <footer style="margin-top:10px;" align="center">
+	        <div class="foot-link">
+                <a href="#" class="fora">意见反馈</a><a href="javascript:gotohead();" class="fgray">返回顶部</a>
+	        </div>
+	        <script type="text/javascript">
+	            function gotohead() {
+	                window.scrollTo(0, 1);
+	            }
+	        </script>
+            <div class="copy">
+		        Copyright &copy; 2014	$footer	
+            </div>
+        </footer>
+    </section>
+    <div id="loading" ><div><img src="Themes/Quiz/files/loading.gif" /></div></div>
+    <script>
+        Loading = $("#loading");
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    $("#loading").hide();
+                }
+            });
+        };
+
+        function getselectvalue(selectid, tdid,sort) {
+            var select = document.getElementById(selectid);
+            var index = select.selectedIndex;
+            var text = select.options[index].text;
+            var value = select.options[index].value;
+            if (value == "-1" || text == "其他") {
+                document.getElementById(selectid).style.display = "none";
+                document.getElementById(tdid).innerHTML = "<input id=\""+sort+"\" MaxLength=\"1\"  onkeypress=\"if (event.keyCode < 48 || event.keyCode >57) event.returnValue = false;\" class=\"inputnum\" type=\"text\">";
+            }
+        }
+        function Ischeck(num,chid)
+        {
+            if (document.getElementById(num+ chid).checked) {
+                alert("只能选一个");
+                switch (num) {
+                    case "0":
+                        num = "1";
+                        break;
+                    default:
+                        num = "0";
+                        break;
+                }
+                document.getElementById(num+chid).checked = false;
+                return;
+            }
+        }
+        function getinfo(ID)
+        {
+            var HomeTeamValue = ""; 
+            var VisitingTeamValue = "";
+            var selectvalue = "";
+            var selectinvalue = "";
+            var HomeCheck = "0";//主队选择
+            var VisitCheck = "0";//客队选择
+            try {
+                HomeTeamValue = document.getElementById("Home"+ID).value;
+            } catch (e) {
+                HomeTeamValue ="";
+            }
+            try {
+                VisitingTeamValue = document.getElementById("Visit"+ID).value;
+            } catch (e) {
+                VisitingTeamValue = "";
+            } 
+            try {
+                selectvalue=document.getElementById("select" + ID).value;
+            } catch (e) {
+                selectvalue = "";
+            }
+            try {
+                selectinvalue= document.getElementById("selectin" + ID).value;
+            } catch (e) {
+                selectinvalue = "";
+            }
+            //获取主队比分结果
+            if (HomeTeamValue == "")
+            {
+                HomeTeamValue = selectvalue;
+            }
+            //  客队比分结果
+            if (VisitingTeamValue == "") {
+                VisitingTeamValue = selectinvalue;
+            }
+            $.getJSON("?", { "action": "save", "qid": ID, "hscore": HomeTeamValue, "vscore": VisitingTeamValue }, function (json) {
+                alert(json.message); return;
+            })
+        }
+    </script>
+</body>
+</html>

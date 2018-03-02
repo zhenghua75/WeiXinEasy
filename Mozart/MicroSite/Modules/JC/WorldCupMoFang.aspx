@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WorldCupMoFang.aspx.cs" Inherits="Mozart.MicroSite.WorldCupMoFang" %>

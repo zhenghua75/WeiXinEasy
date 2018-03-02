@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CopyOrder.aspx.cs" Inherits="Mozart.PalmShop.ShopCode.CopyOrder" %>

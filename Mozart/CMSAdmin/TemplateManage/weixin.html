@@ -1,0 +1,202 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>微信</title>
+    <link rel="stylesheet" href="css/shellb.css">
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="scripts/request.js"></script>
+    <style>
+        .content div {
+            margin: 0;
+            width: 84px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            float: left;
+            background-color: #fff;
+            position: absolute;
+            bottom: 0;
+        }
+
+            .content div ul {
+            }
+
+                .content div ul li {
+                    margin: 0 4px;
+                    padding: 8px 0;
+                    border-bottom: 1px solid #bbb;
+                    text-align: center;
+                    color: #666;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    cursor: pointer;
+                }
+
+                    .content div ul li:last-child {
+                        border-bottom: 0;
+                    }
+
+        .div_middle {
+            height: 20px;
+        }
+
+            .div_middle ul {
+                margin: 0 auto;
+                height: 20px;
+            }
+
+                .div_middle ul li {
+                    margin: 0;
+                    width: 88px;
+                    height: 20px;
+                    float: left;
+                    text-align: center;
+                }
+
+                    .div_middle ul li:first-child {
+                        width: 40px;
+                    }
+
+                    .div_middle ul li:last-child {
+                    }
+
+        .footer ul {
+            margin: 0 auto;
+            height: 34px;
+        }
+
+            .footer ul li {
+                margin: 0;
+                width: 86px;
+                height: 33px;
+                border-top: 1px solid #bbb;
+                border-left: 1px solid #bbb;
+                border-bottom: 0;
+                line-height: 26px;
+                text-align: center;
+                color: #666;
+                line-height: 33px;
+                overflow: hidden;
+                white-space: nowrap;
+                cursor: pointer;
+            }
+
+                .footer ul li:first-child {
+                    width: 40px;
+                    border-left: 0;
+                }
+
+                .footer ul li:last-child {
+                    border-right: 0;
+                }
+    </style>
+    <script>
+
+        $(function () {
+
+
+            //判断来源为Step1页
+            //console.log(Request.GetQuery('referer'),Request.GetQuery('template_id') );
+            //            if (Request.GetQuery('referer') != 'Step1') {
+            //                return;
+            //            }
+
+
+            var ecid = Request.GetQuery('ecid');
+
+            if (ecid == "")
+                return;
+
+            var resultLogo = Request.Sync('/CMSAdmin/TemplateManage/GetLogoImage.ashx?ecid=' + ecid, { 'ecid': ecid });
+
+            if (resultLogo.code == 1) {
+                $('#imgWeixinLog').attr("src", resultLogo.data.image_url);
+            }
+
+            var resultattreply = Request.Sync('/CMSAdmin/TemplateManage/GetAutoReply.ashx?service_type=3&ecid=' + ecid, { 'ecid': ecid, 'service_type': "3" });
+            if (resultattreply.code == 1) {
+                $('#firstreply').html(resultattreply.data.ReplyTxt);
+            }
+
+            var resultMenu = Request.Sync('/CMSAdmin/TemplateManage/GetMenu.ashx?ecid=' + ecid, { 'ecid': ecid });
+            //console.log(result);
+            if (resultMenu.code == 1) {
+
+                //设置菜单
+                var count = 0;
+                for (var i = 0, len = resultMenu.data.length; i < len; i++) {
+                    var x = resultMenu.data[i];
+                    //主菜单
+                    if (x.MenuLevel == 1) {
+                        count++;
+                        $('#menu li:eq(' + count + ')')
+						//.attr('href', x.WapUrl)
+						.click(function () {
+						    //window.location.href = $(this).attr('href');
+						    window.location.href = "#";
+						})
+						.find('span').html(x.MenuName);
+                    }
+                    else {
+                        var li = $('<li>' + x.MenuName + '</li>')
+						//.attr('href', x.WapUrl)
+						.click(function () {
+						    //window.location.href = $(this).attr('href');
+						    window.location.href ="#";
+						});
+                        $('#submenu' + count).append(li);
+
+                    }
+                }
+            }
+
+        });
+    </script>
+</head>
+<body>
+    <div class="phone">
+        <div class="header" style="height:61px;">
+            <img id="top" src="images/shell_weixin_head.png" style="height:61px;"><p style="position: absolute; top: 30px; width: 100%; color: #fff; text-align: center;">　</p>
+        </div>
+
+        <div class="keywordreply" style=" display:none;">
+            <img src="images/keyword_reply.png" height="485px" />
+        </div>
+
+        <div class="menucontent">
+            <div class="banner">
+                <img id="imgWeixinLog" src="images/shell_weixin_logo.png" style="width: 40px; height: 40px; float: left; margin: 10px 0 0 10px;" /> <p style="background: url(images/shell_weixin_text_bg.png) no-repeat; float: left;
+                width: 196px; height: 121px; word-break:break-all; margin: 10px 0 0 4px; padding: 5px 20px 0 12px; overflow:hidden;" id="firstreply"></p>
+            </div>
+            <div class="content" style="position: relative;">
+                <div style="left: 40px;">
+                    <ul id="submenu1"></ul>
+                </div>
+                <div style="left: 128px;">
+                    <ul id="submenu2"></ul>
+                </div>
+                <div style="left: 216px;">
+                    <ul id="submenu3"></ul>
+                </div>
+            </div>
+            <div class="div_middle">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="footer" style="height: 40px; background-image: -moz-linear-gradient(top, #fff, #aaa); margin-top:-10px;">
+                <ul id="menu">
+                    <li><img src="images/keyboard.png"></li>
+                    <li><img src="images/icon_wx_prev.png" style="width:10px; height:10px; display:inline-block; vertical-align:middle; padding-right:2px;"><span></span></li>
+                    <li><img src="images/icon_wx_prev.png" style="width:10px; height:10px; display:inline-block; vertical-align:middle; padding-right:2px;"><span></span></li>
+                    <li><img src="images/icon_wx_prev.png" style="width:10px; height:10px; display:inline-block; vertical-align:middle; padding-right:2px;"><span></span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

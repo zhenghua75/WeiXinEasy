@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div id="logo" class="col-lg-12">
+					<img class="center-block img-responsive" src="img/logo.png"/>
+				</div>
+			</div>
+			<div class="row">
+				<ul id="menu" class="list-unstyled">
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 " >
+						<a id="weixin" href="WX_ShouKuan.aspx">
+							<img class="center-block img-responsive" src="images/weixin_img.png" />
+							<h3 class="text-center">微信收款</h3>
+						</a>
+					</li>
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+						<a id="shop"  href="MyShop.aspx">
+							<img class="center-block img-responsive" src="images/shop_img.png" />
+							<h3 class="text-center">我的微店</h3>
+						</a>
+					</li>
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+						<a id="order"  href="OrderHandle.aspx">
+							<img class="center-block img-responsive" src="images/order_img.png" />
+							<h3 class="text-center">订单管理</h3>
+						</a>
+					</li>
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+						<a id="sale"  href="SaleManager.aspx">
+							<img class="center-block img-responsive" src="images/sale_img.png" />
+							<h3 class="text-center">销售管理</h3>
+						</a>
+					</li>
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+						<a id="manger"  href="CustomerManager.aspx">
+							<img class="center-block img-responsive" src="images/manger_img.png" />
+							<h3 class="text-center">客户管理</h3>
+						</a>
+					</li>
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+						<a id="money">
+							<img class="center-block img-responsive" src="images/money_img.png" />
+							<h3 class="text-center">我的收入</h3>
+						</a>
+					</li>
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+						<a id="cuxiao"  href="PromotionManager.aspx">
+							<img class="center-block img-responsive" src="images/cuxiao_img.png" />
+							<h3 class="text-center">促销管理</h3>
+						</a>
+					</li>
+					<li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+						<a id="tuiguang" >
+							<img class="center-block img-responsive" src="images/tuiguang_img.png" />
+							<h3 class="text-center">我要推广</h3>
+						</a>
+					</li>
+                    <li class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+						<a id="sechand" href="SecHand.aspx">
+							<img class="center-block img-responsive" src="images/sechand.png" />
+							<h3 class="text-center">二手专区</h3>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="foot_menu" class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><img id="notice" src="img/notice.png"></div>
+				<div id="pihu" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<img id="change" class="center-block" src="img/pifu.png" onclick="show()">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <img id="set" class="text-right" src="img/set.png"></div>
+			</div>
+		</div>
+	</body>
+    <script>
+        $errowmsg
+        $(function () {
+            $('.list-unstyled li').click(function () {
+                var con = $(this).find("a").attr('href');
+                if (con != null && con != "" && con.toLowerCase() != "undefined") {
+                    location.href = con;
+                }
+            })
+        })
+    </script>
+</html>

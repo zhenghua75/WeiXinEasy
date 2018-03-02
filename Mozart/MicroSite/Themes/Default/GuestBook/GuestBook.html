@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>$title</title>
+    <link rel="stylesheet" type="text/css" href="Themes/Default/style//base.css" />
+</head>
+<body>
+    <div id="top">
+        <div class="header-title">观众热线</div>
+    </div>
+    <div style="margin:10px">
+        <form name="form" method="post" action="GuestBook.aspx?id=$siteid&action=save">
+            <div style="margin:5px;text-align:center">人生因价值而美丽，因梦想而精彩！欢迎将你或者身边人的价值故事、人生梦想推荐给我们，同时留下联系方式，也许下一个实现梦想的机会就是你的！</div>  
+            <div class="line"></div>
+            <input type="text" class="input-ui-a half" name="realname" value="" placeholder="提供者姓名">
+            <input type="text" class="input-ui-a half" name="mobile" value="" placeholder="提供者电话">
+            <!--<textarea cols="40" class="input-ui-a" id ="message" name="message" placeholder="提供者内容"></textarea>-->
+            <label>
+                <textarea style="font-size:15px;resize:none" class="textarea-ui-a" cols="35" rows="6" id ="message" name="message" placeholder=" 提供者内容"></textarea>
+             </label>
+            <div style="margin:5px;text-align:center">（请放心，新闻线索绝对保密的哦）</div>
+            <div class="btn-ui-b mt10"><a id="check" href="javascript:void(0);" onclick="form.submit()">确定提交</a></div>                
+        </form>
+    </div>
+    <div class="line"></div>
+    <div id="footer">
+        <div class="layout fix user-info">
+            <div class="user-name fl" id="footerUserName"><font class="blue">$errinfo</font></div>
+            <div class="fr"><a id="backTop" href="javascript:window.scrollTo(0,0);">回顶部</a></div>
+        </div>
+        <div class="copyright">版权所有 &#169; 2012-2014 $footer</div>
+    </div>
+</body>
+</html>

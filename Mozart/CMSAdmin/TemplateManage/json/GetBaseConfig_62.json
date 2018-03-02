@@ -1,0 +1,21 @@
+﻿{
+    "code": 1,
+    "notice": "操作成功",
+    "data": {
+        "app_name": "道讯科技",
+        "listgenerateimages": [
+            {
+                "imageid": 270400,
+                "resourcetype": "loading",
+                "image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetResourceFile?FileID=270400",
+                "themesimagesremark": "62_b606b6c1-4207-4204-8bbd-02cb066e0336"
+            },
+            {
+                "imageid": 270397,
+                "resourcetype": "icon",
+                "image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetResourceFile?FileID=270397",
+                "themesimagesremark": "62_479f261f-2308-4d98-9e1e-953d7a83509a"
+            }
+        ]
+    }
+}

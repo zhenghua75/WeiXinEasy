@@ -1,0 +1,116 @@
+﻿
+
+
+<script type="text/javascript">
+
+$(function() {
+		$('#copyRightColor').colorpicker({color:''});
+
+    	$("#setSub").click(function(){
+    		var hasTitle = $('input[name="webSite.hasTitle"]:checked').val();
+    		var hasBottomBar = $('input[name="webSite.hasBottomBar"]:checked').val();
+    		var templateName = $("#templateName").val();
+			AjaxRequest.formRequest("setForm","bo1",function(f){
+
+
+
+				if("css/tem7.css"==templateName){
+					return;
+				}
+
+
+				if(1==hasTitle){
+					$("#title1").hide();
+				}
+				if(0==hasTitle){
+					$("#title1").show();
+				}
+
+
+
+				if(1==hasBottomBar){
+					$("#menubar1").hide();
+				}
+				if(0==hasBottomBar){
+					$("#menubar1").show();
+				}
+
+
+				$("#settable").find("td").each(function(){
+				$(this).attr("class","");
+				});
+
+			});
+		});
+
+});
+
+function changemenu(value){
+	if(value == 0){
+		$('.titlecode').css('display','block');
+	}else{
+		$('.titlecode').css('display','none');
+	}
+
+	$("#titlemenu").val($("#titletext").html());
+}
+
+</script>
+
+<form name="setForm" id="setForm" action="/websitePages/website_pages!updateWebSite.action?ajax=true">
+
+
+    <div class="form-list" style="margin-top:20px;">
+        <div>
+            <span class="label-span" style="width:130px;font-size:12px;color:#000;margin-top:2px;">是否显示标题栏：</span>
+        </div>
+        <div style="margin-left:130px;">
+            <input type="radio" name="webSite.hasTitle" id="webSite_hasTitle0" checked="checked" value="0" />
+            <label for="webSite_hasTitle0">是</label>
+            <input type="radio" name="webSite.hasTitle" id="webSite_hasTitle1" value="1" />
+            <label for="webSite_hasTitle1">否</label>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-list" style="margin-top:20px;">
+        <div>
+            <span class="label-span" style="width:130px;font-size:12px;color:#000;margin-top:2px;">是否显示底部菜单：</span>
+        </div>
+        <div style="margin-left:130px;">
+            <input type="radio" name="webSite.hasBottomBar" id="webSite_hasBottomBar0" checked="checked" value="0" />
+            <label for="webSite_hasBottomBar0">是</label>
+            <input type="radio" name="webSite.hasBottomBar" id="webSite_hasBottomBar1" value="1" />
+            <label for="webSite_hasBottomBar1">否</label>
+
+        </div>
+
+    </div>
+
+
+    <label class="label-minimini">
+        版权信息：
+        <input type="text" name="webSite.copyRight" id="copyRight" class="miniinput" value="" />
+    </label>
+
+    <label class="label-minimini">
+        版权字体颜色：
+        <input type="text" name="webSite.copyRightColor" id="copyRightColor" style="width: 70px; " value="" />
+    </label>
+    <input type="hidden" name="webSite.sitebgPic" value="copyRight" />
+    <input type="hidden" name="we.title" id="titlemenu" value="&lt;div id=&quot;58812&quot; class=&quot;template-b-00&quot; onclick=&quot;edit('58812', 'title');&quot; style=&quot;background-color:#0c0c0c&quot;&gt; &lt;span class=&quot;titlelogo&quot;&gt;&lt;img src=&quot;http://www.veshow.cn:80//uploadFiles/site/title/101/20131226162413.jpg&quot; height=&quot;30px&quot; width=&quot;30px&quot;&gt;&lt;/span&gt;&lt;span class=&quot;titlename&quot; style=&quot;color: rgb(255, 255, 255);&quot;&gt;道讯科技&lt;/span&gt;&lt;span class=&quot;titlecode&quot;&gt; &lt;/span&gt;  &lt;/div&gt;" />
+    <input type="hidden" name="we.id" id="id1" value="040BD1CA4AE2AB08E050973BAE0C1EA0" />
+    <div style="display: none" id="titletext">
+        <div id="58812" class="template-b-00" onclick="edit('58812', 'title');" style="background-color:#0c0c0c"> 
+        <span class="titlelogo">
+            <img src="http://www.veshow.cn:80//uploadFiles/site/title/101/20131226162413.jpg" height="30px" width="30px"></span>
+        <span class="titlename" style="color: rgb(255, 255, 255);">道讯科技</span><span class="titlecode"> </span>  
+        </div>
+    </div>
+    <div class="tab-box">
+        <input id="setSub" type="button" value="保 存" class="btn" style="background-position: 0 -214px; color: #fff; border: 0; margin: 20px auto;" />
+    </div>
+
+</form>

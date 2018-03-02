@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfmAlbumAdmin.aspx.cs" Inherits="Mozart.CMSAdmin.Album.wfmAlbumAdmin" %>

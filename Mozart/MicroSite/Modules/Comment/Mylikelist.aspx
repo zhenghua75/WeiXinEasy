@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Mylikelist.aspx.cs" Inherits="Mozart.Comment.Mylikelist" %>

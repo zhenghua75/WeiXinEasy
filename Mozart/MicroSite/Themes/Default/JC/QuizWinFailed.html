@@ -1,0 +1,132 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>$qDetail.Name-$title</title>
+    <link rel="stylesheet" type="text/css" href="Themes/Quiz/files/index.css" />
+    <script src="Themes/Quiz/files/zepto.min.js"></script>
+</head>
+<body>
+    <div id="top">
+        <div class="header-title">
+            <ul>
+                <li>$qDetail.Name</li>
+                <li class="menuli" onclick="$('#menu_font').toggleClass('hidden');">
+                    <ul id="menu_font" class="menu_font hidden" onclick="$('#menu_font').toggleClass('hidden');">
+                        $foreach(node in jcmodel)
+					        <li><a href="JCQuizDetail.aspx?id=$node.ID&state=$sitecode&openid=$openid" title="$node.Name" >$node.Name</a></li>
+                        $end
+				    </ul>                </li>
+            </ul>
+        </div>
+    </div>
+    <form>
+    <div class="line"></div>
+    <div class="quizcontentdiv">&nbsp;&nbsp;赛事：$qDetail.Name</div>    
+    <div class="line"></div>
+    <div class="quizcontentdiv">
+        <ul>
+            <li>
+                &nbsp;&nbsp;选择获胜方：
+                <input type="radio" name="winTeam" value="1" />$qDetail.HomeTeam
+                <input type="radio" name="winTeam" value="0" />$qDetail.VisitingTeam
+                <input type="radio" name="winTeam" value="-1" />平局
+            </li>
+        </ul>
+    </div>   
+<!--    <div class="line"></div>
+            <div class="quizcontentdiv">
+    赛事详情：$qDetail.MatchDesc
+    </div>-->
+
+    <div class="line"></div>
+            <div class="quizdiv">
+        <ul>
+            <li>&nbsp;&nbsp;&nbsp;开始时间：$qDetail.StartTime   
+            </li>
+            <li></li>
+        </ul>
+    </div>
+    <div style="margin:0px 5px 0px 5px;color:#777;text-align:center">
+        <span id="labMessage"></span>
+    </div>
+    <div class="line"></div>
+        $if(comptim=="")
+            <div class="btn-ui-b mt10"><a href="javascript:void(0);" onclick="getinfo()">提交竞猜结果</a></div>
+            <div class="line"></div>
+        $end
+        <div class="btn-ui-b mt10"><a href="javascript:void(0);" onclick="myQuiz()">我参加的竞猜</a></div>
+        <div class="line"></div>
+   </form>
+
+    <div id="footer">
+        <div class="layout fix user-info">
+            <div class="fr"><a id="backTop" href="javascript:window.scrollTo(0,0);">回顶部</a></div>
+        </div>
+        <div class="copyright">版权所有 &#169; 2012-2014 $footer</div>
+    </div>
+    <div id="loading" ><div><img src="Themes/Quiz/files/loading.gif" alt="" /></div></div>
+    <script type="text/javascript">
+        Loading = $("#loading");
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    $("#loading").hide();
+                }
+            });
+        };
+
+        function getinfo() {
+
+            var TeamValue = document.getElementsByName("winTeam");
+            var HomeTeamValue = "";
+            var VisitingTeamValue = "";
+            
+            if (TeamValue.item(0).checked)
+            {
+                HomeTeamValue = "1";
+                VisitingTeamValue = "0";
+            }
+
+            if (TeamValue.item(1).checked) {
+                HomeTeamValue = "0";
+                VisitingTeamValue = "1";
+            }
+
+            if (TeamValue.item(2).checked) {
+                HomeTeamValue = "0";
+                VisitingTeamValue = "0";
+            }
+
+            if (HomeTeamValue == null || HomeTeamValue == "" || VisitingTeamValue == null || VisitingTeamValue == "") {
+                alert("请选择或录入分数后再操作！"); return;
+            }
+
+            $.getJSON("JCQuizDetail.aspx?", {
+                "action": "save",
+                "state": '$sitecode',
+                "openid": '$openid',
+                "id":'$QuizID',
+                "hscore": HomeTeamValue,
+                "vscore": VisitingTeamValue
+            }, function (json) {
+                $("#labMessage").html(json.message);//填充内容
+                alert(json.message);
+                return;
+            })
+        }
+
+        function myQuiz()
+        {
+            window.location.href = "MyQuiz.aspx?sitecode=$sitecode&openid=$openid";
+        }
+    </script>
+</body>
+</html>

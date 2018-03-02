@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfmPrintCodeAdmin.aspx.cs" Inherits="Mozart.CMSAdmin.HappyPhoto.wfmPrintCodeAdmin" %>

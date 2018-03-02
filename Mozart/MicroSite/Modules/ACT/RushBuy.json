@@ -1,0 +1,69 @@
+﻿[
+    {
+        "Id": 1,
+        "Code": "siteid",
+        "Name": "站点ID",
+        "Description": ""
+    },
+    {
+        "Id": 2,
+        "Code": "sitecode",
+        "Name": "站点Code",
+        "Description": ""
+    },
+    {
+        "Id": 3,
+        "Code": "title",
+        "Name": "标题",
+        "Value": "优惠券详细信息",
+        "Description": "",
+        "CanModified": true
+    },
+    {
+        "Id": 4,
+        "Code": "footer",
+        "Name": "页脚",
+        "Value": "昆明道讯",
+        "Description": "",
+        "CanModified": true
+    },
+    {
+        "Id": 5,
+        "Code": "strmsg",
+        "Name": "strmsg",
+        "Description": ""
+    },
+    {
+        "Id": 6,
+        "Code": "OpenID",
+        "Name": "OpenID",
+        "Description": ""
+    },
+    {
+        "Id": 7,
+        "Code": "qrcode",
+        "Name": "qrcode",
+        "Description": ""
+    },
+    {
+        "Id": 8,
+        "Code": "QRCodeType",
+        "Name": "二维码类型",
+        "Value": "ImageQRCode",
+        "Description": "ImageQRCode或者QRCode",
+        "CanModified": true
+    },
+    {
+        "Id": 9,
+        "Code": "QRCodeUrl",
+        "Name": "二维码请求链接",
+        "Value": "http://114.215.108.27/WebService/QR.aspx",
+        "Description": ""
+    },
+    {
+        "Id": 10,
+        "Code": "pDetail",
+        "Name": "pDetail",
+        "Description": ""
+    }
+]

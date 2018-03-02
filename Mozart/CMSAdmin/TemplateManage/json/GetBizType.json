@@ -1,0 +1,14 @@
+﻿{
+    "code": 1,
+    "notice": "操作成功",
+    "data": [
+        { "biz_id": 80, "biz_name": "DIY", "template_count": 9, "self_biz_id": 80 },
+        { "biz_id": 79, "biz_name": "旺铺O2O", "template_count": 4, "self_biz_id": 80 },
+        {
+            "biz_id": 81,
+            "biz_name": "餐饮O2O",
+            "template_count": 1,
+            "self_biz_id": 80
+        }
+    ]
+}

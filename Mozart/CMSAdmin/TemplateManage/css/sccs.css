@@ -1,0 +1,197 @@
+﻿
+
+
+body{ overflow:auto;}
+.t2-outer {
+	overflow: hidden;
+	border: 1px solid #D8D8D8;
+	border-radius: 5px;
+	background: #FFF;
+	padding: 15px 20px;
+	width: 1030px;
+}
+.t2-header {
+	height: 45px;
+	border-bottom: 1px solid #D8D8D8;
+	overflow: hidden;
+}
+.t2-header > * { float: left; }
+.t2-header > h2 {
+	margin: 0;
+	color: #1B8CF2;
+	font-size: 20px;
+	font-family: 微软雅黑;
+	margin-left:300px;
+}
+.t2-header > p {
+	margin-left: 354px;
+	color: #888;
+	font-size: 16px;
+	line-height: 40px;
+}
+.t2-header > p > span { color: #04BCE2; }
+.btn-green {
+	text-align:center;
+	width: 156px;
+	height: 35px;
+	line-height: 35px;
+	cursor: pointer;
+	border: 0;
+	color: #FFF;
+	font-size: 16px;
+	background: url(../images/btn_green.png) no-repeat;
+}
+.btn-green:hover{
+	color: #FFF;
+}
+ul {
+	margin: 0;
+	padding-top: 5px;
+}
+li {
+	position:relative;
+	width: 475px;
+	height:210px;
+	overflow: hidden;
+}
+li.odd { float: left; }
+li.even { float: right; }
+li > h3 {
+	margin: 0;
+	height: 43px;
+	text-indent: 1em;
+	font: bold 16px/43px 微软雅黑;
+	background: #EAEAEA;
+	color: #888;
+}
+li > h3 > span { float: left; }
+li > h3 > i {
+	float: left;
+	width: 25px;
+	height: 25px;
+	margin: 9px 0 0 20px;
+	cursor: pointer;
+	background: url(../images/question.png) no-repeat;
+}
+li > h3 > i:hover { background-image: url(../images/question_active.png); }
+li > .word > .w1 > i {
+	float: left;
+	width: 90px;
+	height: 70px;
+	margin-right: 20px;
+}
+
+li > .word > .w1 {
+	height: 70px;
+	line-height: 70px;
+	color: #6f6f6f;
+	font-size: 18px;
+}
+li > .word > .w2 {
+	height: 20px;
+	line-height: 20px;
+	color: #9f9f9f;
+	width: 320px;
+}
+.other{
+	padding:15px 0;	
+}
+.other > *{
+	float:left;	
+}
+.other > i{
+	margin:5px 0 0 10px;
+	width:25px;
+	height:25px;
+	cursor:pointer;
+	background:url(../images/question.png) no-repeat;
+}
+.other > i:hover{
+	background:url(../images/question_active.png) no-repeat;	
+}
+.btn-blue{
+	text-align:center;
+	border:0;
+	color:#FFF;
+	font-size:16px;
+	cursor:pointer;
+	width:156px;
+	height:33px;
+	line-height:33px;
+	background:url(../images/btn_blue.png) no-repeat;	
+}
+.btn-blue:hover{
+	color:#FFF;	
+}
+.btn-pgzs {
+	position:relative;
+	margin-left:20px;
+}
+.btn-pgzs , .btn-pgzs > *{
+	width:215px;
+	height:33px;
+	border:0;
+	cursor:pointer;
+}
+.btn-pgzs > input{
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0;
+	z-index:10;
+	filter:alpha(opacity=0);
+}
+.btn-pgzs > button{
+	border:1px solid #D8D8D8;
+	background:#EEE url(../images/update.png) no-repeat 175px center;
+	font-size:16px;
+	color:#6f6f6f;
+	text-align:left;
+	text-indent:1.3em;
+}
+.state4 > .other > .u-btnBlue{
+	margin-right:20px;	
+}
+.upload-btn-cre{
+	width:215px;
+	height:33px;
+	cursor:pointer;	
+	border:1px solid #D8D8D8;
+	background: #EEE;
+	border-radius: 3px;
+	color: #6f6f6f;
+	text-align:left;
+	line-height:28px;
+	display:block;
+	text-indent:1.3em;
+	background:#EEE url(../images/update.png) no-repeat 175px center;
+	font-size:16px;
+	color:#6f6f6f;
+}
+/*
+.state4 .code{
+	position:absolute;
+	right:0;
+	top:65px;	
+}
+.state1 > .word > .w1 > i { background: url(../images/bq1.png) no-repeat right center; }
+.state2 > .word > .w1 > i { background: url(../images/bq2.png) no-repeat right center; }
+.state3 > .word > .w1 > i { background: url(../images/bq3.png) no-repeat right center; }
+.state4 > .word > .w1 > i { background: url(../images/bq4.png) no-repeat right center; }
+.state5 > .word > .w1 > i { background: url(../images/bq5.png) no-repeat right center; }
+.state6 > .word > .w1 > i { background: url(../images/bq6.png) no-repeat right center; }
+*/
+.cg_ready_icon { background: url(../images/bq1.png) no-repeat right center; }
+.cg_wait_icon { background: url(../images/bq2.png) no-repeat right center; }
+.cg_ing_icon { background: url(../images/bq3.png) no-repeat right center; }
+.cg_success_icon { background: url(../images/bq4.png) no-repeat right center; }
+.cg_fail_icon { background: url(../images/bq5.png) no-repeat right center; }
+.cg_error_icon { background: url(../images/bq6.png) no-repeat right center; }
+
+.other .code{
+	position:absolute;
+	right:0;
+	top:65px;	
+}
+
+

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Customerinfo.aspx.cs" Inherits="Mozart.Comment.Customerinfo" %>

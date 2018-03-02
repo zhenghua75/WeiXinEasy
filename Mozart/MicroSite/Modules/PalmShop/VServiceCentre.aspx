@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VServiceCentre.aspx.cs" Inherits="Mozart.PalmShop.ShopCode.VServiceCentre" %>

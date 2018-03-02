@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditeLogPwd.aspx.cs" Inherits="Mozart.PalmShop.ShopCode.EditeLogPwd" %>

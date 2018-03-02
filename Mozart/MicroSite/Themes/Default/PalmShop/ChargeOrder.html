@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body style="background: #FFFFFF;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a class="back_ico" href="#"></a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">充值明细</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right"><a class="next_ico" href="#"></a></div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row" style="padding-top: 10px;">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+					  <div class="panel-heading">充值列表</div>
+					  <div class="panel-body">
+					    <table class="table table-striped jf_list">
+						    <thead>
+							    <tr>
+								    <th>类型</th>
+								    <th>号码</th>
+								    <th>金额</th>
+                                    <th>时间</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+                                $foreach(node in Po_list)
+							    <tr>
+								    <td>$node.PID</td>
+								    <td>$node.Pnum</td>
+								    <td>$node.UnitCost</td>
+                                    <td>$node.AddTime</td>
+						        </tr>
+                                $end
+						    </tbody>
+					    </table>
+					  </div>
+					</div>					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

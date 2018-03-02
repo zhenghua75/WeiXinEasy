@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>订单管理</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        <style>
+            .orderrow {background: #FFFFFF;margin-left: -5px;margin-right: -5px;padding-top: 15px;margin-bottom: 10px;cursor: pointer;}
+        </style>
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="back_ico" href="VServiceCentre.aspx">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">订单管理</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row" id="search_box">
+				  <input type="text" id="searchinput" value="请输入商品名称" />
+				  <input type="button" value="搜索" id="search_btn" />
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<ul class="OrderMenu list-unstyled">
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="handle" onclick="javascript:location.href='CustomerOrder.aspx'">
+                      待处理
+					</li>
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="npaystate" onclick="javascript:location.href='CustomerOrder.aspx?paystate=0'">
+                        未付款
+					</li>
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="receive" onclick="javascript:location.href='CustomerOrder.aspx?receive=1'">
+                        已完成
+					</li>
+					<li class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center" 
+                        id="orderstate" onclick="javascript:location.href='CustomerOrder.aspx?orderstate=1'">
+                        已关闭
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="container-fluid OrderList">
+            $foreach(myorder in myorderlist)
+			<div class="row orderrow">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-4" onclick="javascript:location.href='OrderDetail.aspx?oid=$myorder.ID'">
+                    $if(myorder.Pimg!=null&&myorder.Pimg!="")
+                    <img src="$myorder.Pimg" alt="$myorder.AtlasName" class="img-responsive"/>
+                    $end
+                    $if(myorder.Pimg==null||myorder.Pimg=="")
+                    <img src="ShopLogo/default.png"  class="img-responsive"/>
+                    $end
+				</div>
+				<div class="col-lg-9" style="width:85%" onclick="javascript:location.href='OrderDetail.aspx?oid=$myorder.ID'">
+					<h4>$myorder.Ptitle</h4>
+                     $if(myorder.ParName!=null&&myorder.ParName!="")
+                       <p>
+                           型号/尺寸：$myorder.ParName </p>
+                        $end
+				</div>
+                    <div style="float:right;margin:-25px 0px 0px 0px;padding:0px 5px 0px 0px;width:45px;z-index:9999;">
+                        $if(myorder.PayState=="0"||myorder.PayState==0)
+                            <a href="PayWay.aspx?pname=$myorder.ptitle&ordernum=$myorder.id&countcost=$myorder.UnitCost&customid=$myorder.CustomerID">去付款</a>
+                        <p style="margin:10px 0px 0px 0px;"><i class="pro_delico" data-oid="$myorder.ID" data-uid="$myorder.CustomerID"></i></p>
+                        $end
+                        $if(myorder.IsSend==1||myorder.IsSend=="1")
+                        $if(myorder.isReceive=="0"||myorder.isReceive==0)
+                        <span id="preceivebtn" data-oid="$myorder.ID">确认收货</span>
+                        $end
+                        $end
+                        $if(myorder.PayState=="1"||myorder.PayState==1)
+                        $if(myorder.IsSend==0||myorder.IsSend=="0")
+                        <span  data-oid="$myorder.ID">待发货</span>
+                        $end
+                        $end
+                    </div>
+				<div class="col-lg-12 clear">
+					<div class="row pro_detal">
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 sale_ico">
+							数量：<label>$myorder.Quantity</label>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 kc_ico">
+						<label>¥$myorder.UnitCost</label>元
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 time_ico">
+						$myorder.AddTime.ToString("MM-dd")
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+            $end
+            </div>
+	</body>
+    <script>
+        $errormsg
+        $(document).ready(function () {
+            var oldclass;
+            var orderstate = Request("orderstate");
+            var paystate = Request("paystate");
+            var receive = Request("receive");
+            if (orderstate != null && orderstate != "") {
+                oldclass = $("#orderstate").attr("class");
+                $("#orderstate").addClass(oldclass + " item_red");
+            }
+            else if (paystate != null && paystate != "") {
+                oldclass = $("#paystate").attr("class");
+                $("#paystate").addClass(oldclass + " item_red");
+            }
+            else if (receive != null && receive != "") {
+                oldclass = $("#receive").attr("class");
+                $("#receive").addClass(oldclass + " item_red");
+            }
+            else {
+                oldclass = $("#handle").attr("class");
+                $("#handle").addClass(oldclass + " item_red");
+            }
+        })
+        $("#preceivebtn").click(function () {
+            var oid = $(this).attr("data-oid");
+            if (oid != null && oid != "") {
+                $.dialog({
+                    lock: true, fixed: true,
+                    content: '确认该订单收货？',
+                    ok: function () {
+                        $.getJSON("CustomerOrder.aspx", {
+                            "action": "receive", "oid": oid
+                        }, function (json) {
+                            if (json.error == true) {
+                                if (json.msg != null && json.msg != "") {
+                                    $.dialog({ time: 3, fixed: true, icon: 'error', content: json.msg }); return false;
+                                } else {
+                                    $.dialog({
+                                        time: 3, fixed: true, icon: 'error', content: '操作失败，请稍后再试！'
+
+                                    });
+                                    return false;
+                                }
+                            }
+                            if (json.success == true) {
+                                $.dialog({ time: 3, fixed: true, icon: 'error', content: '操作成功！' });
+                                location.href = location.href;
+                            }
+                        })
+                    },
+                    okVal: '是的',
+                    cancelVal: '取消',
+                    cancel: true
+                });
+            } else {
+                $.dialog({ time: 3, fixed: true, icon: 'error', content: '操作失败，请稍后再试！' });
+                return false;
+            }
+        })
+        $(".pro_delico").click(function () {
+            var oid = $(this).attr("data-oid");
+            var uid = $(this).attr("data-uid");
+            var gotourl = "CustomerOrder.aspx";
+            if (oid != null && oid != "" && uid != null && uid != "") {
+                if (oid != null && oid != "") {
+                    $.dialog({
+                        lock: true, fixed: true,
+                        content: '注意：<br/>删除后无法恢复，需谨慎操作<br/>您确定当前操作吗？',
+                        ok: function () {
+                            $.getJSON("CustomerOrder.aspx", { "action": "delorder", "oid": oid, "uid": uid },
+                                function (json) {
+                                    if (json.error == true) {
+                                        $.dialog({
+                                            time: 1, lock: true, fixed: true, icon: 'error',
+                                            content: json.msg == "" ? "操作失败，请重新操作！" : json.msg
+                                        }); return;
+                                    }
+                                    if (json.success == true) {
+                                        $.dialog({
+                                            time: 1, lock: true, fixed: true, icon: 'succeed',
+                                            content: "操作成功！"
+                                        });
+                                        location.href = gotourl;
+                                    }
+                                })
+                        },
+                        okVal: '是,删除',
+                        cancelVal: '取消',
+                        cancel: true
+                    });
+                }
+            } else {
+                $.dialog({ time: 3, fixed: true, icon: 'error', content: '操作失败，请稍后再试！' });
+                return false;
+            }
+        });
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+    </script>
+</html>

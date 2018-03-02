@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0" />
+    <title></title>
+    <link href="style/topic.css" rel="stylesheet" />
+    <script src="artDialog/jquery.min.js"></script>
+    <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+</head>
+<body>
+    <div id="container" class="container">        <header>
+				<div class="header_1">
+					<ul class="tbox">
+						<li>
+							<span class="head_img">
+								<img src="../PalmShop/ShopCode/$customer.HeadImg" onerror="this.src='images/2.png';" />
+							</span>
+						</li>
+						<li>
+							<h5><label>$customer.NickName</label><a href="javascript:void(0);" class="icons icons_edit">&nbsp;</a></h5>
+							<!--<p>
+                                <a href="javascript:" class="label">
+                                    <span class="icons icons_vip_0">&nbsp;</span>非会员</a>
+						    </p>-->
+						</li>
+					</ul>
+				</div>
+            <div class="header_2">
+					<nav>
+						<ul class="box">
+							<li>
+								<a href="MyTopicList.aspx?fid=$fid">
+									<label>帖子</label>
+									<span>$topiccount</span>
+								</a>
+							</li>
+							<li>
+								<a href="Mylikelist.aspx?fid=$fid" class="on">
+									<label>喜欢</label>
+									<span>$likecount</span>
+								</a>
+							</li>
+							<li>
+								<a href="MyCommentList.aspx?fid=$fid">
+									<label>消息</label>
+									<span>$msgcount</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+		<div class="body">
+		   <div id="list_article" class="list_article">
+               $foreach(topiclist in mytopiclist)
+			   <article>                   <header>
+    							<ul class="tbox">
+    								<li>
+                                        <a class="head_img" data-uid="$topiclist.UID">
+                                            <img src="../PalmShop/ShopCode/$topiclist.HeadImg" onerror="this.src='images/2.png';" />
+									    </a>
+    								</li>
+    								<li>
+    									<h5>$topiclist.NickName</h5>
+									    <p>$topiclist.AddTime</p>
+    								</li>
+    							</ul>
+    						</header>                        <section>						
+    						<div>
+    							<h5>$topiclist.TopicTitle</h5>
+                                <p class="publicdate">$topiclist.AddTime</p>
+								<div>$topiclist.TopicDesc</div>
+							</div>
+							<a href="CommentList.aspx?tid=$topiclist.ID&fid=$topiclist.FID">查看全文</a>
+							</section>                        <footer>
+    					<ul class="box">
+    						<li>
+    							<a href="javascript:;" class="a_collect">
+                                    <span class="icons icons_collect" >&nbsp;</span>
+                                    <label>$topiclist.Tlike</label></a>
+    							</li>
+    						<li>
+    							<a href="commentlist.html" class="a_comment">
+                                    <span class="icons icons_comment" >&nbsp;</span>
+                                    <label>$topiclist.Tlike</label></a>
+    						</li>
+    						<li>
+    							<a href="javascript:;" class="a_like">
+                                    <span class="icons icons_like"   >&nbsp;</span>
+                                    <label>$topiclist.Tlove</label></a>
+    						</li>
+						</ul>
+			      </footer>               </article>
+               $end
+		    </div>
+		</div>        <footer>
+				<section class="nav_footer">
+				 <ul class="box">
+						<li>
+							<a href="Index.aspx?fid=$fid">
+								<span class="icons_home">&nbsp;</span>
+								<label>首页</label>
+							</a>
+						</li>
+						<li>
+						 <a href="PublishTopic.aspx?fid=$fid" class="nav_add">
+							 <span class="icons_home_edit">&nbsp;</span>
+					      </a>
+						</li>
+						<li>
+							<a href="MyTopicList.aspx?fid=$fid" class="on">
+							<span class="icons_my">&nbsp;</span>
+							<label>我的</label>
+							</a>
+						</li>
+					</ul>
+			  </section>
+			</footer>    </div>
+</body>
+    <div id="loading"><div><img src="images/loading.gif" /></div></div>
+    <script>
+        Loading = $("#loading");
+        Loading.hide();
+        $errorscript
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    Loading.hide();
+                }
+            });
+        };
+        $(".head_img").click(function () {
+            var datauid = $(this).attr("data-uid");
+            var uid = "$uid"; var fid = "$fid";
+            if (datauid != null && datauid != "" && datauid != "undefined") {
+                if (datauid == uid) {
+                    location.href = "MyTopicList.aspx?fid=" + fid;
+                } else {
+                    location.href = "OtherTopicList.aspx?fid=" + fid + "&uid=" + datauid;
+                }
+            }
+        })
+        $(".icons_edit").click(function () {
+            var fid = "$fid";
+            if (fid != null && fid != "") {
+                location.href = "Customerinfo.aspx?fid=" + fid;
+            }
+        })
+    </script>
+</html>

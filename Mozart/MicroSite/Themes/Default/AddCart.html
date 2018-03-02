@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>$title</title>
+    <link rel="stylesheet" type="text/css" href="Themes/Default/style/base.css" />
+    <link rel="stylesheet" type="text/css" href="Themes/Default/style/cart.css" />
+    <script type="text/javascript" src="Themes/Default/script/jquery.min.js"></script>
+    <script type="text/javascript">
+        function shu(id,jj) {
+            $(document).ready(function(){
+	            $.ajax({
+                    url:'ChangeCart.aspx',
+                    type:'GET',
+                    data:'num='+ $("#n"+id).val()+'&id='+id+'&jj='+jj+'&ttt='+ new Date().getTime(),
+                    success:function(result){
+			            var AA=new Array()
+			            AA=result.split("|");
+			            $("#n"+id).val(AA[0]);
+                        $("#zjs").html(AA[1]);
+			            $("#zjian").html(AA[2]);
+                    },
+                    error:function(msg){
+                        alert('出错了，请联系客服:'+msg);
+                    }
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="top">
+        <div class="back-ui-a">
+            <a href="javascript:history.back(1)">返回</a>
+        </div>
+        <div class="header-title">购物车</div>
+        <div class="site-nav">
+            <ul class="fix">
+                <li class="home"><a href="http://m.yunbei.com/index.htm">首页</a></li>
+                <li class="mycart"><a href="http://m.yunbei.com/gouwu.htm?tt=451">购物车</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="cart-list-1 layout f14">
+        <ul class="cart-list list-ui-c">
+            <li>
+                <div class="wbox">
+                    <p class="pro-img"><a href="http://m.yunbei.com/pro.htm?id=3690"><img src="./Themes/Default/images/059-.jpg" height="100" width="100" alt="" /></a></p>
+                    <div class="wbox-flex">
+                        <p class="pro-name"><a href="http://m.yunbei.com/pro.htm?id=3690">狗牙护身摩挲项链</a><br/></p>
+                        <div class="count">
+                            <span class="attr">数量：</span>
+                            <div class="countArea">
+                                <a href="javascript:void(0)" class="min" onclick="shu('3071926',0)"></a>
+                                <input class="count-input" type="text" name="num" id="n3071926" value="1" onchange="shu('3071926',2)" />
+                                <a href="javascript:void(0)" class="add" onclick="shu('3071926',1)"></a>
+                            </div>
+                        </div>
+                        <p><span class="attr">编号：#3690</span></p>
+                        <p><span class="attr">单价：</span><span class="price">￥4.3</span> <span class="attr"></span></p>
+                        <div class="trash" onclick="window.location.href='gouwudel.htm?id=3071926'"><span class="lid"></span><span class="can"></span></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="wbox">
+                    <p class="pro-img"><a href="http://m.yunbei.com/pro.htm?id=1419"><img src="./Themes/Default/images/046-.jpg" height="100" width="100" alt="" /></a></p>
+                    <div class="wbox-flex">
+                        <p class="pro-name"><a href="http://m.yunbei.com/pro.htm?id=1419">小天意籽菩提手珠</a><br/></p>
+                        <div class="count">
+                            <span class="attr">数量：</span>
+                            <div class="countArea">
+                                <a href="javascript:void(0)" class="min" onclick="shu('3071923',0)"></a>
+                                <input class="count-input" type="text" name="num" id="n3071923" value="1" onchange="shu('3071923',2)"/>
+                                <a href="javascript:void(0)" class="add" onclick="shu('3071923',1)"></a>
+                            </div>
+                        </div>
+                        <p><span class="attr">编号：#1419</span></p>
+                        <p><span class="attr">单价：</span><span class="price">￥38.5</span> <span class="attr"></span></p>
+                        <div class="trash" onclick="window.location.href='gouwudel.htm?id=3071923'"><span class="lid"></span><span class="can"></span></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="line"></div>
+        <p class="mt10 tr">对 <span class="a3">2</span> 种商品共 <span class="a3" id="zjian">2</span> 件进行结算</p>
+        <p class="mt5 tr">总计: <span class="price"><strong>￥<span id="zjs">42.8</span></strong></span></p>
+        <div class="line"></div>
+        <div class="btn-ui-b mt10" id="checkOutButton"><a title="去结算" href="http://m.yunbei.com/checkout.htm">去结算</a></div>
+        <div class="btn-ui-c mt10"><a href="javascript:history.back(1)">&lt;&lt; 返回继续购物</a></div>
+    </div>
+    <div class="line"></div>
+    <div id="footer">
+        <div class="layout fix user-info">
+            <div class="user-name fl" id="footerUserName">
+                当前用户: <a href="#" class="blue">laoshimonk</a>
+            </div>
+            <div class="fr">
+                <a id="backTop" href="javascript:window.scrollTo(0,0);">回顶部</a>
+            </div>
+        </div>
+        <ul class="list-ui-a">
+            <li>
+                <div class="w user-login">
+                    <a href="http://m.yunbei.com/logout.htm">注销</a>
+                    <a href="http://m.yunbei.com/gouwu.htm?tt=451">购物车</a>
+                </div>
+            </li>   
+        </ul>
+    </div>
+</body>
+</html>

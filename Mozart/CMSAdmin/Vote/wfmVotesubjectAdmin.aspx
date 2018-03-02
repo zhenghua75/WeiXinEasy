@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfmVotesubjectAdmin.aspx.cs" Inherits="Mozart.CMSAdmin.Vote.wfmVotesubjectAdmin" %>

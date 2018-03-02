@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>$title</title>
+    <link rel="stylesheet" type="text/css" href="Themes/Default/style/base.css" />
+    <link rel="stylesheet" type="text/css" href="Themes/Default/style/Acticle.css" />
+    <script type="text/javascript" src="Themes/Default/script/IsPhone.js"></script>
+</head>
+<body>
+    <div id="top">
+        <div class="back-ui-a">
+            <a href="javascript:history.back(1)">返回</a>
+        </div>
+        <div class="header-title">投票列表</div>
+        <div class="site-nav">
+            <ul class="fix">
+              
+            </ul>
+        </div>
+    </div>
+    <div class="floor floor1">
+        <div class="floor-cate fix">
+            <ul class="square highlight">
+                $foreach(node in MyVoteList)
+                <li class="search_list"><a href="VoteOptionDetail.aspx?id=$node.ID" title="查看 $node.Title 的详细" class="li_a">
+                    $if(node.ico!=null&&node.ico!="")
+                    <img src="../../$node.ico" class="l mr10 jsLazyImage" width="60px" height="60px" alt ="$node.Title" />
+                    $end
+                    <div class="cell">
+                        <div class="ovh">
+                            <span class="l">$node.Title</span> 
+                        </div>
+                        <p>
+                            <span class="star star_s"><span class="star_in" style="width: 78%;"></span></span>                            
+                        </p>
+                    </div>
+                    <span class="ico ico_arrow" data-icon="" aria-hidden="true">&gt;</span> </a>
+                </li>
+                $end
+            </ul>
+        </div>
+    </div>
+    <p style ="text-align:center">
+        <span>$noinfo</span>                    
+    </p>
+    <div class="line"></div>
+    <div id="footer">
+        <div>
+            <div class="copyright">版权所有 &#169; 2012-2014 $footer</div>
+        </div>
+    </div>
+</body>
+</html>

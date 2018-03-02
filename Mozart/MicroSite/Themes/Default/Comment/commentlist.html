@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0" />
+    <title>$topicdetail.topictitle-详细</title>
+    <link href="style/topic.css" rel="stylesheet" />
+    <script src="artDialog/jquery.min.js"></script>
+    <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+</head>
+<body class="discuss_detail">
+    <div id="container" class="container">
+        <div class="body pt_5">
+				<div id="" class="list_article">
+					<article>
+						<section>
+								<h5>$topicdetail.topictitle</h5>
+								<h6>
+									<small>$topicdetail.Addtime</small>
+								</h6>
+                            $if(altaslist.count>0)
+                            <figure data-count="$altaslist.count 张图片">
+                                $foreach(imglist in altaslist)
+    								<div>
+                                        <img src="$imglist.ImgUrl"  data-src="$imglist.ImgUrl" data-gid="$imglist.ID" onload="preViewImg(this, event);" />
+                                    </div>
+                                $end
+    					    </figure>
+                            $end
+							<div>
+                                $topicdetail.topicdesc
+							</div>
+						</section>
+						<footer>
+							<ul class="box">
+								<li>
+									<a href="javascript:;" class="a_collect">
+                                        <span class="number"><label>$commentcount</label></span>评论</a>
+								</li>
+								<li>
+								    <a href="javascript:;" class="a_collect">
+                                        <span class="icons icons_collect">&nbsp;</span>
+                                        <label class="countnum">$likecount</label></a>
+							    </li>
+                                <li>
+                                    <a href="javascript:;" class="a_like">
+                                        <span class="icons icons_like">&nbsp;</span>
+                                        <label class="countnum">$lovecount</label></a>
+							    </li>
+							</ul>
+						</footer>
+					</article>
+				</div>
+            <div>
+				<ul id="list_comment" class="list_comment">
+                    $foreach(comment in commentlist)
+						<li>
+							<dl class="tbox">
+								<dd>
+									<span class="head_img" data-uid="$comment.UID">
+									 <img src="../PalmShop/ShopCode/$comment.HeadImg" onerror="this.src='images/2.png';" />
+									</span>
+								</dd>
+								<dd>
+								    <h7>$comment.NickName</h7>
+								    <p>$comment.Ctext</p>
+                                    $if(commentatlaslist.count>0)
+                                    $foreach(commatlas in commentatlaslist)
+                                    $if(commatlas.TID=="comm"+comment.ID)
+                                    <img src="$commatlas.ImgUrl"  data-src="$commatlas.ImgUrl" 
+                                        data-gid="$commatlas.ID" onload="preViewImg(this, event);" />
+                                    $end
+                                    $end
+                                    $end
+									<div style="padding:5px 0px 0px 0px;">
+									$comment.AddTime
+									</div>
+								</dd>
+
+                                $if(uid==comment.UID)
+                                <dd><span class="repmsg_del" title="删除" data-delid="$comment.ID"></span></dd>
+                                $end
+							</dl>
+						</li>
+                    $end
+					</ul>
+			     </div>
+				<div>
+			</div>
+			</div>
+			<footer>
+				<section class="nav_footer">
+					<ul class="box">
+						<li>
+							<a href="javascript:" onclick="window.history.go(-1)">
+								<span class="icons_back">&nbsp;</span>
+								<label>返回</label>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:" class="commentbtn">
+								<span class="icons_comment">&nbsp;</span>
+								<label>评论</label>
+							</a>
+						</li>
+					    <li>
+							<a href="javascript:;" class="a_collect">
+								<span class="icons_love">&nbsp;</span>
+								<label>喜欢</label>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" class="a_like">
+					    		<span class="icons_like">&nbsp;</span>
+								<label>赞</label>
+							</a>
+						</li>
+					</ul>
+				</section>
+			</footer>
+    </div>
+</body>
+    <div id="loading"><div><img src="images/loading.gif" /></div></div>
+    <script>
+        Loading = $("#loading");
+        Loading.hide();
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    Loading.hide();
+                }
+            });
+        };
+        $errorscript
+        var fid = "$fid"; var tid = "$topicdetail.ID"; var uid = "$uid";
+        function showOperate(type, thi, evt) {
+            var pop_operate = document.getElementById("pop_operate");
+            if (type) {
+                var btns = thi.innerHTML;
+                pop_operate.querySelectorAll("div.pop_container")[0].innerHTML = btns;
+                pop_operate.classList.add("on");
+            } else {
+                pop_operate.classList.remove("on");
+            }
+        }
+        $(".head_img").click(function () {
+            var datauid = $(this).attr("data-uid");
+            if (datauid != null && datauid != "" && datauid != "undefined") {
+                if (datauid == uid) {
+                    location.href = "MyTopicList.aspx?fid=" + fid;
+                } else {
+                    location.href = "OtherTopicList.aspx?fid=" + fid + "&uid=" + datauid;
+                }
+            }
+        })
+        //删除评论
+        $(".repmsg_del").click(function () {
+            var delid = $(this).attr("data-delid");
+            if (delid != null && delid != "" && delid != "undefined")
+            {
+                $.dialog({
+                    lock: true, fixed: true,
+                    content: '注意：<br/>删除后无法恢复，需谨慎操作<br/>您确定当前操作吗？',
+                    ok: function () {
+                        $.getJSON("CommentList.aspx", { "action": "delrep", "fid": fid, "tid": delid }, function (json) {
+                            if (json.error == true) {
+                                $.dialog({ time: 1, fixed: true, icon: 'error', content:"操作失败，请重新操作！"});
+                                return;
+                            }
+                            if (json.success == true) {
+                                location.href = "CommentList.aspx?fid=" +fid + "&tid=" +tid;
+                            }
+                        })
+                    },
+                    okVal: '是,删除',
+                    cancelVal: '取消',
+                    cancel: true
+                });
+            }
+        })
+        $('.a_collect').click(function () {
+            if (uid != null && uid != "") {
+                submitloveorlike("tlike", $(this));
+            } else {
+                $.dialog({
+                    lock: true, fixed: true,
+                    content: '操作失败，请登录后再操作！',
+                    ok: function () {
+                        $.getJSON("SetCookies.ashx", {
+                            "curl": "../../Comment/CommentList.aspx?fid=" + fid + "&tid=" + tid
+                        }, function (json) {
+                            if (json.succeed == true && json.logurl != null && json.logurl != "") {
+                                location.href = json.logurl;
+                            }
+                        })
+                    },
+                    okVal: '立即登录',
+                    cancelVal: '取消',
+                    cancel: true
+                });
+            }
+        })
+        $('.a_like').click(function () {
+            if (uid != null && uid != "") {
+                submitloveorlike("tlove", $(this));
+            } else {
+                $.dialog({
+                    lock: true, fixed: true,
+                    content: '操作失败，请登录后再操作！',
+                    ok: function () {
+                        $.getJSON("SetCookies.ashx", {
+                            "curl": "../../Comment/CommentList.aspx?fid=" + fid + "&tid=" + tid
+                        }, function (json) {
+                            if (json.succeed == true && json.logurl != null && json.logurl != "") {
+                                location.href = json.logurl;
+                            }
+                        })
+                    },
+                    okVal: '立即登录',
+                    cancelVal: '取消',
+                    cancel: true
+                });
+            }
+        })
+        //提交点赞或喜欢
+        function submitloveorlike(action, thi) {
+            if (tid == null || tid == "") {
+                $.dialog({ time: 1, fixed: true, icon: 'error', content: '操作失败，请重新操作！' }); return;
+            }
+            $.getJSON("CommentList.aspx", {
+                "action": action, "tid": tid, "fid": fid
+            }, function (json) {
+                if (json.error == true) {
+                    $.dialog({ time: 1, fixed: true, icon: 'error', content: '操作失败，请重新操作！' }); return;
+                }
+                if (json.success == true) {
+                    var oldclass = thi.attr("class");
+                    $("a[class=\"" + oldclass + "\"]").find("label[class=\"countnum\"]").html(json.count);
+                    json.result == 0 ? thi.removeClass("on") : thi.addClass("on");
+                }
+            })
+        }
+        //发布评论
+        $(".commentbtn").click(function () {
+            location.href = "CommentView.aspx?tid="+tid+"&fid="+fid+"&uid="+uid;
+        })
+        $(".head_img").click(function () {
+            location.href = "MyTopicList.aspx?fid=" + fid + "&uid=" + uid;
+        })
+        window.preViewImg = (function () {
+            var imgsSrc = {};
+            function reviewImage(dsrc, gid) {
+                if (typeof window.WeixinJSBridge != 'undefined') {
+                    WeixinJSBridge.invoke('imagePreview', {
+                        'current': dsrc,
+                        'urls': imgsSrc[gid]
+                    });
+                } else {
+                    alert("请在微信中查看", null, function () { });
+                }
+            }
+            function init(thi, evt) {
+                var dsrc = thi.getAttribute("data-src");
+                var gid = thi.getAttribute("data-gid");
+
+                if (dsrc && gid) {
+                    imgsSrc[gid] = imgsSrc[gid] || [];
+                    imgsSrc[gid].push(dsrc);
+                    thi.addEventListener("click", function () {
+                        reviewImage(dsrc, gid);
+                    }, false);
+                }
+            }
+            return init;
+        })();
+    </script>
+</html>

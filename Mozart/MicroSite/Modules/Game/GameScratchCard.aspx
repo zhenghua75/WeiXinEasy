@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GameScratchCard.aspx.cs" Inherits="Mozart.MicroSite.GameScratchCard" %>

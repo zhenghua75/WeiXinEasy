@@ -1,0 +1,18 @@
+﻿{
+    "code": 1,
+    "notice": "操作成功",
+    "data": [
+        {
+            "platform_type": "android",
+            "task_id": 37059,
+            "generate_count": 1,
+            "regenerate_count": 0,
+            "wait_count": 0,
+            "status": 4,
+            "generate_percent": 0,
+            "client_download_url": "http://clientgb.f3.cn:80/ClientDownload/GetAppFile?id=45626&ecid=608989",
+            "client_qr_url": "http://clientgb.f3.cn:80/qr_images/CC70B87456D45E4DE2C471A9F40E075A.png",
+            "havecer": false
+        }
+    ]
+}

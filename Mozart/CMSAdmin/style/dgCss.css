@@ -1,0 +1,106 @@
+﻿.gv
+{
+    border: 1px solid #D7D7D7;
+    font-size:12px;
+    text-align:center;
+}
+.gvHeader
+{
+    color: #3F6293;
+    background-color: #F7F7F7;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-weight: normal;
+    font-variant: normal;
+}
+.gvHeader th
+{
+    font-weight: normal;
+    font-variant: normal;
+}
+.gvRow, .gvAlternatingRow, .gvEditRow
+{
+    line-height: 20px;
+    text-align: center;
+    padding: 2px;
+    height: 20px;
+}
+.gvAlternatingRow
+{
+    background-color: #F5FBFF;
+}
+.gvEditRow
+{
+    background-color: #FAF9DD;
+}
+.gvEditRow input
+{
+    background-color: #FFFFFF;
+    width: 80px;
+}
+.gvEditRow .gvOrderId input, .gvEditRow .gvOrderId
+{
+    width: 30px;
+}
+.gvEditRow .checkBox input, .gvEditRow .checkBox
+{
+    width: auto;
+}
+.gvCommandField
+{
+    text-align: center;
+    width: 130px;
+}
+
+.gvLeftField
+{
+    text-align: left;
+    padding-left: 10px;
+}
+.gvBtAField
+{
+    text-align: center;
+    width: 130px;
+}
+.gvCommandField input
+{
+    background-image: url(../Images/gvCommandFieldABg.jpg);
+    background-repeat: no-repeat;
+    line-height: 23px;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    width: 50px;
+    height: 23px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: 10px;
+}
+.gvPage
+{
+    padding-left: 15px;
+    font-size: 18px;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.gvPage a
+{
+    display: block;
+    text-decoration: none;
+    padding-top: 2px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    border: 1px solid #FFFFFF;
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+}
+.gvPage a:hover
+{
+    display: block;
+    text-decoration: none;
+    border: 1px solid #CCCCCC;
+}

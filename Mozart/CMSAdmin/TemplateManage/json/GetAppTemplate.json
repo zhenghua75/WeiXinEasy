@@ -1,0 +1,35 @@
+﻿{
+    "code": 1,
+    "notice": "操作成功",
+    "data": {
+        "page_index": 1,
+        "total_pages": 1,
+        "total_items": 9,
+        "page_size": 9999,
+        "has_more": false,
+        "items": [
+            { "app_name": null, "biz_type": 0, "wap_url": null, "template_id": 62, "template_name": "道讯科技", "shell_type": "ShellR", "app_image_url": "http://clientgb.f3.cn:80/Images/fTips2.png", "weixin_image_url": "http://clientgb.f3.cn:80/Images/fTips2.png", "mp_image_url": "http://clientgb.f3.cn:80/Images/fTips2.png", "description": "", "enabled_flag": 1 },
+            { "app_name": "东风标致", "biz_type": 80, "wap_url": "http://mod.f3.cn/ShellSWap/Index.aspx?", "template_id": 65, "template_name": "东风标致", "shell_type": "ShellS", "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=197", "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "description": "模板S：个性扇形的展示方式，让应用更加的独特", "enabled_flag": 0 },
+            { "app_name": "嘟嘟书屋", "biz_type": 80, "wap_url": "http://mod.f3.cn/ShellPWap/Index.aspx?", "template_id": 61, "template_name": "嘟嘟书屋", "shell_type": "ShellP", "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=193", "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "description": "模板P：【1】小图标+大图片的展示效果，适合电商行业。", "enabled_flag": 0 },
+            { "app_name": "服装鞋帽", "biz_type": 80, "wap_url": "http://mod.f3.cn/ShellRWap/Index.aspx?", "template_id": 62, "template_name": "服装鞋帽", "shell_type": "ShellR", "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=194", "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "description": "模板R：\r\n【1】以展示精美图片为主\r\n【2】建议用于酒店、汽车、家居、影院等高端上档次行业", "enabled_flag": 0 },
+            { "app_name": "绿茶餐厅", "biz_type": 80, "wap_url": "http://mod.f3.cn/ShellFWap/Index.aspx?", "template_id": 50, "template_name": "绿茶餐厅", "shell_type": "ShellF", "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=174", "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "description": "模板F：\r\n【1】左右结构纯图控制界面美观\r\n【2】首页可放置较多功能\r\n【3】建议用于企业官网门户、宣传介绍", "enabled_flag": 0 },
+            { "app_name": "叶凌春", "biz_type": 80, "wap_url": "http://mod.f3.cn/ShellBWap/Index.aspx?", "template_id": 58, "template_name": "叶凌春", "shell_type": "ShellB", "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=185", "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "description": "模板B：\r\n【1】单屏放置8个功能，可左右滑动切换功能\r\n【2】单屏放置6个功能，一行显示3个；单屏放置4个功能，一行显示2个\r\n【3】通用性较强，可根据需求设计圆形图标、圆角矩形图标、菱形图标", "enabled_flag": 0 },
+            { "app_name": "乐蜂网", "biz_type": 80, "wap_url": "http://mod.f3.cn/ShellGWap/Index.aspx?", "template_id": 55, "template_name": "乐蜂网", "shell_type": "ShellG", "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=187", "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "description": "模板G：\r\n【1】四种类型功能区尺寸，根据需求DIY功能图片\r\n【2】建议用于电商、零售、美容、美妆等行业", "enabled_flag": 0 },
+            { "app_name": "全味道", "biz_type": 80, "wap_url": "http://mod.f3.cn/ShellCWap/Index.aspx?", "template_id": 57, "template_name": "全味道", "shell_type": "ShellC", "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=184", "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "description": "模板C：\r\n【1】以大屏广告展示为主\r\n【2】建议用于美容、娱乐、休闲等行业\r\n【3】左上角侧滑可展示更多功能", "enabled_flag": 0 },
+            { "app_name": "万达酒店", "biz_type": 80, "wap_url": "http://mod.f3.cn/ShellEWap/Index.aspx?", "template_id": 49, "template_name": "万达酒店", "shell_type": "ShellE", "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=167", "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0", "description": "模板E：\r\n【1】以展示精美图片为主\r\n【2】建议用于酒店、汽车、家居、影院等高端上档次行业", "enabled_flag": 0 },
+            {
+                "app_name": "演示模板",
+                "biz_type": 80,
+                "wap_url": "http://mod.f3.cn/ShellDWap/Index.aspx?",
+                "template_id": 54,
+                "template_name": "演示模板",
+                "shell_type": "ShellD",
+                "app_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=183",
+                "weixin_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0",
+                "mp_image_url": "http://clientgb.f3.cn:80/ResourceAdmin/GetAppTemplateFile?FileID=0",
+                "description": "模板D：用于快速生成APP，不需要配置模板内数据",
+                "enabled_flag": 0
+            }
+        ]
+    }
+}

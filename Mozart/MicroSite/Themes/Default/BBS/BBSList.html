@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="stylesheet" type="text/css" href="Themes/Grid/style/common.css" />
+        <link rel="stylesheet" type="text/css" href="Themes/Grid/style/index.css" />
+        <title>$title</title>
+    </head>
+    <body>
+    <header id="header" class="ch m">
+	    <a class="logo index_logo" href="zn" title="百田圈圈"></a>
+    	<!--未登录-->	
+		<div class="nolog">
+			<a rel="nofollow" href="zn/LoginPage.html">登录</a>
+			|
+			<a rel="nofollow" href="zn/RegisterPage.html">注册</a>
+		</div>	
+	    <!--已经登录-->	
+    </header>
+    <section id="main" class="m">
+    	<!--精彩推荐-->
+<!--	    <div class="h2">
+		    <span class="ico ico_jctj txt">精彩推荐</span><br class="c" />
+	    </div>-->
+	    <div id="jc_l">
+		    <div id="ajaxdata">
+			    <!--10条数据-->
+                <ul class="list">
+                    $foreach(node in topiclist)
+		            <li>
+			            <a href="BBSTopic.aspx?ID=$node.ID" class="tx">$node.Topic</a>
+            			<br />
+			            <div class="tR">
+				            <a href="BBSList.aspx?ID=$node.SID" class="qq l">$node.SName</a>
+				            <span class="rp">$node.ReplyCount</span>
+				            &nbsp;|&nbsp;
+				            <span class="tm">$node.LastDate</span>
+			            </div>
+		            </li>
+                    $end                                       
+                </ul>
+		    </div>
+		<!--相关按钮-->
+		    <div class="info hyh">
+			    <a href="javascript:void(0);" data-url="http://m.100bt.com/zn/LoadIndexTopics.html?limit=10" class="changeb wb">换一换</a>
+		    </div>
+	    </div>
+    </section>
+    <footer id="footer">
+        <div class="copyright">版权所有 &#169; 2012-2014 $footer</div>
+    </footer>
+    <a href="#header" id="bTop" title="返回顶部"></a>
+    </body>
+</html>

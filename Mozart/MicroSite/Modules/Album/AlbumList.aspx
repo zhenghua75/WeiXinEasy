@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="false" CodeBehind="AlbumList.aspx.cs" Inherits="Mozart.MicroSite.AlbumList" %>

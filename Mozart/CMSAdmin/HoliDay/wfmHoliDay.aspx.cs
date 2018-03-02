@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using DAL.HoliDay;
+using Model.HoliDay;
+
+namespace Mozart.CMSAdmin.HoliDay
+{
+    public partial class wfmHoliDay : System.Web.UI.Page
+    {
+        const string vsKey = "searchCriteria"; //ViewState key
+        /// <summary>
+        /// 页面加载事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                AspNetPager1.CurrentPageIndex = 1;
+                startTime.Attributes.Add("onclick", "WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})");
+                endTime.Attributes.Add("onclick", "WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})");
+                string s = "";
+                if (Session["strRoleCode"].ToString() != "ADMIN")
+                {
+                    s = " and SiteCode = '" + Session["strSiteCode"].ToString() + "' ";
+                }
+                ViewState[vsKey] = s;
+                LoadData(s);
+            }
+        }
+
+        /// <summary>
+        /// 单击"查询"按钮事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            string strWhere = string.Empty;
+            if (Session["strRoleCode"].ToString() != "ADMIN")
+            {
+                strWhere =strWhere+ " and SiteCode = '" + Session["strSiteCode"].ToString() + "' ";
+            }
+            if (txtName.Text.Trim() != null && txtName.Text.Trim() != "")
+            {
+                if (strWhere.Trim() != null && strWhere.Trim() != "")
+                {
+                    strWhere = strWhere + " AND ";
+                }
+                strWhere = strWhere + " [Htitle] LIKE '%" + txtName.Text + "%' ";
+            }
+            if (startTime.Text.Trim() != null && startTime.Text.Trim() != "")
+            {
+                if (strWhere.Trim() != null && strWhere.Trim() != "")
+                {
+                    strWhere = strWhere + " AND ";
+                }
+                strWhere = strWhere + " HstartTime= '" + startTime.Text + "' ";
+            }
+            if (endTime.Text.Trim() != null && endTime.Text.Trim() != "")
+            {
+                if (strWhere.Trim() != null && strWhere.Trim() != "")
+                {
+                    strWhere = strWhere + " AND ";
+                }
+                strWhere = strWhere + " HendTime= '" + endTime.Text + "' ";
+            }
+            AspNetPager1.CurrentPageIndex = 1;
+            ViewState[vsKey] = strWhere;
+            LoadData(strWhere);
+        }
+
+        /// <summary>
+        /// 加载数据
+        /// </summary>
+        /// <param name="strWhere">条件</param>
+        void LoadData(string strWhere)
+        {
+            HoliDayDAL holidayDal = new HoliDayDAL();
+            DataSet ds = holidayDal.GetHoliDayList(strWhere);
+            DataView dv = ds.Tables[0].DefaultView;
+
+            AspNetPager1.RecordCount = dv.Count;
+
+            PagedDataSource pds = new PagedDataSource();
+            pds.DataSource = dv;
+            pds.AllowPaging = true;
+            pds.CurrentPageIndex = AspNetPager1.CurrentPageIndex - 1;
+            pds.PageSize = AspNetPager1.PageSize;
+            Repeater1.DataSource = pds;
+            Repeater1.DataBind();
+        }
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label lb_no = (Label)e.Item.FindControl("no");
+                lb_no.Text = (1 + e.Item.ItemIndex).ToString();
+            }
+        }
+
+        protected void AspNetPager1_PageChanged(object src, EventArgs e)
+        {
+            LoadData((string)ViewState[vsKey]);
+        }
+
+        /// </summary>
+        /// <param name="control"></param>
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
+    }
+}

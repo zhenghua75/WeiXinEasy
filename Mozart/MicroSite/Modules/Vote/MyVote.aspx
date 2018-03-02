@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MyVote.aspx.cs" Inherits="Mozart.MicroSite.MyVote" %>

@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0" />
+    <title>$title-首页</title>
+    <link href="style/topic.css" rel="stylesheet" />
+    <script src="script/zepto.min.js"></script>
+    <script src="artDialog/jquery.min.js"></script>
+    <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+</head>
+<body>
+    <div id="container" class="container">        <header>
+            $if(ForumDetail.BackImg!=null&&ForumDetail.BackImg!="")
+            <div class="header_1" style="background-image:url($ForumDetail.BackImg)">
+            $end
+            $if(ForumDetail.BackImg==null||ForumDetail.BackImg=="")
+            <div class="header_1">
+            $end
+					<ul class="tbox" >
+						<li>
+							<span class="head_img">
+								<img src="$ForumDetail.LogoImg" onerror="this.src='images/2.png';" />
+							</span>
+						</li>
+						<li>
+							<h5>$title</h5>
+							<p>
+								<a href="javascript:;" class="label">
+                                    <span class="icons icons_post">&nbsp;</span>$topicCount 帖子</a>
+								<a href="javascript:;" class="label">
+                                    <span class="icons icons_visisted">&nbsp;</span>$forumvisit 访问</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</header>
+		<div class="body">
+		   <div id="list_article" class="list_article">
+               $foreach(topicli in topiclist)
+			   <article>
+						    <header>
+    							<ul class="tbox">
+    								<li>
+                                        <a class="head_img" data-uid="$topicli.UID">
+                                            <img src="../PalmShop/ShopCode/$topicli.HeadImg" onerror="this.src='images/2.png';" />
+									    </a>
+    								</li>
+    								<li>
+    									<h5>$topicli.NickName</h5>
+									    <p>$topicli.AddTime</p>
+    								</li>
+    							</ul>
+    						</header>                            <section>						
+    							<div>
+    								<h5>$topicli.TopicTitle</h5>
+								    <div class="contentdiv">$topicli.TopicDesc</div>
+							    </div>
+							    <a href="CommentList.aspx?tid=$topicli.ID&fid=$ForumDetail.ID">查看全文</a>
+							 </section>                            <footer>
+    						<ul class="box">
+    							<li>
+    								<a href="javascript:;" class="a_collect" data-tid="$topicli.ID">
+                                        <span class="icons icons_collect">&nbsp;</span>
+                                        <label data-uid="$topicli.UID">$topicli.Tlike</label>
+    								</a>
+    								</li>
+    							<li>
+    								<a href="CommentList.aspx?tid=$topicli.ID&fid=$ForumDetail.ID" class="a_comment">
+                                        <span class="icons icons_comment" >&nbsp;</span>
+                                        <label>$topicli.Ccount</label>
+    								</a>
+    							</li>
+    							<li>
+    								<a href="javascript:;" class="a_like" data-tid="$topicli.ID">
+                                        <span class="icons icons_like">&nbsp;</span>
+                                        <label data-uid="$topicli.UID">$topicli.Tlove</label>
+    								</a>
+    							</li>
+							</ul>
+						   </footer>                         </article>
+               $end
+		    </div>
+		</div>        <footer>
+				<section class="nav_footer">
+				 <ul class="box">
+						<li>
+							<a href="Index.aspx?fid=$ForumDetail.ID" class="on">
+								<span class="icons_home">&nbsp;</span>
+								<label>首页</label>
+							</a>
+						</li>
+						<li>
+						 <a href="PublishTopic.aspx?fid=$ForumDetail.ID" class="nav_add">
+							 <span class="icons_home_edit">&nbsp;</span>
+					      </a>
+						</li>
+						<li>
+							<a href="MyTopicList.aspx?fid=$ForumDetail.ID">
+							<span class="icons_my">&nbsp;</span>
+							<label>我的</label>
+							</a>
+						</li>
+					</ul>
+			  </section>
+			</footer>    </div>
+    <div id="loading"><div><img src="images/loading.gif" /></div></div>
+</body>
+    <script>
+        Loading = $("#loading");
+        Loading.hide();
+        $errorscript
+        var uid = "$uid"; var fid = "$ForumDetail.ID";
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    Loading.hide();
+                }
+            });
+            var pageurl = getCookie("pageurl");
+            alert(pageurl);
+            seton("a_like",uid);
+            seton("a_collect",uid);
+        };
+        $(".head_img").click(function () {
+            var datauid = $(this).attr("data-uid");
+            if (datauid != null && datauid != "" && datauid != "undefined")
+            {
+                if (datauid == uid) {
+                    location.href = "MyTopicList.aspx?fid="+fid;
+                } else {
+                    location.href = "OtherTopicList.aspx?fid=" + fid + "&uid=" + datauid;
+                }
+            }
+        })
+        $('.a_collect').click(function () {
+            if (uid != null && uid != "") {
+                submitloveorlike("tlike", $(this));
+            } else {
+                $.dialog({
+                    lock: true, fixed: true,
+                    content: '操作失败，请登录后再操作！',
+                    ok: function () {
+                        $.getJSON("SetCookies.ashx", {
+                            "curl": "../../Comment/Index.aspx?fid=" + fid
+                        }, function (json) {
+                            if (json.succeed == true && json.logurl != null && json.logurl!="") {
+                                location.href = json.logurl;
+                            }
+                        })
+                    },
+                    okVal: '立即登录',
+                    cancelVal: '取消',
+                    cancel: true
+                });
+            }
+        })
+        $('.a_like').click(function () {
+            if (uid != null && uid != "") {
+                submitloveorlike("tlove", $(this));
+            } else {
+                $.dialog({
+                    lock: true, fixed: true,
+                    content: '操作失败，请登录后再操作！',
+                    ok: function () {
+                        $.getJSON("SetCookies.ashx", {
+                            "curl": "../../Comment/Index.aspx?fid=" + fid
+                        }, function (json) {
+                            if (json.succeed == true && json.logurl != null && json.logurl != "") {
+                                location.href = json.logurl;
+                            }
+                        })
+                    },
+                    okVal: '立即登录',
+                    cancelVal: '取消',
+                    cancel: true
+                });
+            }
+        })
+        function submitloveorlike(action,thi)
+        {
+            var tid =thi.attr("data-tid");
+            if (tid == null || tid == "") {
+                $.dialog({ time: 1, fixed: true, icon: 'error', content: '操作失败，请重新操作！' }); return;
+            }
+            $.getJSON("Index.aspx", {
+                "action": action, "tid": tid, "fid": fid
+            }, function (json) {
+                if (json.error == true) {
+                    $.dialog({ time: 1, fixed: true, icon: 'error', content: '操作失败，请重新操作！'}); return;
+                }
+                if (json.success == true) {
+                    thi.find("label").html(json.count);
+                    var oldclass = thi.attr("class");
+                    json.result == 0 ? thi.removeClass("on") : thi.addClass("on");
+                }
+            })
+        }
+        function seton(l,uid)
+        {
+            var data_a = $('.box li a[class='+l+']');
+            var datalabel = data_a.find("label");
+            var datacount = datalabel.html();
+            if (datacount > 0) {
+                var dataloveuid = datalabel.attr("data-uid");
+                if (uid == dataloveuid) {
+                    var dataclass = data_a.attr("class");
+                    data_a.addClass(dataclass + " on");
+                }
+            }
+        }
+    </script>
+</html>

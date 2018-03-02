@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>$title</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	    <meta name="”apple-mobile-web-app-capable”" content="”yes”">
+        <meta name="description" content="">
+        <meta name="author" content="">
+       <link href="/MicroSite/Themes/Realty/style/xk-style.css" rel="stylesheet">
+    </head>
+    <body>
+        <header class="bar_fixed">
+	        <div id="toolbar_1" class="toolbar">
+		        <div class="ui-toolbar-left"><a href="javascript:theStory();" class="ui-toolbar-backbtn"></a></div>
+		        <h2 class="ui-toolbar-title">楼房出租</h2>
+		        <div class="ui-toolbar-right"><span id="menu" class="ui-toolbar-home" onclick="show()"></span></div>
+            </div>
+	        <div id="dropmenu" style="display:none;">
+                <nav>
+	                <ul class="head-nav clearfix">
+		               <li class="icon-default"><a href="Index.aspx?ID=$siteid"><i></i>首页</a></li>
+		    <li class="icon-new"><a href="News.aspx?ID=$siteid"><i></i>资讯</a></li>
+            <li class="icon-house"><a href="NewHome.aspx?ID=$siteid"><i></i>新房</a></li>
+		    <li class="icon-sale"><a href="OldHome.aspx?ID=$siteid"><i></i>租售</a></li>
+            <li class="icon-home"><a href="BuildingList.aspx?ID=$siteid"><i></i>楼盘</a></li> 
+	                </ul>
+                </nav> 
+	        </div>
+            <script type="text/javascript">
+            	    function show() {
+            	        with (document.getElementById('dropmenu').style) { display == "" && (display = "none") || (display = "") }
+            	    }
+            	    function theStory() {
+            	        window.history.length <= 1 ? window.location.href = "Index.aspx?sitecode=andu" : window.history.go(-1)
+            	    }
+	        </script>
+        </header>
+        <article>
+	<!-- 搜索默认不显示 -->
+		<!-- end -->
+	<div class="module_nav">查找楼盘</div>
+	<dl class="cates">
+		<dt>区域</dt>
+		<dd class="cates_list">
+		<a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=1">包河区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=2">蜀山区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=3">庐阳区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=4">瑶海区</a><div class="hide"><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=7">高新区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=8">政务区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=9">经济开发区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=16">其他</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=17">滨湖新区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=18">新站区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=210">肥东县</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=211">肥西县</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=212">长丰县</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=234">居巢区</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?area=235">庐江县</a>		</dd>
+		<em class="cates_more up">全部</em>
+	</dl>
+	<dl class="cates">
+		<dt>价格</dt>
+		<dd class="cates_list">
+			<a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=0">30万以下</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=1">30-40万</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=2">40-50万</a><div class="hide"><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=3">50-70万</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=4">70-90万</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=5">90-120万</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=6">120-150万</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=7">150-200万</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?price=8">200万以上</a>		</dd>
+		<em class="cates_more up">全部</em>
+	</dl>
+	<dl class="cates">
+		<dt>户型</dt>
+		<dd class="cates_list">
+		<a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?type=1">一室</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?type=2">二室</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?type=3">三室</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?type=4">四室</a><div class="hide"><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?type=5">五室</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?type=6">五室以上</a></div>		</dd>
+		<em class="cates_more up">全部</em>
+	</dl>
+	<dl class="cates">
+		<dt>类型</dt>
+		<dd class="cates_list">
+		<a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?sort=1">住宅</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?sort=2">商铺</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?sort=3">写字楼</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?sort=4">别墅</a><div class="hide"><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?sort=5">商住楼</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?sort=6">自建房</a></div>		</dd>
+		<em class="cates_more up">全部</em>
+	</dl>	
+	<a href="javascript:;" class="showSort more_info fblu">显示更多搜索条件</a>
+	<div id="showMore" style="display:none;">
+		<dl class="cates">
+			<dt>面积</dt>
+			<dd class="cates_list">
+			<a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=0">50m²以下</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=1">50-70m²</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=2">70-90m²</a><div class="hide"><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=3">90-110m²</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=4">110-130m²</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=5">130-150m²</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=6">150-200m²</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=7">200-300m²</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?size=8">300m²以上</a>			</dd>
+			<em class="cates_more up">全部</em>
+		</dl>
+		<dl class="cates">
+			<dt>装修</dt>
+			<dd class="cates_list">
+			<a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?design=1">毛坯</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?design=2">简装</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?design=3">中装</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?design=4">精装</a><div class="hide"><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?design=5">豪华装</a></div>			</dd>
+			<em class="cates_more up">全部</em>
+		</dl>
+		<dl class="cates">
+			<dt>朝向</dt>
+			<dd class="cates_list">
+			<a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=1">东</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=2">东南</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=3">南</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=4">西南</a><div class="hide"><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=5">西</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=6">西北</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=7">北</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=8">东北</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?toward=9">南北</a></div>			</dd>
+			<em class="cates_more up">全部</em>
+		</dl>
+		<dl class="cates">
+			<dt>楼层</dt>
+			<dd class="cates_list">
+			<a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?floor=1">多层</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?floor=2">小高层</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?floor=3">高层</a><a class="" href="http://m.xkhouse.com/index.php/oldhouse/oldhouse/index?floor=4">复式</a>			</dd>
+			<em class="cates_more up">全部</em>
+		</dl>
+		<a href="javascript:;" class="showSort hide_info fblu">显示精简搜索条件</a>
+	</div>
+</article>
+<article>
+	<div class="module_nav">共<span class="fblu">$HouseCount</span>个房源</div>
+            <div class="ui-viewport ui-tabs-content">
+                <div id="conten1" class="ui-panel ui-tabs-panel slide ui-state-active">			
+			        <ul class="houselist data-list1">
+                        $foreach(node in HouseList)
+				        <li onclick="OldHomeDetail.aspx?ID=$node.ID&siteid=$siteid">
+		                    <div class="h-img">
+		                    <a href="OldHomeDetail.aspx?ID=$node.ID&siteid=$siteid"><img width="50" height="50" src="../../$node.Photo"></a>
+		                    </div>
+		                    <div class="h-txt">
+		                        <h6 class="h-name" style="height:18px;line-height:18px;"><a href="OldHomeDetail.aspx?ID=$node.ID&siteid=$siteid">$node.Summary</a></h6>
+		                        <p class="h-addr"><span class="h-tel">$node.HouseType&nbsp; $node.Area&nbsp;m<sup>2</sup></span><br>$node.Buildings&nbsp;
+                                    $if(node.SaleRental==0)
+                                      出租
+                                      $end
+                                      $if(node.SaleRental==1)
+                                        出售
+                                      $end
+		                        </p>
+					    	    <div style="line-height:15px">                         
+		                            <i class="fl f12 fwhite" style=" background:#85C785;margin-right:2px; padding:1px">商场周边</i>
+		                            <i class="fl f12 fwhite" style=" background:#EF9080;margin-right:2px; padding:1px">交通便利</i>
+		                            <div class="clear"></div>
+		                        </div>
+		                    </div>
+		                    <em class="h-price">$node.Price</em>
+				        </li>
+                        $end
+			        </ul>
+                    <div id="add_more"  class="mt10"><a href="javascript:void(0)" class="newsmore" onclick="addmore('1','10','10');">点击加载更多</a></div>
+                </div>
+            </div>
+        </article>
+        <script type="text/javascript">
+            for (var i = 0; i < 10; i++) {
+                up(i);
+            }
+            function up(i) {
+                $('.up').eq(i).click(function () {
+                    if ($('.up').eq(i).html() == "全部") {
+                        $('.hide').eq(i).show();
+                        $('.up').eq(i).html("收起");
+                    } else if ($('.up').eq(i).html() == "收起") {
+                        $('.hide').eq(i).hide();
+                        $('.up').eq(i).html("全部");
+                    }
+                });
+            }
+            //显示更多筛选条件
+            $('.more_info').click(function () {
+                window.localStorage.more = '1';
+                $('#showMore').show();
+                $(this).hide();
+                $('.hide_info').show();
+            });
+
+            //隐藏更多搜索条件
+            $('.hide_info').click(function () {
+                window.localStorage.more = '0';
+                $('#showMore').hide();
+                $(this).hide();
+                $('.more_info').show();
+            });
+
+            //瀑布流加载
+            var count = "12420";
+            var i = 0;
+            function addmore(id, num, info) {
+                jQuery.ajax({
+                    url: "http://m.xkhouse.com/index.php/oldhouse/oldhouse/refresh?p=" + i, success: function (moredata) {
+                        $("#more_" + id).append(moredata);
+
+                    }
+                });
+                ++i;
+                if ((count - i * num - info) < 0) {
+                    $("#add_more").hide();
+                }
+                return false;
+            }
+        </script>
+        <footer style="margin-top:10px;">
+	        <div class="foot-link">
+                <a href="#" class="fora">意见反馈</a><a href="javascript:gotohead();" class="fgray">返回顶部</a>
+	        </div>
+	        <script type="text/javascript">
+	        function gotohead() {
+	            window.scrollTo(0, 1);
+	        }
+	        </script>
+            <div class="copy">
+		        Copyright &copy; 2014	$footer	
+            </div>
+        </footer>
+    </body>
+</html>

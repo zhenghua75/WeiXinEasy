@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfmJCScoreAdmin.aspx.cs" Inherits="Mozart.CMSAdmin.JC.wfmJCScoreAdmin" %>

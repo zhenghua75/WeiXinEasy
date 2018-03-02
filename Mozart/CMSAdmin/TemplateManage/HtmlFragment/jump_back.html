@@ -1,0 +1,167 @@
+﻿
+
+
+<script type="text/javascript">
+		//0:一级页面；1：二级页面
+		var isSubPage = $("#isSubPage").val();
+		var weid = $("#weid").val();
+		$(document).ready(function() {
+			$("#upload_btnId").uploadify( {//初始化函数
+				'uploader' : 'scripts/uploadify.swf',//flash文件位置，注意路径
+				'script' : '/fileUpload/upload!doupload.action',//后台处理的请求
+				'cancelImg' : 'images/cancel.png',//取消按钮图片
+				'queueID' : 'fileQueue',//与下面的上传文件列表id对应
+				'queueSizeLimit' : 1,//上传文件的数量
+				'scriptData' : {
+					'merchantCode' : '608989',
+					'module' : 'site/loop'
+				},//向后台传的数据
+				'fileDesc' : 'jpg文件或png文件',//上传文件类型说明
+				'fileExt' :'*.jpg;*.png', //控制可上传文件的扩展名，启用本项时需同时声明fileDesc
+				'method' : 'get',//如果向后台传输数据，必须是get
+				'sizeLimit':202500,//文件上传的大小限制，单位是字节
+				'auto' : true,//是否自动上传
+				'multi' : true,
+				'simUploadLimit' : 1,//同时上传文件的数量，设置了这个参数后，那么你会因设置multi:true和queueSizeLimit：8而可以多选8个文件，但如果一旦你将simUploadLimit也设置了，那么只会上传这个参数指定的文件个数，其它就上传不了
+					'wmode' : 'transparent',
+					'hideButton'  : true,
+				'onComplete' : function(event, queueID, fileObj, img_url_s, data) {
+					$("#img_url_s").val(img_url_s);
+					$("#imgid").attr("src",img_url_s);
+					$("#imgid").show();
+				},
+		        'onError': function(event, queueID, fileObj,errorObj) {
+		            if(errorObj.type = 'File Size'){
+		            	alert('图片大小不正确,请重新上传!');
+		            }
+		            $('#upload_btn1').uploadifyClearQueue();
+		        },
+		        'onSelect' : function(e, queueId, fileObj) {
+							var filename = fileObj.name;
+							if(!/\.(jpg|png|JPG|PNG)$/.test(filename)){
+								alert("图片格式不正确,请重新选择图片上传");
+								$('#upload_btnId').uploadifyClearQueue();
+								$("#upload_btnId").uploadifyCancel(queueId);
+							}
+				}
+			});
+
+			});
+
+
+	 	function baseback(){
+
+	 		AjaxRequest.urlRequest("/websitePages/website_pages!updateWebSite.action?ajax=true&webSite.sitebgPic=nopic","bo1",function(f){
+						//$(value).attr("class","hover");
+						$("#bo").css("background-image","");
+				});
+	 	}
+
+	 	function changeradio(value){
+	 		if("color"==value){
+	 			$(".adycd4").hide();
+	 			$(".adycd2").show();
+	 		}
+
+			if("pic"==value){
+				$(".adycd2").hide();
+				$(".adycd4").show();
+	 		}
+	 	}
+
+	 	 $(function() {
+	 		if(isSubPage != 1){
+	 			$('#color1').colorpicker({color:''});
+
+	 		}else{
+	 			$('#color1').colorpicker({color:''});
+
+	 		}
+	 	 });
+
+	 	 function sub(){
+	 		var value=$('input:radio[name="color1"]:checked').val();
+	 		$("#isSubPage1").val(isSubPage);
+			$("#weid1").val(weid);
+	 		if("color"==value){
+	 			var color = $("#color1").val();
+	 			$("#bgcolor").val(color);
+	 			$("#bgPic").val("nopic");
+	 			AjaxRequest.formRequest("form1", "bo1",function(f){
+					$("#bo").css("background-image","");
+					$("#bo").css("background",color);
+				});
+	 		}
+
+	 		if("pic"==value){
+	 			var img_url_s = $("#img_url_s").val();
+	 			$("#bgPic").val(img_url_s);
+	 			AjaxRequest.formRequest("form1", "bo1",function(f){
+					$("#bo").css("background-image","url("+img_url_s+")");
+				});
+	 		}
+	 	 }
+
+</script>
+<style>
+    .uploadifyQueueItem {
+        width: 99%;
+    }
+
+    .jkj {
+        background: url('images/up.png') no-repeat;
+        float: left;
+        height: 27px;
+    }
+
+        .jkj:HOVER {
+            background: url('images/up.png') 0 -27px no-repeat;
+        }
+</style>
+
+
+<div style="text-align: center;  ">
+
+
+    <div class="adycd">
+        <span><input type="radio" name="color1" checked="checked" onclick="changeradio('color')" value="color">颜色</span>
+        <span><input type="radio" id="zdy" name="color1" onclick="changeradio('pic')" value="pic">自定义</span>
+    </div>
+    <div class="adycd2">
+        <input type="text" name="color1" id="color1" style="width: 100px;">
+    </div>
+
+    <div class="adycd4">
+
+
+        <a class="ghbj_aaad">
+
+            <div class="jkj">
+                <span id="upload_btnId"></span>
+            </div>
+        </a>
+        <br />
+        <span class="opopop">
+            建议尺寸320像素宽,图片大小在200k以内
+        </span>
+        <div id="fileQueue" style="float: left;width: 100%;"> </div>
+        <input id="img_url_s" type="hidden">
+        <img id="imgid" src="" style="display: none;max-width: 80%;max-height: 400px">
+    </div>
+
+    <div class="adycd3">
+        <input type="button" name="color1" id="color1" value="保&nbsp;存" onclick="sub()">
+    </div>
+
+    <form id="form1" action="/websitePages/website_pages!updateWebSite.action?ajax=true">
+        <input id="bgcolor" name="webSite.bgColor" type="hidden" />
+        <input id="bgPic" name="webSite.sitebgPic" type="hidden" />
+        <input id="isSubPage1" name="model.isSubPage" type="hidden">
+        <input id="weid1" name="we.id" type="hidden">
+    </form>
+</div>
+
+
+
+
+

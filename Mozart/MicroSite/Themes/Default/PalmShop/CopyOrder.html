@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>订单物流</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>	
+	<body style="background: #EEEEEE;">
+        <div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center"></div>
+			</div>
+		</div>
+		<div class="container-fluid active_box" style="margin:20px 0px 0px 0px;">
+		<div class="container-fluid">
+			<div class="row" id="nomsgdiv">
+				<div class="table-responsive" id="product_info">
+				  <table class="table">
+                      <tr>
+				    	<td class="col-xs-3 text-center">产品订单：</td>
+				    	<td class="col-xs-9">
+                            $oldetail.OID &nbsp;&nbsp;
+                            <a href="OrderDetail.aspx?oid=$oldetail.OID" id="orderdetail">订单详细</a>
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">物流公司：</td>
+				    	<td class="col-xs-9">
+                            $oldetail.Cname
+				    	</td>
+				    </tr>
+                      <tr>
+				    	<td class="col-xs-3 text-center">物流订单：</td>
+				    	<td class="col-xs-9">
+                            $oldetail.ID &nbsp;&nbsp;$if(oldetail.ID!=null&&oldetail.ID!="")
+                            <a href="http://m.kuaidi100.com/result.jsp?nu=$oldetail.ID">物流查询</a>$end
+				    	</td>
+				    </tr>
+				  </table>
+			</div>
+            </div>
+		</div>
+		</div>
+	</body>
+    <script>
+        $errormsg
+        var oid = "$oldetail.OID";
+        var state = Request("state");
+        if (state != null && state != "")
+        {
+            if (state == "0" || state == 0)
+            {
+                $("#orderdetail").hide();
+            }
+        }
+        $("#product_info").hide();
+        if (oid != null && oid != "" && oid != "undefined") {
+            $("#product_info").show();
+        } else {
+            $("#nomsgdiv").html("未找到该订单物流配置信息！");
+            $("#nomsgdiv").addClass("text-center");
+        }
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+    </script>
+</html>

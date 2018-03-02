@@ -1,0 +1,62 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0">
+    <title>$title</title>
+    <link href="style/main.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+    <div id="nav" class="nav">
+	    <ul class="nav_ul nav_black">
+    	    <li><a href="#" class="nav_a nav_off">首&nbsp;&nbsp;页</a></li>
+            <li><a href="#" class="nav_a nav_off">便民缴费</a></li>
+            <li><a href="#" class="nav_a nav_off">便民商城</a></li>
+            <li><a href="#" class="nav_a nav_on">用户登录</a></li>
+            <li><a href="#" class="nav_a nav_off">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div class="panel">
+            <form id="loginForm" class="pt10" action="Login.aspx?action=login">
+            <ul class="radius space">
+                <li>
+                    <div class="li_div">
+                        <label for="loginName" data-length="5"><span class="co">*</span>用户名：</label>
+                        <input type="text" id="loginName" class="no loginInput" size="16" name="username" placeholder="邮箱/手机号" required="" pattern="^1\d{10}$|^[a-z0-9._%-]+@([a-z0-9-]+\.)+[a-z]{2,4}$">
+                    </div>
+                </li>
+                <li>
+                    <div class="li_div">
+                        <label for="loginPwd" data-length="5"><span class="co">*</span>密 码：</label>
+                        <input type="password" id="loginPwd" class="no loginInput" size="16" name="password" placeholder="请输入密码" required="">
+                            <input type="hidden" value="/shop/book.aspx?resid=D22I15N56303" name="gohref">
+                    </div>
+                </li>
+            </ul>
+            <p class="tc pb10">
+                <input type="submit" class="btn redbtn" value="登录" size="16"></p>
+            </form>
+            <div class="line">
+            </div>
+            <form id="registForm" class="pt10" action="Login.aspx?action=regist">
+            <p class="tc g6">
+                还没有账号？现在就注册！</p>
+            <ul class="radius space">
+                <li>
+                    <div class="li_div">
+                        <label for="registName" data-length="6"> <span class="co">*</span>手机/邮箱：</label>
+                        <input type="text" id="registName" class="no registInput" size="16" name="email" placeholder="请输入手机号/邮箱" required="" pattern="^1\d{10}$|^[a-z0-9._%-]+@([a-z0-9-]+\.)+[a-z]{2,4}$">
+                    </div>
+                </li>
+                <li>
+                    <div class="li_div">
+                        <label for="registPwd" data-length="6"> <span class="co">*</span>密 码：</label>
+                        <input type="password" id="registPwd" class="no registInput" size="16" name="password" placeholder="6-16位" required="">
+                    </div>
+                </li>
+            </ul>
+            <p class="tc pb10">
+                <input type="submit" class="btn graybtn" value="注册" size="16"></p>
+            </form>
+        </div>
+    </div>
+</body></html>

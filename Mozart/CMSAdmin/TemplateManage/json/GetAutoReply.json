@@ -1,0 +1,27 @@
+﻿{
+    "code": 1,
+    "notice": "操作成功",
+    "data": {
+        "LinkUrl": "",
+        "Linkcontent": "",
+        "MsgID": 40353,
+        "BizModuleId": 0,
+        "ECID": 608989,
+        "TemplateID": 0,
+        "ModuleID": 0,
+        "ModuleType": 0,
+        "ServiceType": 3,
+        "KeyWord": "",
+        "ReplyType": 1,
+        "ReplyTxt": "test关注",
+        "ReplyImageID": 0,
+        "ReplyImageTitle": "",
+        "Status": 1,
+        "Summary": "",
+        "DelFlag": false,
+        "AddTime": "2014-12-17 22:41:23",
+        "ImageUrl": "",
+        "BizModuleName": "",
+        "showbizmodulename": ""
+    }
+}

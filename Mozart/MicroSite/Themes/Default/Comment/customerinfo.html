@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=2.0" />
+    <title>资料修改</title>
+    <link href="style/topic.css" rel="stylesheet" />
+    <script src="artDialog/jquery.min.js"></script>
+    <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+    <style>
+        body {border:0px;margin:0px auto;padding:0px;}
+        .container {background: #f6f6f6;border:0px;}
+        .container  img{border:0px;max-width:100px;max-height:100px;}
+        #submitbtn {padding:10px;font-size:12pt;border-radius:10px;border:0px;cursor:pointer;
+                    background-color:#007AFF;font-weight:600;color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <form method="post" id="editeform" enctype="multipart/form-data">
+		<section class="form_comment">
+            <header>
+							<ul class="tbox">
+								<li>
+									<label class="title">资料修改</label>
+								</li>
+								<li class="align_right">
+									<a href="javascript:history.go(-1);" class="cancel">取消</a>
+								</li>
+							</ul>
+						</header>
+            <div style="padding:5px 0px 5px 0px;">
+                <img src="../PalmShop/ShopCode/$customer.HeadImg" id="customerimg" onerror="this.src='images/2.png';" />
+               <input type="file" name="headimg" id="headimg" />
+            </div>
+            <div>
+                <input id="nickname" name="nickname" class="form_title" type="text" 
+                    maxlength="10" placeholder="用户昵称" value="$customer.NickName" />
+            </div>
+                </section>        </form>        <footer>
+				<section class="nav_footer">
+				 <ul class="box">
+						<li>
+							<a href="Index.aspx?fid=$fid">
+								<span class="icons_home">&nbsp;</span>
+								<label>首页</label>
+							</a>
+						</li>
+						<li style="text-align:center">
+						 <input type="button" id="submitbtn" value=" 确认提交 " />
+						</li>
+						<li>
+							<a href="MyTopicList.aspx?fid=$fid" class="on">
+							<span class="icons_my">&nbsp;</span>
+							<label>我的</label>
+							</a>
+						</li>
+					</ul>
+			  </section>
+	</footer>    </div>
+</body>
+    <div id="loading"><div><img src="images/loading.gif" /></div></div>
+    <script>
+        Loading = $("#loading");
+        Loading.hide();
+        $errorscript
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    Loading.hide();
+                }
+            });
+        };
+        $("#headimg").change(function () {
+            var objUrl = getObjectURL(this.files[0]);
+            console.log("objUrl = " + objUrl);
+            if (objUrl) {
+                $("#customerimg").attr("src", objUrl);
+            }
+        });
+        function getObjectURL(file) {
+            var url = null;
+            if (window.createObjectURL != undefined) {
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) {
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) {
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+        $("#submitbtn").click(function () {
+            var nickname = $("#nickname").val();
+            if (nickname == null || nickname == "")
+            {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入信息内容！' }); return;
+            }
+            var form = document.getElementById("editeform");
+            $("#editeform").attr("action", "Customerinfo.aspx?fid=$fid&action=edite");
+            form.submit();
+        })
+    </script>
+</html>

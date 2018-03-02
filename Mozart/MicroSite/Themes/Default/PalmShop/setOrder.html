@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>$productdetail.Ptitle-下单</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+        <script src="js/region_select.js" type="text/javascript" charset="gb2312"></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        <style>
+            .dali {
+            padding:0px 5px;
+            }
+            .labelmsg {
+            font-style:normal;font:normal;border:0px;font-weight:normal;cursor:pointer;
+            }
+            .editespan {
+            border:0px;cursor:pointer;float:right;
+            }
+        </style>
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"><a class="back_ico" onclick="javascript:history.back()">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">订单结算</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<!--订单详情-->
+			<div class="row pay_info">
+				<div class="col-lg-3 col-md-3 col-xs-4 col-sm-3">
+					<img class="img-responsive" alt="$atlas.AltasName" src="$atlas.PimgUrl"/>
+				</div>
+				<div class="col-lg-9 col-md-9 col-xs-8 col-sm-9">
+					<p>产品名称：<label>$productdetail.Ptitle</label> </p>
+					<!--<p>库存：<label></label></p>-->
+                    <p>型号尺寸：<label>$paramodel.ParName</label></p>
+					<p>数量：<label class="buynum"></label></p>
+					<p>金额：￥<label class="buymoney"></label>元</p>
+				</div>
+			</div>
+			<!--收货信息-->
+            $if(dalist.count>0)
+            <div class="list-group list_clear">
+                <li class="list-group-item dali"><strong class="text-center pay_title">选择收货信息</strong></li>
+                $foreach(dalistin in dalist)
+                <li class="list-group-item dali">
+                <input name="dalist" id="$dalistin.ID" type="radio" />
+                <label for="$dalistin.ID" class="labelmsg">$dalistin.DaName ($dalistin.DaPhone)</label>
+                    <span class="editespan" data-id="$dalistin.ID" data-toggle="modal" data-target="#myModal">编辑</span>
+                 </li>$end
+             </div>$end
+			  <div class="list-group list_clear" id="showdalistdiv">
+			  	<li class="list-group-item"><strong class="text-center pay_title">收货信息</strong></li>
+			    <li class="list-group-item">收件人：<span id="people">$customer.NickName</span></li>
+			    <li class="list-group-item">联系电话：<span id="phone">$customer.Phone</span></li>
+			    <li class="list-group-item">收货地区：<span id="raddress"></span></li>
+			    <li class="list-group-item">详细地址：<span id="detailadress"></span></li>
+                  <li class="list-group-item">邮编：<span id="adzipcode"></span></li>
+                  <li class="list-group-item">买家留言：<span id="leavemsg"></span></li>
+			    <li data-toggle="modal" data-target="#myModal" class="list-group-item write">编辑收货信息</li>
+			  </div><br /><br /><br />
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+                    aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title" id="myModalLabel">收货信息填写</h4>
+				      </div>
+				      <div class="modal-body">
+				        <form  class="form-horizontal" role="form">
+				        	 <div class="form-group">
+							    <label for="inputPassword" class="col-xs-3 control-label">收货人：</label>
+							    <div class="col-xs-9">
+							      <input type="text" class="form-control" value="$customer.NickName" id="inputuname">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="inputPassword" class="col-xs-3 control-label">手机：</label>
+							    <div class="col-xs-9">
+							      <input type="text" class="form-control" id="inputphone" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^0-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" 
+            onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^0-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" value="$customer.Phone">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="inputPassword" class="col-xs-3 control-label">收货地区：</label>
+							    <div class="col-xs-9">
+							      <select name="location_p" id="location_p"></select>
+                                   <select name="location_c" id="location_c"></select>
+                                   <select name="location_a" id="location_a"></select>
+                                    <script type="text/javascript">
+                                        new PCAS('location_p', 'location_c', 'location_a', '', '', '');
+                                  </script>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label for="inputPassword" class="col-xs-3 control-label">详细地址：</label>
+							    <div class="col-xs-9">
+							      <textarea class="form-control" rows="3" id="inputdetailaddress"></textarea>
+							    </div>
+							  </div>
+                            <div class="form-group">
+							    <label for="inputPassword" class="col-xs-3 control-label">邮编：</label>
+							    <div class="col-xs-9">
+							      <input type="text" class="form-control" id="zipcode">
+							    </div>
+							  </div>
+                            <div class="form-group">
+							    <label for="inputPassword" class="col-xs-3 control-label">买家留言：</label>
+							    <div class="col-xs-9">
+							      <textarea class="form-control" rows="3" id="inputleavemsg"></textarea>
+							    </div>
+							  </div>
+				        </form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" id="setaddressbtn" data-dismiss="modal">确定</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<!--邮寄地址-->
+				 <!--<div class="list-group emain_adress">
+				 	 <li class="list-group-item"><strong class="text-center pay_title">物流方式</strong></li>
+				 	 <li class="list-group-item">快递 ：<label >申通</label></li>
+				 </div>-->
+		</div>
+		<div id="foot_nav" class="container-fluid navbar-fixed-bottom">
+			<div class="row">
+				<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 totle_price">
+                    <p>邮费 : <label class="postage">$productdetail.ZipCode</label>
+                       $if(productdetail.ZipCode!="包邮"&&productdetail.ZipCode!=""&&productdetail.ZipCode!=null) 元 $end
+                        $if(productdetail.ZipCode==""||productdetail.ZipCode==null) 包邮 $end
+                    </p>
+					<p>合计：￥<label class="countcost"></label>元</p>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+					<span class="jiesuan">立即结算</span>
+				</div>
+			</div>
+		</div>
+        <div class="paydiv"></div>
+	</body>
+    <script>
+        var inputuname = ""; var inputphone = ""; var inputdetailaddress = "";
+        var inputleavemsg = ""; var num =0; var pac = ""; var countcost = "";
+        var zipcode = ""; var addresscount = 0; var addressid = ""; 
+        $errorscript
+        $(document).ready(function () {
+            try {
+                addresscount = $dalist.count;
+            } catch (e) {
+                addresscount = 0;
+            }
+            $("#zipcode").attr("maxlength", "6");
+            $("#zipcode").attr("onkeyup", "this.value=this.value.replace(/[^0-9]/g,'')");
+            num = Request("num"); var pzipcode = "$productdetail.ZipCode";
+            var mid = Request("mid");
+            if (mid != null && mid != "" && mid == "$paramodel.ID" && "$paramodel.Price" != "" && "$paramodel.Price"!=null)
+            {
+                countcost = (parseFloat($paramodel.Price) * parseFloat(num)).toFixed(2);
+            } else
+            {
+                countcost = (parseFloat($productdetail.price) * parseFloat(num)).toFixed(2);
+            }
+            $(".buynum").html(num);
+            $(".buymoney").html(countcost);
+            if (pzipcode.indexOf("包邮") < 0 && pzipcode != "")
+            {
+                countcost = (parseFloat(countcost) + parseFloat(pzipcode)).toFixed(2);
+            }
+            $(".countcost").html(countcost);
+            if (addresscount != null && addresscount >0)
+            {
+                $("#showdalistdiv").css("display", "none");
+            }
+        })
+        //修改收货地址
+        $(".editespan").click(function () {
+            var daid = $(this).attr("data-id");
+            getshodalist(daid);
+        })
+        $(".labelmsg").click(function () {
+            var dataid = $(this).attr("for");
+            setshowdalist(dataid);
+            $("#showdalistdiv").css("display", "");
+            addressid = dataid;
+        })
+        $("input[type=\"radio\"]").click(function () {
+            var dataid = $(this).attr("id");
+            setshowdalist(dataid);
+            $("#showdalistdiv").css("display", "");
+            addressid = dataid;
+        })
+        $("li[data-toggle=\"modal\"]").click(function () {
+            var daid = "";
+            try {
+                daid = $(this).attr("data-id");
+            } catch (e) {
+                daid = "";
+            }
+            if (daid != null && daid != "") {
+                getshodalist(daid);
+            }
+        })
+        function getshodalist(dataid)
+        {
+            $.getJSON("setOrder.aspx", {
+                "action": "getdalist", "daid": dataid, "pid": "$productdetail.ID", "num": num
+            }, function (json) {
+                if (json != null && json != "" && json != "undefined" && json.length > 0) {
+                    $.each(json, function (i, item) {
+                        $("#inputuname").val(item.DaName); $("#inputphone").val(item.DaPhone);
+                        $("#inputdetailaddress").val(item.AddressDetail);
+                        $("#zipcode").val(item.DaZipCode);
+                        if (addresscount >= 3) {
+                            $("#setaddressbtn").attr("data-id", dataid);
+                        }
+                    })
+                }
+                if (json.error == true) {
+                    $.dialog({ time: 2, fixed: true, icon: 'error', content: "操作失败，请稍后再操作" });
+                    return;
+                }
+            })
+
+        }
+        function setshowdalist(dataid)
+        {
+            $.getJSON("setOrder.aspx", {
+                "action": "getdalist", "daid": dataid, "pid": "$productdetail.ID", "num": num
+            }, function (json) {
+                if (json != null && json != "" && json != "undefined" && json.length > 0) {
+                    $.each(json, function (i, item) {
+                        $("#people").html(item.DaName); $("#phone").html(item.DaPhone);
+                        $("#raddress").html(item.DaAddress);
+                        $("#detailadress").html(item.AddressDetail);
+                        $("#adzipcode").html(item.DaZipCode);
+                        $("#noedite").attr("data-id", dataid);
+                        $("li[data-toggle=\"modal\"]").attr("data-id", dataid);
+                    })
+                }
+                if (json.error == true) {
+                    $.dialog({ time: 2, fixed: true, icon: 'error', content: "操作失败，请稍后再操作" });
+                    return;
+                }
+            })
+        }
+        function checkTel(tel) {
+            var mobile = /^1[3|5|8]\d{9}$/, phone = /^0\d{2,3}-?\d{7,8}$/;
+            return mobile.test(tel) || phone.test(tel);
+        }
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+        //验证收货信息
+        function validateinput() {
+            var select_p = document.getElementById("location_p");
+            var index_p = select_p.selectedIndex;
+            var text_p = select_p.options[index_p].text;
+            var value_p = select_p.options[index_p].value;
+            var select_c = document.getElementById("location_c");
+            var index_c = select_c.selectedIndex;
+            var text_c = select_c.options[index_c].text;
+            var value_c = select_c.options[index_c].value;
+            var select_a = document.getElementById("location_a");
+            var index_a = select_a.selectedIndex;
+            var text_a = select_a.options[index_a].text;
+            var value_a = select_a.options[index_a].value;
+            pac = value_p + "-" + value_c + "-" + value_a;
+            inputuname = $("#inputuname").val()
+            inputphone = $("#inputphone").val();
+            inputdetailaddress = $("#inputdetailaddress").val();
+            inputleavemsg = $("#inputleavemsg").val();
+            num = Request("num");
+            zipcode = $("#zipcode").val();
+            if (inputuname == null || inputuname == "") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入您的姓名称呼！' });
+                $("#inputuname").val(''); $("#inputuname")[0].focus(); return false;
+            }
+            if (zipcode == null || zipcode == "") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入邮编号！' });
+                $("#zipcode").val(''); $("#zipcode")[0].focus(); return false;
+            }
+            if (inputphone == null || inputphone == "") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入您的联系电话！' });
+                $("#inputphone").val(''); $("#inputphone")[0].focus(); return false;
+            }
+            if (checkTel(inputphone) == false) {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入正确的电话！' });
+                $("#inputphone").val(''); $("#inputphone")[0].focus(); return false;
+            }
+            if (inputdetailaddress == null || inputdetailaddress == "") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入您的详细地址！' });
+                $("#inputdetailaddress").val(''); $("#inputdetailaddress")[0].focus(); return false;
+            }
+            return true;
+        }
+        //设置收货信息
+        $("#setaddressbtn").click(function () {
+            if (validateinput() == false || validateinput() == "undefined") {
+                return false;
+            }
+            $("#people").html(inputuname);
+            $("#phone").html(inputphone);
+            $("#raddress").html(pac);
+            $("#detailadress").html(inputdetailaddress);
+            $("#leavemsg").html(inputleavemsg);
+            $("#adzipcode").html(zipcode);
+            var dataid = null;
+            try {
+                dataid = $(this).attr("data-id");
+            } catch (e) {
+                dataid = "";
+            }
+            if (pac != null && pac != "" && inputdetailaddress != null && inputdetailaddress != "") {
+                if (dataid != null && dataid != "")
+                {
+                    $.getJSON("setOrder.aspx", {
+                        "action": "updalist", "daid": dataid, "uname": inputuname, "pid": "$productdetail.ID", "num": num,
+                        "uphone": inputphone, "address": pac, "dadetail": inputdetailaddress, "zipcode": zipcode
+                    }, function (json) {
+                        if (json.error == true) {
+                            $.dialog({ time: 2, lock: true, fixed: true, icon: 'error', content: "操作失败，请稍后再操作" });
+                            return;
+                        }
+                    })
+                } else
+                {
+                    $.dialog({
+                        lock: true, fixed: true,
+                        content: '是否把该地址保存到我的收货地址？',
+                        ok: function () {
+                            $.getJSON("setOrder.aspx", {
+                                "action": "setda", "uname": inputuname, "pid": "$productdetail.ID", "num": num,
+                                "uphone": inputphone, "address": pac, "dadetail": inputdetailaddress, "zipcode": zipcode
+                            }, function (json) {
+                                if (json.error == true) {
+                                    if (json.msg != null && json.msg != "") {
+                                        $.dialog({ time: 2, fixed: true, icon: 'error', content: json.msg });
+                                    }
+                                    if (json.loginurl != null && json.loginurl != "") {
+                                        location.href = json.loginurl;
+                                    }
+                                    return;
+                                } else {
+                                    addresscount++;
+                                }
+                            })
+                        },
+                        okVal: '先保存',
+                        cancelVal: '过后再说',
+                        cancel: true
+                    });
+                }
+            }
+        })
+        //把购物车添加到订单中
+        $(".jiesuan").click(function () {
+            inputuname=$("#people").html();
+            inputphone=$("#phone").html();
+            pac=$("#raddress").html();
+            inputdetailaddress=$("#detailadress").html();
+            inputleavemsg=$("#leavemsg").html();
+            zipcode = $("#adzipcode").html();
+
+            if (inputuname == null || inputuname == "" || inputphone == null || inputphone == "" || pac == null ||
+                pac == "" || inputdetailaddress == null || inputdetailaddress == "")
+            {
+                if (addresscount > 0) {
+                    if (addressid == null || addressid == "") {
+                        $.dialog({ time: 2, lock: true, fixed: true, icon: 'error', content: '请选择您的收货地址后再操作！' });
+                        return false;
+                    }
+                } else {
+                    $.dialog({ time: 2, lock: true, fixed: true, icon: 'error', content: '请编辑您的收货地址后再操作！' });
+                    return false;
+                }
+            }
+
+            var mid  = Request("mid");
+            $.getJSON("setOrder.aspx", {
+                "action": "setorder", "uname": inputuname, "uphone": inputphone, "address": pac + "-" + inputdetailaddress,
+                "num": num, "payway": "", "carryway": "", "pid": "$productdetail.ID", "leavemsg": inputleavemsg,
+                "countcost": countcost,"zipcode":zipcode,"mid":mid
+            }, function (json) {
+                if (json.error == true) {
+                    if (json.exist == true) {
+                        $.dialog({
+                            lock: true, fixed: true,
+                            content: '对不起，您已购买过该商品<br/>该商品只能限购一件',
+                            ok: function () {
+                                location.href = "CustomerOrder.aspx?paystate=0";
+                            },
+                            okVal: '查看订单',
+                            cancelVal: '过后再说',
+                            cancel: true
+                        });
+                    } else {
+                        if (json.msg != null && json.msg != "") {
+                            $.dialog({ time: 4, lock: true, fixed: true, icon: 'error', content: json.msg });
+                            return false;
+                        }
+                        if (json.loginurl != null && json.loginurl != "") {
+                            location.href = json.loginurl;
+                        }
+                    }
+                }
+                if (json.success == true) {
+                    //跳转到付款
+                    if (json.msg != null && json.msg != "") {
+                        $.dialog({ time: 2,lock:true, fixed: true, icon: 'error', content: json.msg });
+                    }
+                    //$(".paydiv").html("");
+                    //$(".paydiv").html(json.payinfo);
+                    var pname = json.pname;
+                    var ordernum = json.ordernum;
+                    var countcost = json.countcost;
+                    var customid = json.customid;
+                    if (pname != null && pname != "" && ordernum != null && ordernum != "" &&
+                        countcost != null && countcost != "" && customid != null && customid != "") {
+                        location.href = "PayWay.aspx?pname=" + pname + "&ordernum=" + ordernum +
+                            "&countcost=" + countcost + "&customid=" + customid;
+                    } else {
+                        $.dialog({ time: 2, lock: true, fixed: true, icon: 'error', content: "操作失败，请核对后再操作" });
+                    }
+                }
+                return;
+            })
+        })
+    </script>
+</html>

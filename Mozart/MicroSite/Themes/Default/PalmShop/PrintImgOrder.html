@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	    <style type="text/css">
+			.activity img{width: 100%; display: block; height: auto; margin: auto;}
+			.activeTab{background:url(img/tab_bg.png) repeat-x left top; height: 45px; line-height: 45px; font-size: 14px; font-weight: bold; color: #FFFFFF;}
+			.activeTab li{cursor: pointer;}
+			.activeTab .active{background: url(img/tab_hover.png) repeat-x left top;}
+			.active_box{display: none;}
+			.tiInfor{background: #009BDF; border: 1px solid #0290cf; width: 100%; height: 40px; line-height: 40px; color: #FFFFFF; border-radius: 5px;}
+			.tiInfor:hover{background: #0290cf;}
+			.inforPad{padding-left: 60px; width: 100%; position: relative; overflow: hidden; box-sizing: border-box; padding-top: 10px; padding-bottom: 10px;}
+			.inforPad label{position: absolute; left: 0px; top: 16px;}
+			.ddNumber{width: 100%; height: 35px; line-height: 35px;}
+			.inforPad img{margin: auto; display: block; cursor: pointer;}
+			.active_xq{font-size: 14px;}
+			.active_xq img{display: block; margin: auto; margin-bottom: 10px;}
+			.active_xq p{text-indent: 30px;}
+			.active_xq h4{padding-bottom: 5px; color: #009BDF;}
+			.red{color: red;}
+
+             .table img {cursor:pointer;border:0px;max-width:100px;max-height:100px;}
+	    </style>
+	</head>	
+<!--	<!--
+	
+	
+	1：活动内容
+	2：
+	
+	定单号：
+	照片：
+	1：分享到朋友圈 
+	2：自己的照片-->
+	<body style="background: #EEEEEE;">
+		<div class="container-fluid">
+			<ul class="row activeTab list-unstyled">
+				<li class="col-xs-6 text-center active">活动内容</li>
+				<li class="col-xs-6 text-center">参加活动</li>
+			</ul>
+		</div>
+		<div class="container-fluid active_box" id="descmsgdiv">
+			<div class="row activity">
+				<img src="img/huodong_img.png"/>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 active_xq">
+					<h4 class="text-center">请相信，美好的事情即将发生！</h4>
+					<img class="img-responsive" src="img/yifu.jpg" />
+
+
+   <p> 亲爱的小伙伴们，你想拥有一件你的专属<strong class="red">T恤衫</strong>，想把你/你们的美好瞬间绘制在T恤上吗？现在我们小V进行福利大派送了，你只需拿出你的手机轻轻扫一扫我们的二维码，即可发送你喜爱的图片到小V账号中，我们就可把你所发送的图片绘制在T恤上了哦！</p>
+   <img class="img-responsive" src="img/beizi.jpg" />
+
+
+
+  <p> “我是你的什么？” “你是我手里的这只<strong class="red">杯子</strong>，一辈子捧在手心上”，赶快拿出手机扫一扫，发送照片绘制在杯子上吧，它将再不是一只普通的杯子！</p>
+  <img class="img-responsive" src="img/weiyi.jpg" />
+
+
+
+   <p>  我们的美女和帅哥都试穿了这款<strong class="red">卫衣</strong>，非常不错的哦！纯棉面料，手感柔软，让你过一个不一样的暖冬哦~</p>
+
+<p style="color: red; font-size: 12px;">（温馨提示：你所发送的照片最好选高清照片，这样绘制在以上物品也会更美的。T恤和卫衣最大印制A4版面在衣服正面，杯子用你的图片可能会变形我们会用我们的模板套上你的头像或主题，不用担心我们会帮你设计的哦）</p>
+
+   <p> 小伙伴们，赶快亮出你们的手机<strong class="red">“扫一扫”</strong>吧，轻松将你的专属福利带回家！</p>
+
+ 
+
+ 
+
+<p><strong class="red">具体参与活动流程</strong>：首次关注<strong class="red">“V易购”</strong>官方微信，关注后系统会推送<strong class="red">“请相信，美好的事情即将发生”</strong>点击进入后请<strong class="red">分享到朋友圈（必须分享到朋友圈才能参与的哦）</strong>，请到<strong class="red">“我要”</strong>---<strong class="red">“注册啦”</strong>界面进行注册，注册成功后你就是我们的“V成员”啦！！！进入<strong class="red">“你要”</strong>----<strong class="red">“V集合”</strong>----<strong class="red">“小V之家”</strong>店铺，选择你要的<strong class="red">福利商品</strong>并<strong class="red">付款</strong>后系统会发送消费信息及订单号到你的微信，请把订单号复制后粘贴到<strong class="red">“大家要”</strong>---<strong class="red">“快来参加”</strong>---<strong class="red">“参与活动”</strong>的订单号栏，把你<strong class="red">分享到朋友圈的照片</strong>及你要<strong class="red">印制到福利商品上的图片</strong>上传后发送给我们，接下来就等快递哥哥送货上门了。（小V偷偷告诉你，快递包裹里会有我们的一个<strong class="red">小心意</strong>送给你的同时看到<strong class="red">二维码</strong>了吧？还犹豫？微信扫一扫吧！说不定是什么呢，问我是什么？自己拆包裹就知道了！）</p>
+
+<p><strong class="red">小提示</strong>：凡参与“首次关注”活动，你会收到一个<strong class="red">“活动入场券”</strong>干什么用的呢？到时候我们会推送活动通知，敬请期待！！！</p>
+
+<p style="color: #009BDF;">该活动一个微信公众号只能参与一次，不是我们小气而是这活动确实是送给你们的福利，所收取的费用完全不足以支付我们的人力、物力及快递成本，所以请见谅！小V在这谢谢大家了！</p>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid active_box">
+			<!--<div class="row">
+				<div class="col-xs-12">
+					<form action="" method="post">
+						<p class="inforPad"><label>定单号：</label><input type="text" class="ddNumber"/></p>
+						<p class="inforPad"><label>传照片：</label><img src="img/sc_bg.png"/></p>
+						<input type="submit" value="提交信息" class="tiInfor"/>
+					</form>
+				</div>
+			</div>-->
+
+            <form id="uploadform" method="post" enctype="multipart/form-data">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+				<div class="table-responsive" id="product_info">
+                    请上传两张图片，一张为分享到朋友圈截图，一张为你要印制到福利商品上的照片(不分顺序)
+				  <table class="table">
+                      <tr>
+				    	<td class="col-xs-3 text-center">产品订单号：</td>
+				    	<td class="col-xs-9">
+                            <input type="text" name="ordernum" maxlength="20" id="ordernum" />
+				    	</td>
+				    </tr>
+                      <tr>
+                          <td class="col-xs-3 text-center" style="padding:25px 0px 0px 0px;">图片上传：</td>
+				    	<td class="col-xs-9">
+                            <ul class="page_pic_emotion clear" id="nav_page" style="margin:0px;padding:0px;height:70px;">
+					        <li class="page_pic on" style="margin:-20px 0px 0px 0px;padding:0px;">
+						        <dl>
+							        <dd>
+								        <input type="file" accept="image/jpg, image/jpeg, image/png" 
+		                                    onchange="form_pics.addImg(this);" name="pics0"><img src="images/upload.png">
+								        <span onclick="form_pics.removeImg(this);">&nbsp;</span>
+							        </dd>
+						        </dl>
+					        </li>
+				        </ul>
+                        </td>
+                      </tr>
+				  </table>
+				</div>
+                    <div class="submitdiv"> <a> 提 交 </a> </div> 
+				</div>
+			</div>
+		</div>
+    </form>
+		</div>
+	</body>
+    <script>
+        $errormsg
+        var oid = Request("oid");
+        var activeTab = $(".activeTab li");
+        activeTab.click(function () {
+            $(this).addClass('active').siblings('li').removeClass('active');
+            $(".active_box").eq(activeTab.index(this)).show().siblings('.active_box').hide();
+        })
+        if (oid != null && oid != "") {
+            $("#descmsgdiv").addClass('active').siblings('li').removeClass('active');
+            $(".active_box").eq(activeTab.index(this)).show().siblings('.active_box').hide();
+            $("#ordernum").val(oid);
+        } else {
+            $(".active_box:first").show();
+        }
+        $("#ordernum").mouseleave(function () {
+            getordernum($(this).val());
+        })
+        $("#ordernum").blur(function () {
+            getordernum($(this).val());
+        })
+        function getordernum(ordernum) {
+            if (ordernum == null || ordernum == "" || ordernum == "undefined") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入您的订单号！' });
+                $("#ordernum").val(''); ("#ordernum")[0].focus();
+                return false;
+            }
+            $.getJSON("ActiveDetail.aspx", { "action": "valiteordernum", "ordernum": ordernum },
+                function (json) {
+                    if (json.error == true) {
+                        $.dialog({
+                            time: 2, fixed: true, icon: 'error',
+                            content: json.msg == "" ? '操作失败，请重新操作！' : json.msg
+                        });
+                        $("#ordernum").val(''); ("#ordernum")[0].focus();
+                        return false;
+                    }
+                    if (json.success == true)
+                    {
+                        return true;
+                    }
+                })
+        }
+        $(".submitdiv").click(function () {
+            var ordernum = $("#ordernum").val();
+            if (ordernum == null || ordernum == "" || ordernum == "undefined") {
+                $.dialog({ time: 2, fixed: true, icon: 'error', content: '请输入您的订单号！' });
+                $("#ordernum").val(''); ("#ordernum")[0].focus();
+                return false;
+            }
+            var imgcount = $('.page_pic').find("dd[type=\"image\"]").length;
+            if (imgcount != 2) {
+                $.dialog({ time: 4, lock: true, fixed: true, icon: 'error', content: '请选择两张照片！' });
+                return false;
+            }
+            $.getJSON("ActiveDetail.aspx", { "action": "valiteordernum", "ordernum": ordernum },
+                function (json) {
+                    if (json.error == true) {
+                        $.dialog({
+                            time: 2, fixed: true, icon: 'error',
+                            content: json.msg == "" ? '操作失败，请重新操作！' : json.msg
+                        });
+                        $("#ordernum").val(''); ("#ordernum")[0].focus();
+                        return false;
+                    }
+                    if (json.success == true) {
+                        var form = document.getElementById("uploadform");
+                        $("#uploadform").attr("action", "PrintImgOrder.aspx?action=ordernum");
+                        form.submit();
+                    }
+                })
+        })
+        var form_pics = (function () {
+            var fp = function () {
+                this.length = 1;
+            }
+            fp.prototype = {
+                addImg: function (thi) {
+                    if (thi.files && thi.files[0]) {
+                        var img = thi.nextSibling;
+                        var filename = thi.value;
+                        var strtype = "";
+                        try {
+                            strtype = filename;
+                        } catch (e) {
+                        }
+                        strtype = filename.substring(filename.length - 3, filename.length);
+                        strtype = strtype.toLowerCase();
+                        if (strtype != null && strtype != "") {
+                            if (strtype == "jpg" || strtype == "gif" || strtype == "jpeg" ||
+                                strtype == "bmp" || strtype == "png") {
+                                var URL = window.URL || webkitURL;
+                                var url = URL.createObjectURL(thi.files[0]);
+                                img.src = url;
+                                img.onload = function (e) {
+                                    window.URL.revokeObjectURL(this.src); //图片加载后，释放object URL
+                                }
+                                thi.parentNode.setAttribute("type", "image");
+                            }
+                            else {
+                                $.dialog({ time: 2, fixed: true, icon: 'error', content: '只能上传jpg、png格式的图片！' });
+                                return;
+                            }
+                        } else {
+                            return;
+                        }
+                        this.createImgFile(thi);
+                        this.length++;
+                        thi.setAttribute("style", "display:none;");
+                        return this;
+                    }
+                },
+                removeImg: function (thi) {
+                    var type = $(thi).closest("dd").remove().attr("type");
+                    this.length--;
+                    this.createImgFile(thi);
+                    return this;
+                },
+                createImgFile: function (thi) {
+                    if (this.length >= 2) {
+                        this.length = 2;
+                        return this;
+                    }
+                    var TPL = '<dd><input type="file" accept="image/jpg, image/jpeg, image/png"' +
+                        '  onchange="form_pics.addImg(this);" name="pics' + this.length + '" />' +
+                        '<img src="images/upload.png"/>\
+							<span onclick="form_pics.removeImg(this);">&nbsp;</span></dd>';
+                    $(".page_pic").find("dl").append($(TPL));
+                    return this;
+                }
+            }
+            return new fp();
+        })();
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+    </script>
+</html>

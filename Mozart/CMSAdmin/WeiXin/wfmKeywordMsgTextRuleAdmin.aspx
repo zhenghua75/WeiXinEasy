@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfmKeywordMsgTextRuleAdmin.aspx.cs" Inherits="Mozart.CMSAdmin.WeiXin.wfmKeywordMsgTextRuleAdmin" %>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>$title</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        <style>
+            .col-lg-12 img:first-child{
+            border:0px;border-radius:10px;width:30px;height:30px;margin:0px auto;padding:0px;
+            }
+            .col-lg-12 a:hover {
+            text-decoration:none;
+            }
+            .pro_list msg {
+            width:100%;
+            }
+            .pro_list msg a,.pro_list msg a:hover {
+                text-decoration:none;
+            }
+            .pro_list p {
+            margin:0px 0px 0px 10px;padding:0px ;line-height:40px;font:normal;cursor:pointer;
+            }
+            .pro_list p  img{
+                border:0px;border-radius:10px;width:30px;height:30px;margin:0px auto;padding:0px;
+            }
+            .pro_list p span{
+            margin:0px 5px auto;padding:0px ;float:right;
+            }
+        </style>
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 pull-left" id="choicesort" data-toggle="modal" data-target="#shopsort">选择类别</div>
+				<div class="pull-right right_seach" style="margin-right: 10px;" >
+						<input type="text" value="请输入关键词" id="sea_text" />
+						<input type="button" id="sea_btn" />
+				</div>
+			</div>
+		</div> 
+		<div class="container-fluid">
+			<div class="row">
+                $foreach(shopin in shoplist)
+                $if(shopin.ShopName!=null&&shopin.ShopName!="")
+                <ul class="list-unstyled pro_list">
+                <h4 class="col-lg-12" data-sid="$shopin.ID">
+                    <img src="$shopin.ShopLogo" alt="$shopin.ShopName" onerror="ShopLogo/default.png" />
+                    <a href="MyShop.aspx?sid=$shopin.ID">$shopin.ShopName</a>
+                </h4>
+                 <msg></msg>
+               </ul>$end $end
+			</div>
+		</div>
+        <div class="nav_bottom">
+        <ul class="nav5">
+            <li><a href="ShopIndex.aspx"><i class="myshopico"></i>我的店铺</a></li>
+            <li><a class="publish" href="PubProduct.aspx">
+                <i class="ico"></i>发布信息</a>
+            </li>
+            <li><a id="sharebtn">
+                <i></i>链接分享</a></li>
+            <!--<li><a href=""><i></i>用户反馈</a></li>-->
+        </ul>
+    </div> 
+	</body>
+
+    <div class="modal fade" id="shopsort" tabindex="-1" role="dialog">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" title="关闭">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title">请选择类别</h4>
+				      </div>
+				      <div class="modal-body">
+				        <div class="form-group">
+						<div class="col-xs-9">
+							<select id="bigsort" onchange="GetSortOption(this.id);"></select>
+                            <select id="smallsort" onchange="setvalue(this.id,'smallid')"></select>
+                            <input type="text"  style="display:none;" id="bigid" />
+                            <input type="text"  style="display:none;" id="smallid" />
+						</div>
+						</div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+    <div id="loading"><div><img src="images/loading.gif" /></div></div>
+    <script type="text/javascript">
+        Loading = $("#loading");
+        Loading.hide();
+        window.onload = function () {
+            $.ajax({
+                beforeSend: function () { Loading.show(); },
+                success: function (data) {
+                    Loading.hide();
+                }
+            });
+        }
+        //alert("$OpenID");
+        $errormsg
+        $("#choicesort").css("cursor", "pointer");
+        $(function () {
+            $(".pro_list").find("msg").css("display", "none");
+            $(".col-lg-12").append("<img src=\"images/arrowdown.png\"/>");
+        })
+        ;
+        $('.col-lg-12').click(function () {
+            var thi = this;
+            var imgurl = $(this).find("img:last-child").attr("src");
+            if (imgurl != null && imgurl != "" && imgurl != "undefined") {
+                $(this).nextAll().slideToggle();
+                switch (imgurl) {
+                    case "images/arrowdown.png":
+                        $(this).find("img:last-child").attr("src", "images/arrowup.png");
+                        break;
+                    case "images/arrowup.png":
+                        $(this).find("img:last-child").attr("src", "images/arrowdown.png");
+                        break;
+                }
+                var dataid = $(this).attr("data-sid");
+                if (dataid != null && dataid != "" && dataid != "undefined")
+                {
+                    $.getJSON("index.aspx", { "action": "getplist", "sid": dataid }, function (json) {
+                        if (json.plist != null && json.plist != "")
+                        {
+                            $(thi).next("msg").html(json.plist);
+                        }
+                    })
+                }
+            }
+        })
+        $(document).ready(function () {
+            $("#sea_text").attr("onfocus", "if(this.value==defaultValue) {this.value='';this.type='text';this.style.color='#000'}");
+            $("#sea_text").attr("onblur", "if(!value) {value=defaultValue; this.type='text';this.style.color='#999'}");
+            $("#bigsort").empty(); $("#smallsort").css("display", "none");
+            document.getElementById("bigsort").options.add(new Option("--请选择类别--", ""));
+            $.getJSON("index.aspx", { "action": "getcateoption", "subid": "" }, function (json) {
+                $.each(json, function (i, item) {
+                    var optionID = item.ID;
+                    var optionTitle = item.Cname;
+                    document.getElementById("bigsort").options.add(
+                        new Option("" + optionTitle + "", "" + optionID + ""));
+                })
+            })
+        })
+        function GetSortOption(id) {
+            $("#smallsort").empty();
+            var select = document.getElementById(id);
+            var index = select.selectedIndex;
+            var text = select.options[index].text;
+            var value = select.options[index].value;
+            if (value == 0 || value == "0") { }
+            else {
+                $.getJSON("index.aspx", { "action": "getcateoption", "subid": value }, function (json) {
+                    if (json != null && json != "" && json != "undefined" && json.length > 0) {
+                        $("#smallsort").css("display", "block");
+                        document.getElementById("smallsort").options.add(new Option("--请选择小类--", ""));
+                        $.each(json, function (i, item) {
+                            var optionID = item.ID;
+                            var optionTitle = item.Cname;
+                            document.getElementById("smallsort").options.add(
+                                new Option("" + optionTitle + "", "" + optionID + ""));
+                        })
+                    } else {
+                        $("#smallsort").css("display", "none");
+                        $("#bigid").val(value);
+                        if (text.length > 5)
+                        {
+                            text = text.substr(0, 5);
+                        }
+                        $("#choicesort").html(text);
+                    }
+                })
+            }
+        }
+        function setvalue(id, setvalueid) {
+            var select = document.getElementById(id);
+            var index = select.selectedIndex;
+            var text = select.options[index].text;
+            var value = select.options[index].value;
+            if (value != null && value != "") {
+                document.getElementById(setvalueid).value = value;
+                $("#choicesort").html(text);
+            }
+        }
+        $("#sea_btn").click(function () {
+            var bigsort = $("#bigid").val();
+            var smallsort = $("#smallid").val();
+            var inputval = $("#sea_text").val();
+            if (inputval == null || inputval == "" || inputval == "undefined" || inputval == "请输入关键词")
+            {
+                $.dialog({ time: 2, lock: true, fixed: true, icon: 'error', content: '请输入您要检索的信息！' });
+                $("#sea_text").val(''); $("#sea_text")[0].focus(); return false;
+            }
+            if (smallsort != null && smallsort != "") {
+                smallsort = "&cid=" + smallsort;
+            } else {
+                if (bigsort != null && bigsort != "")
+                {
+                    smallsort = "&cid=" + bigsort;
+                }
+            }
+            location.href = "SearchProduct.aspx?like=" + inputval+ smallsort;
+        })
+	</script>
+    <script src="js/Share.js"></script>
+</html>

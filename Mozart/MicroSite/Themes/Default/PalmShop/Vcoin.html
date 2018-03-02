@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的V币</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link id="changecss" rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+        <script src="artDialog/jquery.artDialog.js?skin=dialogred" type="text/javascript" charset="gbk"></script>
+		<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+        <style>
+            #mycoin {font-size: 40px; color: red;}
+        </style>
+	</head>
+	<body style="background: #EFEFF3;">
+		<div id="nav" class="container-fluid">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <a class="back_ico" onclick="javascript:history.back()">返回</a></div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">我的V币</div>
+			</div>
+		</div>
+        <div style="text-align:center;font-size:16px;">
+            账户目前V币总额为：
+            <strong id="mycoin">$vcoin</strong>&nbsp;&nbsp;V
+            <a href="javascript:" id="vcoindateal">详细</a>
+        </div>
+
+        <div class="container-fluid" id="vcoindetaildiv">
+			<div class="row" style="padding-top: 10px;">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+					  <div class="panel-body">
+					    <table class="table table-striped jf_list">
+						    <thead>
+							    <tr>
+								    <th>数量</th>
+								    <th>类型</th>
+                                    <th>时间</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+                                $foreach(node in vcoinlist)
+							    <tr>
+								    <td>$node.Amount</td>
+								    <td>$node.ChargeType</td>
+                                    <td>$node.Vdate.ToString("yyyy-MM-dd")</td>
+						        </tr>
+                                $end
+						    </tbody>
+					    </table>
+					  </div>
+					</div>					
+				</div>
+			</div>
+		</div>
+
+        <p style="font-size:16px;">
+                V币可在商城中做任意消费，但目前该功能处于开发中，敬请期待
+                &nbsp;&nbsp;比例为：  1:1
+        </p>
+	</body>
+    <script>
+        $errormsg
+        $("#vcoindetaildiv").css("display", "none");
+        $("#vcoindateal").click(function () {
+            $("#vcoindetaildiv").slideToggle();
+        })
+        function Request(paras) {
+            var url = location.href;
+            var paraString = url.substring(url.indexOf("?") + 1, url.length).split("&");
+            var paraObj = {}
+            for (i = 0; j = paraString[i]; i++) {
+                paraObj[j.substring(0, j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=") + 1, j.length);
+            }
+            var returnValue = paraObj[paras.toLowerCase()];
+            if (typeof (returnValue) == "undefined") {
+                return "";
+            } else {
+                return returnValue;
+            }
+        }
+    </script>
+</html>

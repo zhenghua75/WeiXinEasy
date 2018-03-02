@@ -1,0 +1,195 @@
+﻿/*** 下拉菜单 start ***/
+
+ul{display:block;margin:0px;padding:0px;}
+
+.dropdown-menu-top,.dropdown-menu{
+    display:none;
+    position:absolute;
+    right:5px;
+    top:48px;
+    z-index:9999;
+    background:rgba(0,0,0,0.8);
+    background-color:#000 \9;
+    filter:alpha(opacity=80)\9;
+    *background-color:#000 \9;
+    *filter:alpha(opacity=80)\9;
+    box-shadow:0 0 3px rgba(0, 0, 0, 0.8);
+    min-width: 150px;
+    margin-left: 0px;
+    margin-left: 0px;
+    list-style: none!important;
+    margin-bottom:0px;/** 处理bootstarp.css **/
+}
+.dropdown-menu-top{top:auto;right:auto;bottom:54px;min-width: 120px;left:50%;margin-left:-60px;z-index: 1;background:#e6e6e6;border: 1px solid #cbcbcb;box-shadow:0 1px 2px rgba(0, 0, 0, 0.6);}
+
+.dropdown-menu-top li,.dropdown-menu li{
+    border-top:1px solid #666;
+    border-bottom: 1px solid #000;
+}
+.dropdown-menu-top li{border: none;background:url(/images/footer-nav-vsplit.png) no-repeat bottom center;background-size: 118px 2px;}
+.dropdown-menu-top li:last-child{
+    background:none;
+}
+
+.dropdown-menu-top li:first-child,.dropdown-menu li:first-child{
+    border-top:none;
+}
+
+.dropdown-menu-top li:last-child,.dropdown-menu li:last-child{
+    border-bottom: none;
+}
+
+.dropdown-menu-top li:last-child:after,.dropdown-menu li:last-child:after{
+    height: 0px;
+    border: none;
+}
+
+.dropdown-menu-top.show,.dropdown-menu.show{
+    display:block;
+}
+
+.dropdown-menu-top  li a,.dropdown-menu li a{
+    text-align: left;
+    display:block;
+    width:auto;
+    height:39px;
+    line-height:39px;
+    padding-left: 10px;
+    color:#fdf7f7;
+    font-size:16px;
+    margin: 0px;
+}
+.dropdown-menu-top  li a{
+    height:44px;
+    line-height:44px;
+    text-align: center;
+    padding-left: 0px;
+}
+.dropdown-menu-top  li .menu-item-text{
+    color: #414141;
+    text-shadow: #e5e5e5 0 1px 0;
+    font-size: 14px;
+}
+
+.dropdown-menu-top li a:link,.dropdown-menu-top li a:visited,.dropdown-menu li a:link,.dropdown-menu li a:visited{color:#fdf7f7;}
+.dropdown-menu li img{
+    width:30px !important;
+    height:30px !important;
+    margin: 0px;
+    line-height: 39px;
+}
+
+.dropdown-menu-top li img{
+    width:30px !important;
+    height:30px !important;
+    margin-right: 5px;
+    line-height: 39px;
+}
+
+.dropdown-menu-top:after{
+    position:absolute;
+    bottom:-14px;
+    left: 50%;
+    margin-left: -8px;
+    content:"";
+    width:16px;
+    height:16px;
+    background: url(/images/footer-nav-arrow.png) no-repeat center;background-size: 16px 16px;
+}
+
+.dropdown-menu:after{
+    position:absolute;
+    top:-8px;
+    right:22px;
+    content:"";
+    width:0;
+    height:0;
+    border:8px solid transparent;
+    border-bottom:8px solid rgba(0, 0, 0, 0.8);
+    border-top:none;
+}
+/*** 下拉菜单 end ***/
+
+/*** 底部导航菜单 S ***/
+.footer-nav-div{
+	
+ /*** position: fixed; ***/ 
+    bottom:-1px;
+    display: block;
+    width:100%;
+    max-width: 800px;
+    z-index: 0;
+    left:0px;
+
+}
+.footer-nav-div .back > li , .footer-nav-div .footer-nav > li{background:url(../images/tbr-split.png) no-repeat right;background-size:3px 44px;}
+.footer-nav-div .back > li {width: 45px !important;}
+.footer-nav-div .nav-btn-div{z-index: 1;}
+.footer-nav-div .footer-nav > li:last-child{background:none;}
+.footer-nav-div .footer-nav > li:last-child .dropdown-menu-top{left:auto!important;right:5px!important;}
+.footer-nav-div .footer-nav > li:first-child .dropdown-menu-top{left:65px!important;}
+.footer-nav-div .back{float: left;}
+.footer-nav-div .back div{background: url(../images/footer-nav-back.png) no-repeat center;background-size: 45px 45px;}
+.footer-nav-div .nav-btn-div{margin-left:45px;display:block;}
+.footer-nav {
+    display:block;
+    margin: 0 auto;
+    list-style: none;
+    border-top: 1px solid #b4b4b4;
+    height: 45px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#e7e7e7), to(#bbb));
+    background: -moz-linear-gradient(#e7e7e7,#bbb);
+    background: #e7e7e7\9;
+}
+.footer-nav .footer-nav-menu-cls-btn{cursor:pointer;}
+.footer-nav > li {
+    text-align: center;
+    border-top: 1px solid #f5f5f5;
+    height: 44px;
+    float: left;
+    width: 33.333%;
+    margin: 0px;
+    padding:0px ;
+    box-sizing: border-box;
+    position: relative;
+}
+.footer-nav img{
+    width: 26px;
+    height: 26px;
+}
+
+.footer-nav a,  .footer-nav div {
+    height: 44px;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    text-decoration: none;
+}
+.footer-nav a,  .footer-nav div {
+    text-align: center;
+    color: #fff;
+}
+
+.footer-nav .text {
+    font-size: 14px;
+    color: #414141;
+    text-shadow: #e5e5e5 0 1px 0;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    height:44px;line-height:44px;
+}
+.footer-nav .text img{width:10px;height:10px;}
+.footer-nav .icon{
+    font-family: 'base-icon';
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    color:#fff;
+    margin: 0 auto;
+}
+/*** 底部导航菜单 E ***/

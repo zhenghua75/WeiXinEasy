@@ -1,0 +1,235 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ShellR</title>
+    <link rel="stylesheet" href="css/shelle.css">
+    <link rel="stylesheet" href="css/idangerous.swiper.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .swiper-container {
+            width: 305px;
+            height: 331px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .red-slide {
+            background: #ca4040;
+        }
+
+        .blue-slide {
+            background: #4390ee;
+        }
+
+        .orange-slide {
+            background: #ff8604;
+        }
+
+        .green-slide {
+            background: #49a430;
+        }
+
+        .pink-slide {
+            background: #973e76;
+        }
+
+        .swiper-slide p {
+            font-style: italic;
+            font-size: 25px;
+        }
+
+        .pagination {
+            position: absolute;
+            z-index: 20;
+            left: 10px;
+            top: 10px;
+        }
+
+        .swiper-pagination-switch {
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background: #555;
+            margin: 0 0px 5px;
+            opacity: 0.8;
+            border: 1px solid #fff;
+            cursor: pointer;
+        }
+
+        .swiper-active-switch {
+            background: #fff;
+        }
+
+        .swiper-slide {
+            height: 80px;
+        }
+
+            .swiper-slide .left {
+                padding-left: 8px;
+            }
+
+            .swiper-slide .right {
+                padding-left: 155px;
+            }
+
+        .round_photo {
+            width: 140px;
+            height: 70px; /*
+            -moz-border-radius: 80px;
+            -webkit-border-radius: 80px;
+            border-radius: 80px;
+               */
+            behavior: url(PIE.htc);
+            position: absolute;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <img src="images/phone_top.png" width="305" height="19">
+
+        <div class="header">
+            <img id="top">
+            <img id="top_txt">
+        </div>
+        <div class="banner" style="height:153px">
+            <ul class="banner-pics"></ul>
+            <ul class="banner-ctrls"></ul>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide" style="clear: both;">
+                    <div class="left">
+                        <img id="func1" class="round_photo" src="images/icon_blank-4.png">
+                    </div>
+                    <div class="right">
+                        <img id="func2" class="round_photo" src="images/icon_blank-4.png">
+                    </div>
+                </div>
+                <div class="swiper-slide" style="clear: both;">
+                    <div class="left">
+                        <div>
+                            <img id="func3" class="round_photo" style="width: 65px;" src="images/icon_blank-4.png">
+                        </div>
+                        <div style="margin-left: 74px;">
+                            <img id="func4" class="round_photo" style="width: 65px;" src="images/icon_blank-4.png">
+                        </div>
+                    </div>
+                    <div class="right" style="width: 150px;">
+                        <img id="func5" class="round_photo" style="width: 140px;" src="images/icon_blank-4.png">
+                    </div>
+                </div>
+                <div class="swiper-slide" style="clear: both;">
+                    <div class="left">
+                        <img id="func6" class="round_photo" src="images/icon_blank-4.png">
+                    </div>
+                    <div class="right">
+                        <img id="func7" class="round_photo" src="images/icon_blank-4.png">
+                    </div>
+                </div>
+                <div class="swiper-slide" style="clear: both;">
+                    <div class="left" style="width: 150px;">
+                        <img id="func8" class="round_photo" style="width: 140px;" src="images/icon_blank-4.png">
+                    </div>
+                    <div class="right">
+                        <div>
+                            <img id="func9" class="round_photo" style="width: 65px;" src="images/icon_blank-4.png">
+                        </div>
+                        <div style="margin-left: 74px;">
+                            <img id="func10" class="round_photo" style="width: 65px;" src="images/icon_blank-4.png">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="swiper-slide" style="clear: both;">
+                    <div class="left">
+                        <img id="func11" class="round_photo" src="images/icon_blank-4.png">
+                    </div>
+                    <div class="right">
+                        <img id="func12" class="round_photo" src="images/icon_blank-4.png">
+                    </div>
+                </div>
+                <div class="swiper-slide" style="clear: both;">
+                    <div class="left">
+                        <div>
+                            <img id="func13" class="round_photo" style="width: 65px;" src="images/icon_blank-4.png">
+                        </div>
+                        <div style="margin-left: 74px;">
+                            <img id="func14" class="round_photo" style="width: 65px;" src="images/icon_blank-4.png">
+                        </div>
+                    </div>
+                    <div class="right" style="width: 150px;">
+                        <img id="func15" class="round_photo" style="width: 140px;" src="images/icon_blank-4.png">
+                    </div>
+                </div>
+                <div class="swiper-slide" style="clear: both;">
+                    <div class="left">
+                        <img id="func16" class="round_photo" src="images/icon_blank-4.png">
+                    </div>
+                    <div class="right">
+                        <img id="func17" class="round_photo" src="images/icon_blank-4.png">
+                    </div>
+                </div>
+                <div class="swiper-slide" style="clear: both;">
+                    <div class="left" style="width: 150px;">
+                        <img id="func18" class="round_photo" style="width: 140px;" src="images/icon_blank-4.png">
+                    </div>
+                    <div class="right">
+                        <div>
+                            <img id="func19" class="round_photo" style="width: 65px;" src="images/icon_blank-4.png">
+                        </div>
+                        <div style="margin-left: 74px;">
+                            <img id="func20" class="round_photo" style="width: 65px;" src="images/icon_blank-4.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" id="hidFuncBlankIcon" value="images/icon_blank-4.png" />
+        <input type="hidden" id="hidMenuBlankIcon" value="images/icon_blank2.png" />
+    </div>
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="scripts/request.js"></script>
+    <script src="scripts/jquery.carousel.js"></script>
+    <script src="scripts/idangerous.swiper-2.1.min.js"></script>
+    <script src="scripts/shell.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            mode: 'vertical',
+            slidesPerView:'auto',
+        })
+
+
+        //设置轮播的图片
+        var images = Request.GetCarouselImages(ecid, 'ShellR');
+
+        var html = [];
+        $.each(images, function () {
+            html.push('<li><a href="#"><img src="' + this.image_url + '"></a></li>');
+        });
+        $('.banner-pics').html(html);
+
+        //设置控制按钮
+        html = ['<li class="active"></li'];
+        for (var i = 1; i < images.length; i++) {
+            html.push('<li></li>');
+        }
+        $('.banner-ctrls').html(html);
+
+        //绑定轮播 ( [延迟默认2500] )
+        $('.banner').carousel();
+    </script>
+</body>
+</html>
